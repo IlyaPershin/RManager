@@ -30,56 +30,27 @@ namespace RManager.Models.Repositoryes
             cont.SaveChanges();
         }
 
-        public Company AddCompany(string name)
+        public Company AddCompany(string name, string inn, string ogrn, string bankAccaunt)
         {
             Company c = new Company
             {
                 Name = name,
-                //ParrentCompany = null
+                INN = inn,
+                OGRN = ogrn,
+                BankAccount = bankAccaunt
             };
             cont.Company.Add(c);
             cont.SaveChanges();
             return c;
         }
 
-        public Company AddCompany(string name, Company parrent)
-        {
-            Company c = new Company
-            {
-                Name = name,
-                //ParrentCompany = parrent
-            };
-            cont.Company.Add(c);
-            cont.SaveChanges();
-            return c;
-        }
-
-        public Company AddCompany(string name, int parrent)
-        {
-            Company c = new Company
-            {
-                Name = name,
-                //ParrentCompany = cont.Company.SingleOrDefault(ca => ca.Id == parrent)
-            };
-            cont.Company.Add(c);
-            cont.SaveChanges();
-            return c;
-        }
-
-        public Company EditCompany(int id, string name, Company parrent)
+        public Company EditCompany(int id, string name, string inn, string ogrn, string bankAccaunt)
         {
             Company c = cont.Company.SingleOrDefault(ca => ca.Id == id);
             c.Name = name;
-            //c.ParrentCompany = parrent;
-            cont.SaveChanges();
-            return c;
-        }
-
-        public Company EditCompany(int id, string name, int parrent)
-        {
-            Company c = cont.Company.SingleOrDefault(ca => ca.Id == id);
-            c.Name = name;
-            //c.ParrentCompany = cont.Company.SingleOrDefault(ca => ca.Id == parrent);
+            c.INN = inn;
+            c.OGRN = ogrn;
+            c.BankAccount = bankAccaunt;
             cont.SaveChanges();
             return c;
         }
