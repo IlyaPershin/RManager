@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6cd411e1f07f4526ace0ebf604ffe8be" Name="Diagram1" ZoomLevel="73" >
+        <EntityTypeShape EntityType="Model.Document" Width="1.5" PointX="17.125" PointY="33.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Employee" Width="1.5" PointX="9" PointY="33.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Position" Width="1.5" PointX="9" PointY="34.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="12.25" PointY="22.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Dish" Width="1.5" PointX="12.25" PointY="24.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="9.125" PointY="29.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Purchase" Width="1.5" PointX="12.125" PointY="19.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Ejection" Width="1.5" PointX="17.875" PointY="20.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.CheckDish" Width="1.5" PointX="10.25" PointY="27.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Table" Width="1.5" PointX="6.375" PointY="29.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.RecipeDishIngr" Width="1.5" PointX="12.25" PointY="23.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Room" Width="1.5" PointX="6.375" PointY="30.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Branch" Width="1.5" PointX="6.375" PointY="32.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.CompanyOwner" Width="1.5" PointX="6.25" PointY="36" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Category" Width="1.5" PointX="17.125" PointY="23.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Person" Width="1.5" PointX="12" PointY="33.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Company" Width="1.5" PointX="15.75" PointY="26.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.ContactPerson" Width="1.5" PointX="14.875" PointY="33.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Prepack" Width="1.5" PointX="7.375" PointY="22.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.RecipePrepIngr" Width="1.5" PointX="10" PointY="22.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.RecipeDishPrep" Width="1.5" PointX="9.25" PointY="24.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.RecipePrepPrep" Width="1.5" PointX="4.875" PointY="22.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.CheckMerchandise" Width="1.5" PointX="8.125" PointY="27.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Shift" Width="1.5" PointX="3.25" PointY="31.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Encashment" Width="1.5" PointX="3.25" PointY="32.375" IsExpanded="false" />
+        <AssociationConnector Association="Model.ManDocument" />
+        <AssociationConnector Association="Model.FK_positionperson" />
+        <AssociationConnector Association="Model.EmployeeOrder" />
+        <AssociationConnector Association="Model.BranchPerson" />
+        <AssociationConnector Association="Model.PersonEjection" />
+        <AssociationConnector Association="Model.PersonShift" />
+        <AssociationConnector Association="Model.IngridientPurchase" />
+        <AssociationConnector Association="Model.IngridientEjection" />
+        <AssociationConnector Association="Model.IngridientDIConnection" />
+        <AssociationConnector Association="Model.CategoryProduct" />
+        <AssociationConnector Association="Model.CompanyProduct" />
+        <AssociationConnector Association="Model.ProductRecipePrepIngr" />
+        <AssociationConnector Association="Model.ProductCheckMerchandise" />
+        <AssociationConnector Association="Model.DishCheck" />
+        <AssociationConnector Association="Model.DishDIConnection" />
+        <AssociationConnector Association="Model.RoomDish" />
+        <AssociationConnector Association="Model.CategoryDish" />
+        <AssociationConnector Association="Model.DishRecipeDishPrep" />
+        <AssociationConnector Association="Model.TableOrder" />
+        <AssociationConnector Association="Model.OwnerBranch" />
+        <AssociationConnector Association="Model.CompanyContactPerson" />
+        <AssociationConnector Association="Model.PrepackRecipePrepIngr" />
+        <AssociationConnector Association="Model.PrepackRecipeDishPrep" />
+        <AssociationConnector Association="Model.PrepackRecipePrepPrep" />
+        <AssociationConnector Association="Model.PrepackRecipePrepPrep1" />
+        <AssociationConnector Association="Model.BranchEncashment" />
+        <InheritanceConnector EntityType="Model.Employee" />
+        <InheritanceConnector EntityType="Model.ContactPerson" />
+        <InheritanceConnector EntityType="Model.CompanyOwner" />
+        <AssociationConnector Association="Model.BranchShift" />
+        <AssociationConnector Association="Model.OrderCheckMerchandise" />
+        <AssociationConnector Association="Model.OrderCheckDish" />
+        <AssociationConnector Association="Model.RoomTable" />
+        <AssociationConnector Association="Model.BranchRoom" />
+        <AssociationConnector Association="Model.CompanyPurchase" />
+        <AssociationConnector Association="Model.CategoryCategory" />
+        <EntityTypeShape EntityType="Model.Landlord" Width="1.5" PointX="12" PointY="35.125" IsExpanded="false" />
+        <InheritanceConnector EntityType="Model.Landlord" />
+        <AssociationConnector Association="Model.LandlordBranch" />
+        <EntityTypeShape EntityType="Model.Entity1" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="12" PointY="31.125" IsExpanded="false" />
+        <InheritanceConnector EntityType="Model.Client" />
+        <AssociationConnector Association="Model.ClientOrder" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,2254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Document" EntityType="Model.Store.Document" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Position" EntityType="Model.Store.Position" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Product" EntityType="Model.Store.Product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Dish" EntityType="Model.Store.Dish" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Order" EntityType="Model.Store.Order" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Purchase" EntityType="Model.Store.Purchase" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ejection" EntityType="Model.Store.Ejection" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CheckDish" EntityType="Model.Store.CheckDish" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TableSet" EntityType="Model.Store.TableSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RecipeDishIngr" EntityType="Model.Store.RecipeDishIngr" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Room" EntityType="Model.Store.Room" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Branch" EntityType="Model.Store.Branch" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Category" EntityType="Model.Store.Category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Man" EntityType="Model.Store.Man" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Company" EntityType="Model.Store.Company" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PrepackSet" EntityType="Model.Store.PrepackSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RecipePrepIngr" EntityType="Model.Store.RecipePrepIngr" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RecipeDishPrep" EntityType="Model.Store.RecipeDishPrep" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RecipePrepPrep" EntityType="Model.Store.RecipePrepPrep" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CheckMerchandise" EntityType="Model.Store.CheckMerchandise" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShiftSet" EntityType="Model.Store.ShiftSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EncashmentSet" EntityType="Model.Store.EncashmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entity1Set" EntityType="Model.Store.Entity1Set" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Man_Employee" EntityType="Model.Store.Man_Employee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Man_CompanyOwner" EntityType="Model.Store.Man_CompanyOwner" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Man_ContactPerson" EntityType="Model.Store.Man_ContactPerson" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Man_Landlord" EntityType="Model.Store.Man_Landlord" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Man_Client" EntityType="Model.Store.Man_Client" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ManDocument" Association="Model.Store.ManDocument">
+      <End Role="Person" EntitySet="Man" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_positionperson" Association="Model.Store.FK_positionperson">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Employee" EntitySet="Man_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeOrder" Association="Model.Store.EmployeeOrder">
+      <End Role="Employee" EntitySet="Man_Employee" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="BranchPerson" Association="Model.Store.BranchPerson">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Employee" EntitySet="Man_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="PersonEjection" Association="Model.Store.PersonEjection">
+      <End Role="Employee" EntitySet="Man_Employee" />
+      <End Role="Ejection" EntitySet="Ejection" />
+    </AssociationSet>
+    <AssociationSet Name="PersonShift" Association="Model.Store.PersonShift">
+      <End Role="Employee" EntitySet="Man_Employee" />
+      <End Role="Shift" EntitySet="ShiftSet" />
+    </AssociationSet>
+    <AssociationSet Name="IngridientPurchase" Association="Model.Store.IngridientPurchase">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="IngridientEjection" Association="Model.Store.IngridientEjection">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Ejection" EntitySet="Ejection" />
+    </AssociationSet>
+    <AssociationSet Name="IngridientDIConnection" Association="Model.Store.IngridientDIConnection">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="RecipeDishIngr" EntitySet="RecipeDishIngr" />
+    </AssociationSet>
+    <AssociationSet Name="CategoryProduct" Association="Model.Store.CategoryProduct">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyProduct" Association="Model.Store.CompanyProduct">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="ProductRecipePrepIngr" Association="Model.Store.ProductRecipePrepIngr">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="RecipePrepIngr" EntitySet="RecipePrepIngr" />
+    </AssociationSet>
+    <AssociationSet Name="ProductCheckMerchandise" Association="Model.Store.ProductCheckMerchandise">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="CheckMerchandise" EntitySet="CheckMerchandise" />
+    </AssociationSet>
+    <AssociationSet Name="DishCheck" Association="Model.Store.DishCheck">
+      <End Role="Dish" EntitySet="Dish" />
+      <End Role="CheckDish" EntitySet="CheckDish" />
+    </AssociationSet>
+    <AssociationSet Name="DishDIConnection" Association="Model.Store.DishDIConnection">
+      <End Role="Dish" EntitySet="Dish" />
+      <End Role="RecipeDishIngr" EntitySet="RecipeDishIngr" />
+    </AssociationSet>
+    <AssociationSet Name="RoomDish" Association="Model.Store.RoomDish">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="Dish" EntitySet="Dish" />
+    </AssociationSet>
+    <AssociationSet Name="CategoryDish" Association="Model.Store.CategoryDish">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Dish" EntitySet="Dish" />
+    </AssociationSet>
+    <AssociationSet Name="DishRecipeDishPrep" Association="Model.Store.DishRecipeDishPrep">
+      <End Role="Dish" EntitySet="Dish" />
+      <End Role="RecipeDishPrep" EntitySet="RecipeDishPrep" />
+    </AssociationSet>
+    <AssociationSet Name="TableOrder" Association="Model.Store.TableOrder">
+      <End Role="Table" EntitySet="TableSet" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="OwnerBranch" Association="Model.Store.OwnerBranch">
+      <End Role="CompanyOwner" EntitySet="Man_CompanyOwner" />
+      <End Role="Branch" EntitySet="Branch" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyContactPerson" Association="Model.Store.CompanyContactPerson">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="ContactPerson" EntitySet="Man_ContactPerson" />
+    </AssociationSet>
+    <AssociationSet Name="PrepackRecipePrepIngr" Association="Model.Store.PrepackRecipePrepIngr">
+      <End Role="Prepack" EntitySet="PrepackSet" />
+      <End Role="RecipePrepIngr" EntitySet="RecipePrepIngr" />
+    </AssociationSet>
+    <AssociationSet Name="PrepackRecipeDishPrep" Association="Model.Store.PrepackRecipeDishPrep">
+      <End Role="Prepack" EntitySet="PrepackSet" />
+      <End Role="RecipeDishPrep" EntitySet="RecipeDishPrep" />
+    </AssociationSet>
+    <AssociationSet Name="PrepackRecipePrepPrep" Association="Model.Store.PrepackRecipePrepPrep">
+      <End Role="Prepack" EntitySet="PrepackSet" />
+      <End Role="RecipePrepPrep" EntitySet="RecipePrepPrep" />
+    </AssociationSet>
+    <AssociationSet Name="PrepackRecipePrepPrep1" Association="Model.Store.PrepackRecipePrepPrep1">
+      <End Role="Prepack" EntitySet="PrepackSet" />
+      <End Role="RecipePrepPrep" EntitySet="RecipePrepPrep" />
+    </AssociationSet>
+    <AssociationSet Name="BranchEncashment" Association="Model.Store.BranchEncashment">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Encashment" EntitySet="EncashmentSet" />
+    </AssociationSet>
+    <AssociationSet Name="BranchShift" Association="Model.Store.BranchShift">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Shift" EntitySet="ShiftSet" />
+    </AssociationSet>
+    <AssociationSet Name="OrderCheckMerchandise" Association="Model.Store.OrderCheckMerchandise">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="CheckMerchandise" EntitySet="CheckMerchandise" />
+    </AssociationSet>
+    <AssociationSet Name="OrderCheckDish" Association="Model.Store.OrderCheckDish">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="CheckDish" EntitySet="CheckDish" />
+    </AssociationSet>
+    <AssociationSet Name="RoomTable" Association="Model.Store.RoomTable">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="Table" EntitySet="TableSet" />
+    </AssociationSet>
+    <AssociationSet Name="BranchRoom" Association="Model.Store.BranchRoom">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Room" EntitySet="Room" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyPurchase" Association="Model.Store.CompanyPurchase">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="CategoryCategory" Association="Model.Store.CategoryCategory">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Category1" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="LandlordBranch" Association="Model.Store.LandlordBranch">
+      <End Role="Landlord" EntitySet="Man_Landlord" />
+      <End Role="Branch" EntitySet="Branch" />
+    </AssociationSet>
+    <AssociationSet Name="ClientOrder" Association="Model.Store.ClientOrder">
+      <End Role="Client" EntitySet="Man_Client" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_inherits_Person" Association="Model.Store.FK_Employee_inherits_Person">
+      <End Role="Person" EntitySet="Man" />
+      <End Role="Employee" EntitySet="Man_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyOwner_inherits_Employee" Association="Model.Store.FK_CompanyOwner_inherits_Employee">
+      <End Role="Employee" EntitySet="Man_Employee" />
+      <End Role="CompanyOwner" EntitySet="Man_CompanyOwner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactPerson_inherits_Person" Association="Model.Store.FK_ContactPerson_inherits_Person">
+      <End Role="Person" EntitySet="Man" />
+      <End Role="ContactPerson" EntitySet="Man_ContactPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Landlord_inherits_Person" Association="Model.Store.FK_Landlord_inherits_Person">
+      <End Role="Person" EntitySet="Man" />
+      <End Role="Landlord" EntitySet="Man_Landlord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_inherits_Person" Association="Model.Store.FK_Client_inherits_Person">
+      <End Role="Person" EntitySet="Man" />
+      <End Role="Client" EntitySet="Man_Client" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Serial" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Number" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Registration" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Exist" Type="bit" Nullable="false" />
+    <Property Name="Man_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="WorkWithOrders" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="WorkWithMenu" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="WorkWithWarehouse" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="WorkWithStuff" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="WorkWithReports" Type="bit" Nullable="false" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Property" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Measure" Type="tinyint" Nullable="false" />
+    <Property Name="IsIngredient" Type="bit" Nullable="true" />
+    <Property Name="IsMerchandise" Type="bit" Nullable="false" />
+    <Property Name="InspectionDate" Type="datetime" Nullable="true" />
+    <Property Name="FactualNumber" Type="float" Nullable="true" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
+    <Property Name="Manufacturer_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dish">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Cost" Type="float" Nullable="false" />
+    <Property Name="FinalVolume" Type="float" Nullable="true" />
+    <Property Name="IsExist" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="Measure" Type="tinyint" Nullable="false" />
+    <Property Name="VendorCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CookStartTime" Type="datetime" Nullable="true" />
+    <Property Name="CookEndTime" Type="datetime" Nullable="true" />
+    <Property Name="Energy_Protains" Type="float" Nullable="true" />
+    <Property Name="Energy_Fats" Type="float" Nullable="true" />
+    <Property Name="Energy_Carbohydrates" Type="float" Nullable="true" />
+    <Property Name="Energy_EnergyCalorie" Type="float" Nullable="true" />
+    <Property Name="Energy_EnergyJoule" Type="float" Nullable="true" />
+    <Property Name="CookingPlace_Id" Type="int" Nullable="true" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FinalPrice" Type="float" Nullable="false" />
+    <Property Name="DateOfOrder" Type="datetime" Nullable="false" />
+    <Property Name="IsOpen" Type="bit" Nullable="false" />
+    <Property Name="Employee_Id" Type="int" Nullable="false" />
+    <Property Name="Table_Id" Type="int" Nullable="true" />
+    <Property Name="Client_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="IdPurchase" />
+    </Key>
+    <Property Name="IdPurchase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="true" />
+    <Property Name="Volume" Type="float" Nullable="false" />
+    <Property Name="Ingridient_Id" Type="int" Nullable="false" />
+    <Property Name="Provider_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ejection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Culprit_Id" Type="int" Nullable="true" />
+    <Property Name="Ingridient_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CheckDish">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsPaid" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddDateTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PaidDateTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Dish_Id" Type="int" Nullable="false" />
+    <Property Name="Order_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TableSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="smallint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IsExist" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="Room_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecipeDishIngr">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Ingridient_Id" Type="int" Nullable="false" />
+    <Property Name="Dish_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Branch_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adress_Country" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adress_City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adress_Street" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adress_Bilding" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adress_Index" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WebSite" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="StartWorkingTime" Type="time" Nullable="true" />
+    <Property Name="EndWorkingTime" Type="time" Nullable="true" />
+    <Property Name="Characters_Area" Type="float" Nullable="false" />
+    <Property Name="Characters_HasGas" Type="bit" Nullable="false" />
+    <Property Name="Characters_HasElectricity" Type="bit" Nullable="false" />
+    <Property Name="Characters_HasWater" Type="bit" Nullable="false" />
+    <Property Name="Characters_HasWarmWater" Type="bit" Nullable="false" />
+    <Property Name="Characters_Property" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="InspectionDate" Type="datetime" Nullable="true" />
+    <Property Name="FactualCashbox" Type="float" Nullable="true" />
+    <Property Name="Owner_Id" Type="int" Nullable="false" />
+    <Property Name="Landlord_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ParrentCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Man">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MiddleName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adress_Country" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adress_City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adress_Street" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adress_Bilding" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adress_Index" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="INN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OGRN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BankAccount" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PrepackSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="FinalVolume" Type="float" Nullable="true" />
+    <Property Name="IsExist" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="Measure" Type="tinyint" Nullable="false" />
+    <Property Name="VendorCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CookStartTime" Type="datetime" Nullable="true" />
+    <Property Name="CookEndTime" Type="datetime" Nullable="true" />
+    <Property Name="Energy_Protains" Type="float" Nullable="true" />
+    <Property Name="Energy_Fats" Type="float" Nullable="true" />
+    <Property Name="Energy_Carbohydrates" Type="float" Nullable="true" />
+    <Property Name="Energy_EnergyCalorie" Type="float" Nullable="true" />
+    <Property Name="Energy_EnergyJoule" Type="float" Nullable="true" />
+  </EntityType>
+  <EntityType Name="RecipePrepIngr">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Ingredient_Id" Type="int" Nullable="false" />
+    <Property Name="Prepack_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecipeDishPrep">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Dish_Id" Type="int" Nullable="false" />
+    <Property Name="Prepack_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecipePrepPrep">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Prepack_Id" Type="int" Nullable="false" />
+    <Property Name="Result_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CheckMerchandise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsPaid" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddDateTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PaidDateTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+    <Property Name="Order_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShiftSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartDateTime" Type="time" Nullable="true" />
+    <Property Name="EndDateTime" Type="time" Nullable="true" />
+    <Property Name="StartFactualCashbox" Type="decimal" Nullable="false" />
+    <Property Name="EndFactualCash" Type="decimal" Nullable="false" />
+    <Property Name="EndFactualNonCash" Type="decimal" Nullable="false" />
+    <Property Name="Person_Id" Type="int" Nullable="false" />
+    <Property Name="Branch_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EncashmentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WriteOff" Type="decimal" Nullable="false" />
+    <Property Name="Branch_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entity1Set">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Man_Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsWorking" Type="bit" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Position_Id" Type="int" Nullable="false" />
+    <Property Name="Branch_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Man_CompanyOwner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="INN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OGRN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Man_ContactPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Company_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Man_Landlord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="INN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OGRN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BankAccount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Man_Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ManDocument">
+    <End Role="Person" Type="Model.Store.Man" Multiplicity="1" />
+    <End Role="Document" Type="Model.Store.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="Man_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_positionperson">
+    <End Role="Position" Type="Model.Store.Position" Multiplicity="1" />
+    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Position_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeOrder">
+    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="1" />
+    <End Role="Order" Type="Model.Store.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BranchPerson">
+    <End Role="Branch" Type="Model.Store.Branch" Multiplicity="1" />
+    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Branch_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonEjection">
+    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="0..1" />
+    <End Role="Ejection" Type="Model.Store.Ejection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ejection">
+        <PropertyRef Name="Culprit_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonShift">
+    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="1" />
+    <End Role="Shift" Type="Model.Store.ShiftSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shift">
+        <PropertyRef Name="Person_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IngridientPurchase">
+    <End Role="Product" Type="Model.Store.Product" Multiplicity="1" />
+    <End Role="Purchase" Type="Model.Store.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="Ingridient_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IngridientEjection">
+    <End Role="Product" Type="Model.Store.Product" Multiplicity="1" />
+    <End Role="Ejection" Type="Model.Store.Ejection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ejection">
+        <PropertyRef Name="Ingridient_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IngridientDIConnection">
+    <End Role="Product" Type="Model.Store.Product" Multiplicity="1" />
+    <End Role="RecipeDishIngr" Type="Model.Store.RecipeDishIngr" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecipeDishIngr">
+        <PropertyRef Name="Ingridient_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CategoryProduct">
+    <End Role="Category" Type="Model.Store.Category" Multiplicity="1" />
+    <End Role="Product" Type="Model.Store.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyProduct">
+    <End Role="Company" Type="Model.Store.Company" Multiplicity="1" />
+    <End Role="Product" Type="Model.Store.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Manufacturer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductRecipePrepIngr">
+    <End Role="Product" Type="Model.Store.Product" Multiplicity="1" />
+    <End Role="RecipePrepIngr" Type="Model.Store.RecipePrepIngr" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecipePrepIngr">
+        <PropertyRef Name="Ingredient_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductCheckMerchandise">
+    <End Role="Product" Type="Model.Store.Product" Multiplicity="1" />
+    <End Role="CheckMerchandise" Type="Model.Store.CheckMerchandise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CheckMerchandise">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DishCheck">
+    <End Role="Dish" Type="Model.Store.Dish" Multiplicity="1" />
+    <End Role="CheckDish" Type="Model.Store.CheckDish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dish">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CheckDish">
+        <PropertyRef Name="Dish_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DishDIConnection">
+    <End Role="Dish" Type="Model.Store.Dish" Multiplicity="1" />
+    <End Role="RecipeDishIngr" Type="Model.Store.RecipeDishIngr" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dish">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecipeDishIngr">
+        <PropertyRef Name="Dish_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoomDish">
+    <End Role="Room" Type="Model.Store.Room" Multiplicity="0..1" />
+    <End Role="Dish" Type="Model.Store.Dish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dish">
+        <PropertyRef Name="CookingPlace_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CategoryDish">
+    <End Role="Category" Type="Model.Store.Category" Multiplicity="1" />
+    <End Role="Dish" Type="Model.Store.Dish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dish">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DishRecipeDishPrep">
+    <End Role="Dish" Type="Model.Store.Dish" Multiplicity="1" />
+    <End Role="RecipeDishPrep" Type="Model.Store.RecipeDishPrep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dish">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecipeDishPrep">
+        <PropertyRef Name="Dish_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TableOrder">
+    <End Role="Table" Type="Model.Store.TableSet" Multiplicity="0..1" />
+    <End Role="Order" Type="Model.Store.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Table_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OwnerBranch">
+    <End Role="CompanyOwner" Type="Model.Store.Man_CompanyOwner" Multiplicity="1" />
+    <End Role="Branch" Type="Model.Store.Branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyOwner">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Branch">
+        <PropertyRef Name="Owner_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyContactPerson">
+    <End Role="Company" Type="Model.Store.Company" Multiplicity="1" />
+    <End Role="ContactPerson" Type="Model.Store.Man_ContactPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactPerson">
+        <PropertyRef Name="Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrepackRecipePrepIngr">
+    <End Role="Prepack" Type="Model.Store.PrepackSet" Multiplicity="1" />
+    <End Role="RecipePrepIngr" Type="Model.Store.RecipePrepIngr" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prepack">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecipePrepIngr">
+        <PropertyRef Name="Prepack_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrepackRecipeDishPrep">
+    <End Role="Prepack" Type="Model.Store.PrepackSet" Multiplicity="1" />
+    <End Role="RecipeDishPrep" Type="Model.Store.RecipeDishPrep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prepack">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecipeDishPrep">
+        <PropertyRef Name="Prepack_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrepackRecipePrepPrep">
+    <End Role="Prepack" Type="Model.Store.PrepackSet" Multiplicity="1" />
+    <End Role="RecipePrepPrep" Type="Model.Store.RecipePrepPrep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prepack">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecipePrepPrep">
+        <PropertyRef Name="Prepack_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrepackRecipePrepPrep1">
+    <End Role="Prepack" Type="Model.Store.PrepackSet" Multiplicity="1" />
+    <End Role="RecipePrepPrep" Type="Model.Store.RecipePrepPrep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prepack">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecipePrepPrep">
+        <PropertyRef Name="Result_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BranchEncashment">
+    <End Role="Branch" Type="Model.Store.Branch" Multiplicity="1" />
+    <End Role="Encashment" Type="Model.Store.EncashmentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Encashment">
+        <PropertyRef Name="Branch_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BranchShift">
+    <End Role="Branch" Type="Model.Store.Branch" Multiplicity="1" />
+    <End Role="Shift" Type="Model.Store.ShiftSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shift">
+        <PropertyRef Name="Branch_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderCheckMerchandise">
+    <End Role="Order" Type="Model.Store.Order" Multiplicity="1" />
+    <End Role="CheckMerchandise" Type="Model.Store.CheckMerchandise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CheckMerchandise">
+        <PropertyRef Name="Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderCheckDish">
+    <End Role="Order" Type="Model.Store.Order" Multiplicity="1" />
+    <End Role="CheckDish" Type="Model.Store.CheckDish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CheckDish">
+        <PropertyRef Name="Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoomTable">
+    <End Role="Room" Type="Model.Store.Room" Multiplicity="1" />
+    <End Role="Table" Type="Model.Store.TableSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Table">
+        <PropertyRef Name="Room_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BranchRoom">
+    <End Role="Branch" Type="Model.Store.Branch" Multiplicity="1" />
+    <End Role="Room" Type="Model.Store.Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="Branch_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyPurchase">
+    <End Role="Company" Type="Model.Store.Company" Multiplicity="1" />
+    <End Role="Purchase" Type="Model.Store.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="Provider_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CategoryCategory">
+    <End Role="Category" Type="Model.Store.Category" Multiplicity="1" />
+    <End Role="Category1" Type="Model.Store.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Category1">
+        <PropertyRef Name="ParrentCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LandlordBranch">
+    <End Role="Landlord" Type="Model.Store.Man_Landlord" Multiplicity="1" />
+    <End Role="Branch" Type="Model.Store.Branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Landlord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Branch">
+        <PropertyRef Name="Landlord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClientOrder">
+    <End Role="Client" Type="Model.Store.Man_Client" Multiplicity="0..1" />
+    <End Role="Order" Type="Model.Store.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Client_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_inherits_Person">
+    <End Role="Person" Type="Model.Store.Man" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyOwner_inherits_Employee">
+    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CompanyOwner" Type="Model.Store.Man_CompanyOwner" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyOwner">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContactPerson_inherits_Person">
+    <End Role="Person" Type="Model.Store.Man" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ContactPerson" Type="Model.Store.Man_ContactPerson" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactPerson">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Landlord_inherits_Person">
+    <End Role="Person" Type="Model.Store.Man" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Landlord" Type="Model.Store.Man_Landlord" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Landlord">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_inherits_Person">
+    <End Role="Person" Type="Model.Store.Man" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Client" Type="Model.Store.Man_Client" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Document" EntityType="Model.Document" />
+          <EntitySet Name="Position" EntityType="Model.Position" />
+          <EntitySet Name="Product" EntityType="Model.Product" />
+          <EntitySet Name="Dish" EntityType="Model.Dish" />
+          <EntitySet Name="Order" EntityType="Model.Order" />
+          <EntitySet Name="Purchase" EntityType="Model.Purchase" />
+          <EntitySet Name="Ejection" EntityType="Model.Ejection" />
+          <EntitySet Name="CheckDish" EntityType="Model.CheckDish" />
+          <EntitySet Name="TableSet" EntityType="Model.Table" />
+          <EntitySet Name="RecipeDishIngr" EntityType="Model.RecipeDishIngr" />
+          <EntitySet Name="Room" EntityType="Model.Room" />
+          <EntitySet Name="Branch" EntityType="Model.Branch" />
+          <EntitySet Name="Category" EntityType="Model.Category" />
+          <EntitySet Name="Man" EntityType="Model.Person" />
+          <EntitySet Name="Company" EntityType="Model.Company" />
+          <EntitySet Name="PrepackSet" EntityType="Model.Prepack" />
+          <EntitySet Name="RecipePrepIngr" EntityType="Model.RecipePrepIngr" />
+          <EntitySet Name="RecipeDishPrep" EntityType="Model.RecipeDishPrep" />
+          <EntitySet Name="RecipePrepPrep" EntityType="Model.RecipePrepPrep" />
+          <EntitySet Name="CheckMerchandise" EntityType="Model.CheckMerchandise" />
+          <EntitySet Name="ShiftSet" EntityType="Model.Shift" />
+          <EntitySet Name="EncashmentSet" EntityType="Model.Encashment" />
+          <AssociationSet Name="ManDocument" Association="Model.ManDocument">
+            <End Role="Person" EntitySet="Man" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_positionperson" Association="Model.FK_positionperson">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Employee" EntitySet="Man" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeOrder" Association="Model.EmployeeOrder">
+            <End Role="Employee" EntitySet="Man" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="BranchPerson" Association="Model.BranchPerson">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Employee" EntitySet="Man" />
+          </AssociationSet>
+          <AssociationSet Name="PersonEjection" Association="Model.PersonEjection">
+            <End Role="Employee" EntitySet="Man" />
+            <End Role="Ejection" EntitySet="Ejection" />
+          </AssociationSet>
+          <AssociationSet Name="PersonShift" Association="Model.PersonShift">
+            <End Role="Employee" EntitySet="Man" />
+            <End Role="Shift" EntitySet="ShiftSet" />
+          </AssociationSet>
+          <AssociationSet Name="IngridientPurchase" Association="Model.IngridientPurchase">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="IngridientEjection" Association="Model.IngridientEjection">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Ejection" EntitySet="Ejection" />
+          </AssociationSet>
+          <AssociationSet Name="IngridientDIConnection" Association="Model.IngridientDIConnection">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="RecipeDishIngr" EntitySet="RecipeDishIngr" />
+          </AssociationSet>
+          <AssociationSet Name="CategoryProduct" Association="Model.CategoryProduct">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyProduct" Association="Model.CompanyProduct">
+            <End EntitySet="Company" Role="Company" />
+            <End EntitySet="Product" Role="Product" />
+          </AssociationSet>
+          <AssociationSet Name="ProductRecipePrepIngr" Association="Model.ProductRecipePrepIngr">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="RecipePrepIngr" EntitySet="RecipePrepIngr" />
+          </AssociationSet>
+          <AssociationSet Name="ProductCheckMerchandise" Association="Model.ProductCheckMerchandise">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="CheckMerchandise" EntitySet="CheckMerchandise" />
+          </AssociationSet>
+          <AssociationSet Name="DishCheck" Association="Model.DishCheck">
+            <End Role="Dish" EntitySet="Dish" />
+            <End Role="CheckDish" EntitySet="CheckDish" />
+          </AssociationSet>
+          <AssociationSet Name="DishDIConnection" Association="Model.DishDIConnection">
+            <End Role="Dish" EntitySet="Dish" />
+            <End Role="RecipeDishIngr" EntitySet="RecipeDishIngr" />
+          </AssociationSet>
+          <AssociationSet Name="RoomDish" Association="Model.RoomDish">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Dish" EntitySet="Dish" />
+          </AssociationSet>
+          <AssociationSet Name="CategoryDish" Association="Model.CategoryDish">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Dish" EntitySet="Dish" />
+          </AssociationSet>
+          <AssociationSet Name="DishRecipeDishPrep" Association="Model.DishRecipeDishPrep">
+            <End Role="Dish" EntitySet="Dish" />
+            <End Role="RecipeDishPrep" EntitySet="RecipeDishPrep" />
+          </AssociationSet>
+          <AssociationSet Name="TableOrder" Association="Model.TableOrder">
+            <End Role="Table" EntitySet="TableSet" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="OwnerBranch" Association="Model.OwnerBranch">
+            <End Role="CompanyOwner" EntitySet="Man" />
+            <End Role="Branch" EntitySet="Branch" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyContactPerson" Association="Model.CompanyContactPerson">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="ContactPerson" EntitySet="Man" />
+          </AssociationSet>
+          <AssociationSet Name="PrepackRecipePrepIngr" Association="Model.PrepackRecipePrepIngr">
+            <End Role="Prepack" EntitySet="PrepackSet" />
+            <End Role="RecipePrepIngr" EntitySet="RecipePrepIngr" />
+          </AssociationSet>
+          <AssociationSet Name="PrepackRecipeDishPrep" Association="Model.PrepackRecipeDishPrep">
+            <End Role="Prepack" EntitySet="PrepackSet" />
+            <End Role="RecipeDishPrep" EntitySet="RecipeDishPrep" />
+          </AssociationSet>
+          <AssociationSet Name="PrepackRecipePrepPrep" Association="Model.PrepackRecipePrepPrep">
+            <End Role="Prepack" EntitySet="PrepackSet" />
+            <End Role="RecipePrepPrep" EntitySet="RecipePrepPrep" />
+          </AssociationSet>
+          <AssociationSet Name="PrepackRecipePrepPrep1" Association="Model.PrepackRecipePrepPrep1">
+            <End Role="Prepack" EntitySet="PrepackSet" />
+            <End Role="RecipePrepPrep" EntitySet="RecipePrepPrep" />
+          </AssociationSet>
+          <AssociationSet Name="BranchEncashment" Association="Model.BranchEncashment">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Encashment" EntitySet="EncashmentSet" />
+          </AssociationSet>
+          <AssociationSet Name="BranchShift" Association="Model.BranchShift">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Shift" EntitySet="ShiftSet" />
+          </AssociationSet>
+          <AssociationSet Name="OrderCheckMerchandise" Association="Model.OrderCheckMerchandise">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="CheckMerchandise" EntitySet="CheckMerchandise" />
+          </AssociationSet>
+          <AssociationSet Name="OrderCheckDish" Association="Model.OrderCheckDish">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="CheckDish" EntitySet="CheckDish" />
+          </AssociationSet>
+          <AssociationSet Name="RoomTable" Association="Model.RoomTable">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Table" EntitySet="TableSet" />
+          </AssociationSet>
+          <AssociationSet Name="BranchRoom" Association="Model.BranchRoom">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyPurchase" Association="Model.CompanyPurchase">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="CategoryCategory" Association="Model.CategoryCategory">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Category1" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="LandlordBranch" Association="Model.LandlordBranch">
+            <End Role="Landlord" EntitySet="Man" />
+            <End Role="Branch" EntitySet="Branch" />
+          </AssociationSet>
+          <EntitySet Name="Entity1Set" EntityType="Model.Entity1" />
+          <AssociationSet Name="ClientOrder" Association="Model.ClientOrder">
+            <End Role="Client" EntitySet="Man" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Serial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Registration" Type="String" Nullable="true" />
+          <Property Name="Exist" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Man" Relationship="Model.ManDocument" FromRole="Document" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Employee" BaseType="Model.Person">
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsWorking" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <NavigationProperty Name="Position" Relationship="Model.FK_positionperson" FromRole="Employee" ToRole="Position" />
+          <NavigationProperty Name="Branch" Relationship="Model.BranchPerson" FromRole="Employee" ToRole="Branch" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkWithOrders" Type="Boolean" Nullable="false" DefaultValue="False" />
+          <Property Name="WorkWithMenu" Type="Boolean" Nullable="false" DefaultValue="False" />
+          <Property Name="WorkWithWarehouse" Type="Boolean" Nullable="false" DefaultValue="False" />
+          <Property Name="WorkWithStuff" Type="Boolean" Nullable="false" DefaultValue="False" />
+          <Property Name="WorkWithReports" Type="Boolean" Nullable="false" DefaultValue="False" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Property" Type="String" Nullable="false" />
+          <Property Name="Measure" Type="Model.Measure" Nullable="false" />
+          <Property Name="IsIngredient" Type="Boolean" Nullable="true" />
+          <Property Name="IsMerchandise" Type="Boolean" Nullable="false" />
+          <Property Name="InspectionDate" Type="DateTime" Nullable="true" />
+          <Property Name="FactualNumber" Type="Double" Nullable="true" />
+          <NavigationProperty Name="Category" Relationship="Model.CategoryProduct" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Manufacturer" Relationship="Model.CompanyProduct" FromRole="Product" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="Dish">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <Property Name="Cost" Type="Double" Nullable="false" />
+          <Property Name="FinalVolume" Type="Double" />
+          <Property Name="IsExist" Type="Boolean" Nullable="false" DefaultValue="True" />
+          <Property Name="Measure" Type="Model.Measure" Nullable="false" />
+          <Property Name="VendorCode" Type="String" Nullable="false" />
+          <Property Name="CookStartTime" Type="DateTime" Nullable="true" />
+          <Property Name="CookEndTime" Type="DateTime" Nullable="true" />
+          <Property Name="Energy" Type="Model.EnergyValue" Nullable="false" />
+          <NavigationProperty Name="CookingPlace" Relationship="Model.RoomDish" FromRole="Dish" ToRole="Room" />
+          <NavigationProperty Name="Category" Relationship="Model.CategoryDish" FromRole="Dish" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="FinalPrice" Type="Double" Nullable="false" />
+          <Property Name="DateOfOrder" Type="DateTime" Nullable="false" />
+          <Property Name="IsOpen" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Model.EmployeeOrder" FromRole="Order" ToRole="Employee" />
+          <NavigationProperty Name="Table" Relationship="Model.TableOrder" FromRole="Order" ToRole="Table" />
+          <NavigationProperty Name="Client" Relationship="Model.ClientOrder" FromRole="Order" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="IdPurchase" />
+          </Key>
+          <Property Name="IdPurchase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="true" />
+          <Property Name="Volume" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Ingridient" Relationship="Model.IngridientPurchase" FromRole="Purchase" ToRole="Product" />
+          <NavigationProperty Name="Provider" Relationship="Model.CompanyPurchase" FromRole="Purchase" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="Ejection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Culprit" Relationship="Model.PersonEjection" FromRole="Ejection" ToRole="Employee" />
+          <NavigationProperty Name="Ingridient" Relationship="Model.IngridientEjection" FromRole="Ejection" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="CheckDish">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsPaid" Type="String" Nullable="false" />
+          <Property Name="AddDateTime" Type="String" Nullable="false" />
+          <Property Name="PaidDateTime" Type="String" Nullable="false" />
+          <NavigationProperty Name="Dish" Relationship="Model.DishCheck" FromRole="CheckDish" ToRole="Dish" />
+          <NavigationProperty Name="Order" Relationship="Model.OrderCheckDish" FromRole="CheckDish" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="Int16" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <Property Name="IsExist" Type="Boolean" Nullable="false" DefaultValue="True" />
+          <NavigationProperty Name="Room" Relationship="Model.RoomTable" FromRole="Table" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="RecipeDishIngr">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <NavigationProperty Name="Ingridient" Relationship="Model.IngridientDIConnection" FromRole="RecipeDishIngr" ToRole="Product" />
+          <NavigationProperty Name="Dish" Relationship="Model.DishDIConnection" FromRole="RecipeDishIngr" ToRole="Dish" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Branch" Relationship="Model.BranchRoom" FromRole="Room" ToRole="Branch" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adress" Type="Model.Adress" Nullable="false" />
+          <Property Name="WebSite" Type="String" Nullable="true" />
+          <Property Name="Phone" Type="String" Nullable="true" />
+          <Property Name="StartWorkingTime" Type="Time" Nullable="true" />
+          <Property Name="EndWorkingTime" Type="Time" Nullable="true" />
+          <Property Name="Characters" Type="Model.Characters" Nullable="false" />
+          <Property Name="InspectionDate" Type="DateTime" Nullable="true" />
+          <Property Name="FactualCashbox" Type="Double" Nullable="true" />
+          <NavigationProperty Name="Owner" Relationship="Model.OwnerBranch" FromRole="Branch" ToRole="CompanyOwner" />
+          <NavigationProperty Name="Landlord" Relationship="Model.LandlordBranch" FromRole="Branch" ToRole="Landlord" />
+        </EntityType>
+        <EntityType Name="CompanyOwner" BaseType="Model.Employee">
+          <Property Name="INN" Type="String" Nullable="false" />
+          <Property Name="OGRN" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="ParrentCategory" Relationship="Model.CategoryCategory" FromRole="Category1" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="MiddleName" Type="String" Nullable="true" />
+          <Property Name="Phone" Type="String" Nullable="true" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="Adress" Type="Model.Adress" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="INN" Type="String" Nullable="false" />
+          <Property Name="OGRN" Type="String" Nullable="false" />
+          <Property Name="BankAccount" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactPerson" BaseType="Model.Person">
+          <NavigationProperty Name="Company" Relationship="Model.CompanyContactPerson" FromRole="ContactPerson" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="Prepack">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <Property Name="FinalVolume" Type="Double" />
+          <Property Name="IsExist" Type="Boolean" Nullable="false" DefaultValue="True" />
+          <Property Name="Measure" Type="Model.Measure" Nullable="false" />
+          <Property Name="VendorCode" Type="String" Nullable="false" />
+          <Property Name="CookStartTime" Type="DateTime" Nullable="true" />
+          <Property Name="CookEndTime" Type="DateTime" Nullable="true" />
+          <Property Name="Energy" Type="Model.EnergyValue" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipePrepIngr">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <NavigationProperty Name="Ingredient" Relationship="Model.ProductRecipePrepIngr" FromRole="RecipePrepIngr" ToRole="Product" />
+          <NavigationProperty Name="Prepack" Relationship="Model.PrepackRecipePrepIngr" FromRole="RecipePrepIngr" ToRole="Prepack" />
+        </EntityType>
+        <EntityType Name="RecipeDishPrep">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <NavigationProperty Name="Dish" Relationship="Model.DishRecipeDishPrep" FromRole="RecipeDishPrep" ToRole="Dish" />
+          <NavigationProperty Name="Prepack" Relationship="Model.PrepackRecipeDishPrep" FromRole="RecipeDishPrep" ToRole="Prepack" />
+        </EntityType>
+        <EntityType Name="RecipePrepPrep">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <NavigationProperty Name="Prepack" Relationship="Model.PrepackRecipePrepPrep" FromRole="RecipePrepPrep" ToRole="Prepack" />
+          <NavigationProperty Name="Result" Relationship="Model.PrepackRecipePrepPrep1" FromRole="RecipePrepPrep" ToRole="Prepack" />
+        </EntityType>
+        <EntityType Name="CheckMerchandise">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsPaid" Type="String" Nullable="false" />
+          <Property Name="AddDateTime" Type="String" Nullable="false" />
+          <Property Name="PaidDateTime" Type="String" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Model.ProductCheckMerchandise" FromRole="CheckMerchandise" ToRole="Product" />
+          <NavigationProperty Name="Order" Relationship="Model.OrderCheckMerchandise" FromRole="CheckMerchandise" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartDateTime" Type="Time" Nullable="true" />
+          <Property Name="EndDateTime" Type="Time" Nullable="true" />
+          <Property Name="StartFactualCashbox" Type="Decimal" Nullable="false" />
+          <Property Name="EndFactualCash" Type="Decimal" Nullable="false" />
+          <Property Name="EndFactualNonCash" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Model.PersonShift" FromRole="Shift" ToRole="Employee" />
+          <NavigationProperty Name="Branch" Relationship="Model.BranchShift" FromRole="Shift" ToRole="Branch" />
+        </EntityType>
+        <EntityType Name="Encashment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="String" Nullable="false" />
+          <Property Name="WriteOff" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Branch" Relationship="Model.BranchEncashment" FromRole="Encashment" ToRole="Branch" />
+        </EntityType>
+        <Association Name="ManDocument">
+          <End Type="Model.Person" Role="Person" Multiplicity="1" />
+          <End Type="Model.Document" Role="Document" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_positionperson">
+          <End Type="Model.Position" Role="Position" Multiplicity="1" />
+          <End Type="Model.Employee" Role="Employee" Multiplicity="*" />
+        </Association>
+        <Association Name="EmployeeOrder">
+          <End Type="Model.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="Model.Order" Role="Order" Multiplicity="*" />
+        </Association>
+        <Association Name="BranchPerson">
+          <End Type="Model.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="Model.Employee" Role="Employee" Multiplicity="*" />
+        </Association>
+        <Association Name="PersonEjection">
+          <End Type="Model.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="Model.Ejection" Role="Ejection" Multiplicity="*" />
+        </Association>
+        <Association Name="PersonShift">
+          <End Type="Model.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="Model.Shift" Role="Shift" Multiplicity="*" />
+        </Association>
+        <Association Name="IngridientPurchase">
+          <End Type="Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="Model.Purchase" Role="Purchase" Multiplicity="*" />
+        </Association>
+        <Association Name="IngridientEjection">
+          <End Type="Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="Model.Ejection" Role="Ejection" Multiplicity="*" />
+        </Association>
+        <Association Name="IngridientDIConnection">
+          <End Type="Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="Model.RecipeDishIngr" Role="RecipeDishIngr" Multiplicity="*" />
+        </Association>
+        <Association Name="CategoryProduct">
+          <End Type="Model.Category" Role="Category" Multiplicity="1" />
+          <End Type="Model.Product" Role="Product" Multiplicity="*" />
+        </Association>
+        <Association Name="CompanyProduct">
+          <End Type="Model.Company" Multiplicity="1" Role="Company" />
+          <End Type="Model.Product" Multiplicity="*" Role="Product" />
+        </Association>
+        <Association Name="ProductRecipePrepIngr">
+          <End Type="Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="Model.RecipePrepIngr" Role="RecipePrepIngr" Multiplicity="*" />
+        </Association>
+        <Association Name="ProductCheckMerchandise">
+          <End Type="Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="Model.CheckMerchandise" Role="CheckMerchandise" Multiplicity="*" />
+        </Association>
+        <Association Name="DishCheck">
+          <End Type="Model.Dish" Role="Dish" Multiplicity="1" />
+          <End Type="Model.CheckDish" Role="CheckDish" Multiplicity="*" />
+        </Association>
+        <Association Name="DishDIConnection">
+          <End Type="Model.Dish" Role="Dish" Multiplicity="1" />
+          <End Type="Model.RecipeDishIngr" Role="RecipeDishIngr" Multiplicity="*" />
+        </Association>
+        <Association Name="RoomDish">
+          <End Type="Model.Room" Role="Room" Multiplicity="0..1" />
+          <End Type="Model.Dish" Role="Dish" Multiplicity="*" />
+        </Association>
+        <Association Name="CategoryDish">
+          <End Type="Model.Category" Role="Category" Multiplicity="1" />
+          <End Type="Model.Dish" Role="Dish" Multiplicity="*" />
+        </Association>
+        <Association Name="DishRecipeDishPrep">
+          <End Type="Model.Dish" Role="Dish" Multiplicity="1" />
+          <End Type="Model.RecipeDishPrep" Role="RecipeDishPrep" Multiplicity="*" />
+        </Association>
+        <Association Name="TableOrder">
+          <End Type="Model.Table" Role="Table" Multiplicity="0..1" />
+          <End Type="Model.Order" Role="Order" Multiplicity="*" />
+        </Association>
+        <Association Name="OwnerBranch">
+          <End Type="Model.CompanyOwner" Role="CompanyOwner" Multiplicity="1" />
+          <End Type="Model.Branch" Role="Branch" Multiplicity="*" />
+        </Association>
+        <Association Name="CompanyContactPerson">
+          <End Type="Model.Company" Role="Company" Multiplicity="1" />
+          <End Type="Model.ContactPerson" Role="ContactPerson" Multiplicity="*" />
+        </Association>
+        <Association Name="PrepackRecipePrepIngr">
+          <End Type="Model.Prepack" Role="Prepack" Multiplicity="1" />
+          <End Type="Model.RecipePrepIngr" Role="RecipePrepIngr" Multiplicity="*" />
+        </Association>
+        <Association Name="PrepackRecipeDishPrep">
+          <End Type="Model.Prepack" Role="Prepack" Multiplicity="1" />
+          <End Type="Model.RecipeDishPrep" Role="RecipeDishPrep" Multiplicity="*" />
+        </Association>
+        <Association Name="PrepackRecipePrepPrep">
+          <End Type="Model.Prepack" Role="Prepack" Multiplicity="1" />
+          <End Type="Model.RecipePrepPrep" Role="RecipePrepPrep" Multiplicity="*" />
+        </Association>
+        <Association Name="PrepackRecipePrepPrep1">
+          <End Type="Model.Prepack" Role="Prepack" Multiplicity="1" />
+          <End Type="Model.RecipePrepPrep" Role="RecipePrepPrep" Multiplicity="*" />
+        </Association>
+        <Association Name="BranchEncashment">
+          <End Type="Model.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="Model.Encashment" Role="Encashment" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="Adress">
+          <Property Type="String" Name="Country" Nullable="false" />
+          <Property Type="String" Name="City" Nullable="false" />
+          <Property Type="String" Name="Street" Nullable="false" />
+          <Property Type="String" Name="Bilding" Nullable="false" />
+          <Property Type="String" Name="Index" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Characters">
+          <Property Type="Double" Name="Area" Nullable="false" />
+          <Property Type="Boolean" Name="HasGas" Nullable="false" />
+          <Property Type="Boolean" Name="HasElectricity" Nullable="false" />
+          <Property Type="Boolean" Name="HasWater" Nullable="false" />
+          <Property Type="Boolean" Name="HasWarmWater" Nullable="false" />
+          <Property Type="String" Name="Property" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="EnergyValue">
+          <Property Type="Double" Name="Protains" Nullable="true" />
+          <Property Type="Double" Name="Fats" Nullable="true" />
+          <Property Type="Double" Name="Carbohydrates" Nullable="true" />
+          <Property Type="Double" Name="EnergyCalorie" Nullable="true" />
+          <Property Type="Double" Name="EnergyJoule" Nullable="true" />
+        </ComplexType>
+        <EnumType Name="Measure" UnderlyingType="Byte">
+          <Member Name="Граммы" Value="0" />
+          <Member Name="Милилитры" Value="1" />
+          <Member Name="Штуки" Value="2" />
+        </EnumType>
+        <Association Name="BranchShift">
+          <End Type="Model.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="Model.Shift" Role="Shift" Multiplicity="*" />
+        </Association>
+        <Association Name="OrderCheckMerchandise">
+          <End Type="Model.Order" Role="Order" Multiplicity="1" />
+          <End Type="Model.CheckMerchandise" Role="CheckMerchandise" Multiplicity="*" />
+        </Association>
+        <Association Name="OrderCheckDish">
+          <End Type="Model.Order" Role="Order" Multiplicity="1" />
+          <End Type="Model.CheckDish" Role="CheckDish" Multiplicity="*" />
+        </Association>
+        <Association Name="RoomTable">
+          <End Type="Model.Room" Role="Room" Multiplicity="1" />
+          <End Type="Model.Table" Role="Table" Multiplicity="*" />
+        </Association>
+        <Association Name="BranchRoom">
+          <End Type="Model.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="Model.Room" Role="Room" Multiplicity="*" />
+        </Association>
+        <Association Name="CompanyPurchase">
+          <End Type="Model.Company" Role="Company" Multiplicity="1" />
+          <End Type="Model.Purchase" Role="Purchase" Multiplicity="*" />
+        </Association>
+        <Association Name="CategoryCategory">
+          <End Type="Model.Category" Role="Category" Multiplicity="1" />
+          <End Type="Model.Category" Role="Category1" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Landlord" BaseType="Model.Person">
+          <Property Name="INN" Type="String" Nullable="false" />
+          <Property Name="OGRN" Type="String" Nullable="false" />
+          <Property Name="BankAccount" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="LandlordBranch">
+          <End Type="Model.Landlord" Role="Landlord" Multiplicity="1" />
+          <End Type="Model.Branch" Role="Branch" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Entity1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Client" BaseType="Model.Person">
+        </EntityType>
+        <Association Name="ClientOrder">
+          <End Type="Model.Client" Role="Client" Multiplicity="0..1" />
+          <End Type="Model.Order" Role="Order" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="Document">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Document)">
+        <MappingFragment StoreEntitySet="Document">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Serial" ColumnName="Serial" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Registration" ColumnName="Registration" />
+          <ScalarProperty Name="Exist" ColumnName="Exist" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Position">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Position)">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="WorkWithOrders" ColumnName="WorkWithOrders" />
+          <ScalarProperty Name="WorkWithMenu" ColumnName="WorkWithMenu" />
+          <ScalarProperty Name="WorkWithWarehouse" ColumnName="WorkWithWarehouse" />
+          <ScalarProperty Name="WorkWithStuff" ColumnName="WorkWithStuff" />
+          <ScalarProperty Name="WorkWithReports" ColumnName="WorkWithReports" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Product)">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Property" ColumnName="Property" />
+          <ScalarProperty Name="Measure" ColumnName="Measure" />
+          <ScalarProperty Name="IsIngredient" ColumnName="IsIngredient" />
+          <ScalarProperty Name="IsMerchandise" ColumnName="IsMerchandise" />
+          <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
+          <ScalarProperty Name="FactualNumber" ColumnName="FactualNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dish">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Dish)">
+        <MappingFragment StoreEntitySet="Dish">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="FinalVolume" ColumnName="FinalVolume" />
+          <ScalarProperty Name="IsExist" ColumnName="IsExist" />
+          <ScalarProperty Name="Measure" ColumnName="Measure" />
+          <ScalarProperty Name="VendorCode" ColumnName="VendorCode" />
+          <ScalarProperty Name="CookStartTime" ColumnName="CookStartTime" />
+          <ScalarProperty Name="CookEndTime" ColumnName="CookEndTime" />
+          <ComplexProperty Name="Energy" TypeName="Model.EnergyValue">
+            <ScalarProperty Name="Protains" ColumnName="Energy_Protains" />
+            <ScalarProperty Name="Fats" ColumnName="Energy_Fats" />
+            <ScalarProperty Name="Carbohydrates" ColumnName="Energy_Carbohydrates" />
+            <ScalarProperty Name="EnergyCalorie" ColumnName="Energy_EnergyCalorie" />
+            <ScalarProperty Name="EnergyJoule" ColumnName="Energy_EnergyJoule" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Order)">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+          <ScalarProperty Name="DateOfOrder" ColumnName="DateOfOrder" />
+          <ScalarProperty Name="IsOpen" ColumnName="IsOpen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Purchase)">
+        <MappingFragment StoreEntitySet="Purchase">
+          <ScalarProperty Name="IdPurchase" ColumnName="IdPurchase" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ejection">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Ejection)">
+        <MappingFragment StoreEntitySet="Ejection">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckDish">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.CheckDish)">
+        <MappingFragment StoreEntitySet="CheckDish">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="PaidDateTime" ColumnName="PaidDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TableSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Table)">
+        <MappingFragment StoreEntitySet="TableSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsExist" ColumnName="IsExist" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecipeDishIngr">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.RecipeDishIngr)">
+        <MappingFragment StoreEntitySet="RecipeDishIngr">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Room)">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Branch">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Branch)">
+        <MappingFragment StoreEntitySet="Branch">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ComplexProperty Name="Adress" TypeName="Model.Adress">
+            <ScalarProperty Name="Country" ColumnName="Adress_Country" />
+            <ScalarProperty Name="City" ColumnName="Adress_City" />
+            <ScalarProperty Name="Street" ColumnName="Adress_Street" />
+            <ScalarProperty Name="Bilding" ColumnName="Adress_Bilding" />
+            <ScalarProperty Name="Index" ColumnName="Adress_Index" />
+          </ComplexProperty>
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="StartWorkingTime" ColumnName="StartWorkingTime" />
+          <ScalarProperty Name="EndWorkingTime" ColumnName="EndWorkingTime" />
+          <ComplexProperty Name="Characters" TypeName="Model.Characters">
+            <ScalarProperty Name="Area" ColumnName="Characters_Area" />
+            <ScalarProperty Name="HasGas" ColumnName="Characters_HasGas" />
+            <ScalarProperty Name="HasElectricity" ColumnName="Characters_HasElectricity" />
+            <ScalarProperty Name="HasWater" ColumnName="Characters_HasWater" />
+            <ScalarProperty Name="HasWarmWater" ColumnName="Characters_HasWarmWater" />
+            <ScalarProperty Name="Property" ColumnName="Characters_Property" />
+          </ComplexProperty>
+          <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
+          <ScalarProperty Name="FactualCashbox" ColumnName="FactualCashbox" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Category)">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Man">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Person)">
+        <MappingFragment StoreEntitySet="Man">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ComplexProperty Name="Adress" TypeName="Model.Adress">
+            <ScalarProperty Name="Country" ColumnName="Adress_Country" />
+            <ScalarProperty Name="City" ColumnName="Adress_City" />
+            <ScalarProperty Name="Street" ColumnName="Adress_Street" />
+            <ScalarProperty Name="Bilding" ColumnName="Adress_Bilding" />
+            <ScalarProperty Name="Index" ColumnName="Adress_Index" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Employee)">
+        <MappingFragment StoreEntitySet="Man_Employee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsWorking" ColumnName="IsWorking" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.CompanyOwner)">
+        <MappingFragment StoreEntitySet="Man_CompanyOwner">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="OGRN" ColumnName="OGRN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.ContactPerson)">
+        <MappingFragment StoreEntitySet="Man_ContactPerson">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Landlord)">
+        <MappingFragment StoreEntitySet="Man_Landlord">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="OGRN" ColumnName="OGRN" />
+          <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Client)">
+        <MappingFragment StoreEntitySet="Man_Client">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Company)">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="OGRN" ColumnName="OGRN" />
+          <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrepackSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Prepack)">
+        <MappingFragment StoreEntitySet="PrepackSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FinalVolume" ColumnName="FinalVolume" />
+          <ScalarProperty Name="IsExist" ColumnName="IsExist" />
+          <ScalarProperty Name="Measure" ColumnName="Measure" />
+          <ScalarProperty Name="VendorCode" ColumnName="VendorCode" />
+          <ScalarProperty Name="CookStartTime" ColumnName="CookStartTime" />
+          <ScalarProperty Name="CookEndTime" ColumnName="CookEndTime" />
+          <ComplexProperty Name="Energy" TypeName="Model.EnergyValue">
+            <ScalarProperty Name="Protains" ColumnName="Energy_Protains" />
+            <ScalarProperty Name="Fats" ColumnName="Energy_Fats" />
+            <ScalarProperty Name="Carbohydrates" ColumnName="Energy_Carbohydrates" />
+            <ScalarProperty Name="EnergyCalorie" ColumnName="Energy_EnergyCalorie" />
+            <ScalarProperty Name="EnergyJoule" ColumnName="Energy_EnergyJoule" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecipePrepIngr">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.RecipePrepIngr)">
+        <MappingFragment StoreEntitySet="RecipePrepIngr">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecipeDishPrep">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.RecipeDishPrep)">
+        <MappingFragment StoreEntitySet="RecipeDishPrep">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecipePrepPrep">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.RecipePrepPrep)">
+        <MappingFragment StoreEntitySet="RecipePrepPrep">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckMerchandise">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.CheckMerchandise)">
+        <MappingFragment StoreEntitySet="CheckMerchandise">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="PaidDateTime" ColumnName="PaidDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShiftSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Shift)">
+        <MappingFragment StoreEntitySet="ShiftSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+          <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+          <ScalarProperty Name="StartFactualCashbox" ColumnName="StartFactualCashbox" />
+          <ScalarProperty Name="EndFactualCash" ColumnName="EndFactualCash" />
+          <ScalarProperty Name="EndFactualNonCash" ColumnName="EndFactualNonCash" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EncashmentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Encashment)">
+        <MappingFragment StoreEntitySet="EncashmentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="WriteOff" ColumnName="WriteOff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entity1Set">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Entity1)">
+        <MappingFragment StoreEntitySet="Entity1Set">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ManDocument" TypeName="Model.ManDocument" StoreEntitySet="Document">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="Man_Id" />
+      </EndProperty>
+      <EndProperty Name="Document">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_positionperson" TypeName="Model.FK_positionperson" StoreEntitySet="Man_Employee">
+      <EndProperty Name="Position">
+        <ScalarProperty Name="Id" ColumnName="Position_Id" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeeOrder" TypeName="Model.EmployeeOrder" StoreEntitySet="Order">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Employee_Id" />
+      </EndProperty>
+      <EndProperty Name="Order">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BranchPerson" TypeName="Model.BranchPerson" StoreEntitySet="Man_Employee">
+      <EndProperty Name="Branch">
+        <ScalarProperty Name="Id" ColumnName="Branch_Id" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonEjection" TypeName="Model.PersonEjection" StoreEntitySet="Ejection">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Culprit_Id" />
+      </EndProperty>
+      <EndProperty Name="Ejection">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Culprit_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonShift" TypeName="Model.PersonShift" StoreEntitySet="ShiftSet">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Person_Id" />
+      </EndProperty>
+      <EndProperty Name="Shift">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="IngridientPurchase" TypeName="Model.IngridientPurchase" StoreEntitySet="Purchase">
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Ingridient_Id" />
+      </EndProperty>
+      <EndProperty Name="Purchase">
+        <ScalarProperty Name="IdPurchase" ColumnName="IdPurchase" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="IngridientEjection" TypeName="Model.IngridientEjection" StoreEntitySet="Ejection">
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Ingridient_Id" />
+      </EndProperty>
+      <EndProperty Name="Ejection">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="IngridientDIConnection" TypeName="Model.IngridientDIConnection" StoreEntitySet="RecipeDishIngr">
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Ingridient_Id" />
+      </EndProperty>
+      <EndProperty Name="RecipeDishIngr">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CategoryProduct" TypeName="Model.CategoryProduct" StoreEntitySet="Product">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="Id" ColumnName="Category_Id" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CompanyProduct" TypeName="Model.CompanyProduct" StoreEntitySet="Product">
+      <EndProperty Name="Company">
+        <ScalarProperty Name="Id" ColumnName="Manufacturer_Id" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductRecipePrepIngr" TypeName="Model.ProductRecipePrepIngr" StoreEntitySet="RecipePrepIngr">
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Ingredient_Id" />
+      </EndProperty>
+      <EndProperty Name="RecipePrepIngr">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductCheckMerchandise" TypeName="Model.ProductCheckMerchandise" StoreEntitySet="CheckMerchandise">
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Product_Id" />
+      </EndProperty>
+      <EndProperty Name="CheckMerchandise">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DishCheck" TypeName="Model.DishCheck" StoreEntitySet="CheckDish">
+      <EndProperty Name="Dish">
+        <ScalarProperty Name="Id" ColumnName="Dish_Id" />
+      </EndProperty>
+      <EndProperty Name="CheckDish">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DishDIConnection" TypeName="Model.DishDIConnection" StoreEntitySet="RecipeDishIngr">
+      <EndProperty Name="Dish">
+        <ScalarProperty Name="Id" ColumnName="Dish_Id" />
+      </EndProperty>
+      <EndProperty Name="RecipeDishIngr">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RoomDish" TypeName="Model.RoomDish" StoreEntitySet="Dish">
+      <EndProperty Name="Room">
+        <ScalarProperty Name="Id" ColumnName="CookingPlace_Id" />
+      </EndProperty>
+      <EndProperty Name="Dish">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="CookingPlace_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CategoryDish" TypeName="Model.CategoryDish" StoreEntitySet="Dish">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="Id" ColumnName="Category_Id" />
+      </EndProperty>
+      <EndProperty Name="Dish">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DishRecipeDishPrep" TypeName="Model.DishRecipeDishPrep" StoreEntitySet="RecipeDishPrep">
+      <EndProperty Name="Dish">
+        <ScalarProperty Name="Id" ColumnName="Dish_Id" />
+      </EndProperty>
+      <EndProperty Name="RecipeDishPrep">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TableOrder" TypeName="Model.TableOrder" StoreEntitySet="Order">
+      <EndProperty Name="Table">
+        <ScalarProperty Name="Id" ColumnName="Table_Id" />
+      </EndProperty>
+      <EndProperty Name="Order">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Table_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OwnerBranch" TypeName="Model.OwnerBranch" StoreEntitySet="Branch">
+      <EndProperty Name="CompanyOwner">
+        <ScalarProperty Name="Id" ColumnName="Owner_Id" />
+      </EndProperty>
+      <EndProperty Name="Branch">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CompanyContactPerson" TypeName="Model.CompanyContactPerson" StoreEntitySet="Man_ContactPerson">
+      <EndProperty Name="Company">
+        <ScalarProperty Name="Id" ColumnName="Company_Id" />
+      </EndProperty>
+      <EndProperty Name="ContactPerson">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PrepackRecipePrepIngr" TypeName="Model.PrepackRecipePrepIngr" StoreEntitySet="RecipePrepIngr">
+      <EndProperty Name="Prepack">
+        <ScalarProperty Name="Id" ColumnName="Prepack_Id" />
+      </EndProperty>
+      <EndProperty Name="RecipePrepIngr">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PrepackRecipeDishPrep" TypeName="Model.PrepackRecipeDishPrep" StoreEntitySet="RecipeDishPrep">
+      <EndProperty Name="Prepack">
+        <ScalarProperty Name="Id" ColumnName="Prepack_Id" />
+      </EndProperty>
+      <EndProperty Name="RecipeDishPrep">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PrepackRecipePrepPrep" TypeName="Model.PrepackRecipePrepPrep" StoreEntitySet="RecipePrepPrep">
+      <EndProperty Name="Prepack">
+        <ScalarProperty Name="Id" ColumnName="Prepack_Id" />
+      </EndProperty>
+      <EndProperty Name="RecipePrepPrep">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PrepackRecipePrepPrep1" TypeName="Model.PrepackRecipePrepPrep1" StoreEntitySet="RecipePrepPrep">
+      <EndProperty Name="Prepack">
+        <ScalarProperty Name="Id" ColumnName="Result_Id" />
+      </EndProperty>
+      <EndProperty Name="RecipePrepPrep">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BranchEncashment" TypeName="Model.BranchEncashment" StoreEntitySet="EncashmentSet">
+      <EndProperty Name="Branch">
+        <ScalarProperty Name="Id" ColumnName="Branch_Id" />
+      </EndProperty>
+      <EndProperty Name="Encashment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BranchShift" TypeName="Model.BranchShift" StoreEntitySet="ShiftSet">
+      <EndProperty Name="Branch">
+        <ScalarProperty Name="Id" ColumnName="Branch_Id" />
+      </EndProperty>
+      <EndProperty Name="Shift">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OrderCheckMerchandise" TypeName="Model.OrderCheckMerchandise" StoreEntitySet="CheckMerchandise">
+      <EndProperty Name="Order">
+        <ScalarProperty Name="Id" ColumnName="Order_Id" />
+      </EndProperty>
+      <EndProperty Name="CheckMerchandise">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OrderCheckDish" TypeName="Model.OrderCheckDish" StoreEntitySet="CheckDish">
+      <EndProperty Name="Order">
+        <ScalarProperty Name="Id" ColumnName="Order_Id" />
+      </EndProperty>
+      <EndProperty Name="CheckDish">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RoomTable" TypeName="Model.RoomTable" StoreEntitySet="TableSet">
+      <EndProperty Name="Room">
+        <ScalarProperty Name="Id" ColumnName="Room_Id" />
+      </EndProperty>
+      <EndProperty Name="Table">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BranchRoom" TypeName="Model.BranchRoom" StoreEntitySet="Room">
+      <EndProperty Name="Branch">
+        <ScalarProperty Name="Id" ColumnName="Branch_Id" />
+      </EndProperty>
+      <EndProperty Name="Room">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CompanyPurchase" TypeName="Model.CompanyPurchase" StoreEntitySet="Purchase">
+      <EndProperty Name="Company">
+        <ScalarProperty Name="Id" ColumnName="Provider_Id" />
+      </EndProperty>
+      <EndProperty Name="Purchase">
+        <ScalarProperty Name="IdPurchase" ColumnName="IdPurchase" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CategoryCategory" TypeName="Model.CategoryCategory" StoreEntitySet="Category">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="Id" ColumnName="ParrentCategory_Id" />
+      </EndProperty>
+      <EndProperty Name="Category1">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LandlordBranch" TypeName="Model.LandlordBranch" StoreEntitySet="Branch">
+      <EndProperty Name="Landlord">
+        <ScalarProperty Name="Id" ColumnName="Landlord_Id" />
+      </EndProperty>
+      <EndProperty Name="Branch">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClientOrder" TypeName="Model.ClientOrder" StoreEntitySet="Order">
+      <EndProperty Name="Client">
+        <ScalarProperty Name="Id" ColumnName="Client_Id" />
+      </EndProperty>
+      <EndProperty Name="Order">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Client_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
