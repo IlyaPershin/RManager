@@ -215,9 +215,6 @@
     <Compile Include="Models\EnergyValue.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity1.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Landlord.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -270,7 +267,13 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Repositoryes\CategoryRepository.cs" />
+    <Compile Include="Models\Repositoryes\ClientRepository.cs" />
+    <Compile Include="Models\Repositoryes\CompanyOwnerRepository.cs" />
     <Compile Include="Models\Repositoryes\CompanyRepository.cs" />
+    <Compile Include="Models\Repositoryes\ContactPersonRepository.cs" />
+    <Compile Include="Models\Repositoryes\EmployeeRepository.cs" />
+    <Compile Include="Models\Repositoryes\LandlordRepository.cs" />
+    <Compile Include="Models\Repositoryes\PersonRepository.cs" />
     <Compile Include="Models\Repositoryes\PositionRepository.cs" />
     <Compile Include="Models\Room.cs">
       <DependentUpon>Model.tt</DependentUpon>

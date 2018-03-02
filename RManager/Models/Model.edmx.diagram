@@ -7,7 +7,7 @@
       <Diagram DiagramId="6cd411e1f07f4526ace0ebf604ffe8be" Name="Diagram1" ZoomLevel="73" >
         <EntityTypeShape EntityType="Model.Document" Width="1.5" PointX="17.125" PointY="33.5" IsExpanded="false" />
         <EntityTypeShape EntityType="Model.Employee" Width="1.5" PointX="9" PointY="33.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Position" Width="1.5" PointX="9" PointY="34.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Position" Width="1.5" PointX="9" PointY="36" IsExpanded="false" />
         <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="12.25" PointY="22.75" IsExpanded="false" />
         <EntityTypeShape EntityType="Model.Dish" Width="1.5" PointX="12.25" PointY="24.875" IsExpanded="false" />
         <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="9.125" PointY="29.125" IsExpanded="false" />
@@ -69,7 +69,6 @@
         <EntityTypeShape EntityType="Model.Landlord" Width="1.5" PointX="12" PointY="35.125" IsExpanded="false" />
         <InheritanceConnector EntityType="Model.Landlord" />
         <AssociationConnector Association="Model.LandlordBranch" />
-        <EntityTypeShape EntityType="Model.Entity1" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="12" PointY="31.125" IsExpanded="false" />
         <InheritanceConnector EntityType="Model.Client" />
         <AssociationConnector Association="Model.ClientOrder" />

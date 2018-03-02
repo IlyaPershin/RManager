@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/01/2018 01:05:49
+-- Date Created: 03/01/2018 11:53:47
 -- Generated from EDMX file: D:\Илья\Вышка\3Course\Курсовая\RManager\RManager\Models\Model.edmx
 -- --------------------------------------------------
 
@@ -21,13 +21,13 @@ IF OBJECT_ID(N'[dbo].[FK_ManDocument]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Document] DROP CONSTRAINT [FK_ManDocument];
 GO
 IF OBJECT_ID(N'[dbo].[FK_positionperson]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Man_Employee] DROP CONSTRAINT [FK_positionperson];
+    ALTER TABLE [dbo].[Person_Employee] DROP CONSTRAINT [FK_positionperson];
 GO
 IF OBJECT_ID(N'[dbo].[FK_EmployeeOrder]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Order] DROP CONSTRAINT [FK_EmployeeOrder];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BranchPerson]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Man_Employee] DROP CONSTRAINT [FK_BranchPerson];
+    ALTER TABLE [dbo].[Person_Employee] DROP CONSTRAINT [FK_BranchPerson];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PersonEjection]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Ejection] DROP CONSTRAINT [FK_PersonEjection];
@@ -78,7 +78,7 @@ IF OBJECT_ID(N'[dbo].[FK_OwnerBranch]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Branch] DROP CONSTRAINT [FK_OwnerBranch];
 GO
 IF OBJECT_ID(N'[dbo].[FK_CompanyContactPerson]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Man_ContactPerson] DROP CONSTRAINT [FK_CompanyContactPerson];
+    ALTER TABLE [dbo].[Person_ContactPerson] DROP CONSTRAINT [FK_CompanyContactPerson];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PrepackRecipePrepIngr]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[RecipePrepIngr] DROP CONSTRAINT [FK_PrepackRecipePrepIngr];
@@ -116,20 +116,26 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_CategoryCategory]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Category] DROP CONSTRAINT [FK_CategoryCategory];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PersonOrder]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Order] DROP CONSTRAINT [FK_PersonOrder];
+IF OBJECT_ID(N'[dbo].[FK_LandlordBranch]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Branch] DROP CONSTRAINT [FK_LandlordBranch];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PersonBranch]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Branch] DROP CONSTRAINT [FK_PersonBranch];
+IF OBJECT_ID(N'[dbo].[FK_ClientOrder]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Order] DROP CONSTRAINT [FK_ClientOrder];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Employee_inherits_Person]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Man_Employee] DROP CONSTRAINT [FK_Employee_inherits_Person];
+    ALTER TABLE [dbo].[Person_Employee] DROP CONSTRAINT [FK_Employee_inherits_Person];
 GO
 IF OBJECT_ID(N'[dbo].[FK_CompanyOwner_inherits_Employee]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Man_CompanyOwner] DROP CONSTRAINT [FK_CompanyOwner_inherits_Employee];
+    ALTER TABLE [dbo].[Person_CompanyOwner] DROP CONSTRAINT [FK_CompanyOwner_inherits_Employee];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ContactPerson_inherits_Person]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Man_ContactPerson] DROP CONSTRAINT [FK_ContactPerson_inherits_Person];
+    ALTER TABLE [dbo].[Person_ContactPerson] DROP CONSTRAINT [FK_ContactPerson_inherits_Person];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Landlord_inherits_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Person_Landlord] DROP CONSTRAINT [FK_Landlord_inherits_Person];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Client_inherits_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Person_Client] DROP CONSTRAINT [FK_Client_inherits_Person];
 GO
 
 -- --------------------------------------------------
@@ -175,8 +181,8 @@ GO
 IF OBJECT_ID(N'[dbo].[Category]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Category];
 GO
-IF OBJECT_ID(N'[dbo].[Man]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Man];
+IF OBJECT_ID(N'[dbo].[Person]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Person];
 GO
 IF OBJECT_ID(N'[dbo].[Company]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Company];
@@ -202,14 +208,20 @@ GO
 IF OBJECT_ID(N'[dbo].[EncashmentSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[EncashmentSet];
 GO
-IF OBJECT_ID(N'[dbo].[Man_Employee]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Man_Employee];
+IF OBJECT_ID(N'[dbo].[Person_Employee]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Person_Employee];
 GO
-IF OBJECT_ID(N'[dbo].[Man_CompanyOwner]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Man_CompanyOwner];
+IF OBJECT_ID(N'[dbo].[Person_CompanyOwner]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Person_CompanyOwner];
 GO
-IF OBJECT_ID(N'[dbo].[Man_ContactPerson]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Man_ContactPerson];
+IF OBJECT_ID(N'[dbo].[Person_ContactPerson]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Person_ContactPerson];
+GO
+IF OBJECT_ID(N'[dbo].[Person_Landlord]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Person_Landlord];
+GO
+IF OBJECT_ID(N'[dbo].[Person_Client]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Person_Client];
 GO
 
 -- --------------------------------------------------
@@ -382,8 +394,8 @@ CREATE TABLE [dbo].[Category] (
 );
 GO
 
--- Creating table 'Man'
-CREATE TABLE [dbo].[Man] (
+-- Creating table 'Person'
+CREATE TABLE [dbo].[Person] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Surname] nvarchar(max)  NOT NULL,
     [FirstName] nvarchar(max)  NULL,
@@ -490,14 +502,8 @@ CREATE TABLE [dbo].[EncashmentSet] (
 );
 GO
 
--- Creating table 'Entity1Set'
-CREATE TABLE [dbo].[Entity1Set] (
-    [Id] int IDENTITY(1,1) NOT NULL
-);
-GO
-
--- Creating table 'Man_Employee'
-CREATE TABLE [dbo].[Man_Employee] (
+-- Creating table 'Person_Employee'
+CREATE TABLE [dbo].[Person_Employee] (
     [Login] nvarchar(max)  NOT NULL,
     [Password] nvarchar(max)  NOT NULL,
     [IsWorking] bit  NOT NULL,
@@ -508,23 +514,23 @@ CREATE TABLE [dbo].[Man_Employee] (
 );
 GO
 
--- Creating table 'Man_CompanyOwner'
-CREATE TABLE [dbo].[Man_CompanyOwner] (
+-- Creating table 'Person_CompanyOwner'
+CREATE TABLE [dbo].[Person_CompanyOwner] (
     [INN] nvarchar(max)  NOT NULL,
     [OGRN] nvarchar(max)  NOT NULL,
     [Id] int  NOT NULL
 );
 GO
 
--- Creating table 'Man_ContactPerson'
-CREATE TABLE [dbo].[Man_ContactPerson] (
+-- Creating table 'Person_ContactPerson'
+CREATE TABLE [dbo].[Person_ContactPerson] (
     [Id] int  NOT NULL,
     [Company_Id] int  NOT NULL
 );
 GO
 
--- Creating table 'Man_Landlord'
-CREATE TABLE [dbo].[Man_Landlord] (
+-- Creating table 'Person_Landlord'
+CREATE TABLE [dbo].[Person_Landlord] (
     [INN] nvarchar(max)  NOT NULL,
     [OGRN] nvarchar(max)  NOT NULL,
     [BankAccount] nvarchar(max)  NOT NULL,
@@ -532,8 +538,10 @@ CREATE TABLE [dbo].[Man_Landlord] (
 );
 GO
 
--- Creating table 'Man_Client'
-CREATE TABLE [dbo].[Man_Client] (
+-- Creating table 'Person_Client'
+CREATE TABLE [dbo].[Person_Client] (
+    [Login] nvarchar(max)  NOT NULL,
+    [Password] nvarchar(max)  NOT NULL,
     [Id] int  NOT NULL
 );
 GO
@@ -620,9 +628,9 @@ ADD CONSTRAINT [PK_Category]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Man'
-ALTER TABLE [dbo].[Man]
-ADD CONSTRAINT [PK_Man]
+-- Creating primary key on [Id] in table 'Person'
+ALTER TABLE [dbo].[Person]
+ADD CONSTRAINT [PK_Person]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -674,39 +682,33 @@ ADD CONSTRAINT [PK_EncashmentSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Entity1Set'
-ALTER TABLE [dbo].[Entity1Set]
-ADD CONSTRAINT [PK_Entity1Set]
+-- Creating primary key on [Id] in table 'Person_Employee'
+ALTER TABLE [dbo].[Person_Employee]
+ADD CONSTRAINT [PK_Person_Employee]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Man_Employee'
-ALTER TABLE [dbo].[Man_Employee]
-ADD CONSTRAINT [PK_Man_Employee]
+-- Creating primary key on [Id] in table 'Person_CompanyOwner'
+ALTER TABLE [dbo].[Person_CompanyOwner]
+ADD CONSTRAINT [PK_Person_CompanyOwner]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Man_CompanyOwner'
-ALTER TABLE [dbo].[Man_CompanyOwner]
-ADD CONSTRAINT [PK_Man_CompanyOwner]
+-- Creating primary key on [Id] in table 'Person_ContactPerson'
+ALTER TABLE [dbo].[Person_ContactPerson]
+ADD CONSTRAINT [PK_Person_ContactPerson]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Man_ContactPerson'
-ALTER TABLE [dbo].[Man_ContactPerson]
-ADD CONSTRAINT [PK_Man_ContactPerson]
+-- Creating primary key on [Id] in table 'Person_Landlord'
+ALTER TABLE [dbo].[Person_Landlord]
+ADD CONSTRAINT [PK_Person_Landlord]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Man_Landlord'
-ALTER TABLE [dbo].[Man_Landlord]
-ADD CONSTRAINT [PK_Man_Landlord]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [Id] in table 'Man_Client'
-ALTER TABLE [dbo].[Man_Client]
-ADD CONSTRAINT [PK_Man_Client]
+-- Creating primary key on [Id] in table 'Person_Client'
+ALTER TABLE [dbo].[Person_Client]
+ADD CONSTRAINT [PK_Person_Client]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -718,7 +720,7 @@ GO
 ALTER TABLE [dbo].[Document]
 ADD CONSTRAINT [FK_ManDocument]
     FOREIGN KEY ([Man_Id])
-    REFERENCES [dbo].[Man]
+    REFERENCES [dbo].[Person]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -729,8 +731,8 @@ ON [dbo].[Document]
     ([Man_Id]);
 GO
 
--- Creating foreign key on [Position_Id] in table 'Man_Employee'
-ALTER TABLE [dbo].[Man_Employee]
+-- Creating foreign key on [Position_Id] in table 'Person_Employee'
+ALTER TABLE [dbo].[Person_Employee]
 ADD CONSTRAINT [FK_positionperson]
     FOREIGN KEY ([Position_Id])
     REFERENCES [dbo].[Position]
@@ -740,7 +742,7 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_positionperson'
 CREATE INDEX [IX_FK_positionperson]
-ON [dbo].[Man_Employee]
+ON [dbo].[Person_Employee]
     ([Position_Id]);
 GO
 
@@ -748,7 +750,7 @@ GO
 ALTER TABLE [dbo].[Order]
 ADD CONSTRAINT [FK_EmployeeOrder]
     FOREIGN KEY ([Employee_Id])
-    REFERENCES [dbo].[Man_Employee]
+    REFERENCES [dbo].[Person_Employee]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -759,8 +761,8 @@ ON [dbo].[Order]
     ([Employee_Id]);
 GO
 
--- Creating foreign key on [Branch_Id] in table 'Man_Employee'
-ALTER TABLE [dbo].[Man_Employee]
+-- Creating foreign key on [Branch_Id] in table 'Person_Employee'
+ALTER TABLE [dbo].[Person_Employee]
 ADD CONSTRAINT [FK_BranchPerson]
     FOREIGN KEY ([Branch_Id])
     REFERENCES [dbo].[Branch]
@@ -770,7 +772,7 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BranchPerson'
 CREATE INDEX [IX_FK_BranchPerson]
-ON [dbo].[Man_Employee]
+ON [dbo].[Person_Employee]
     ([Branch_Id]);
 GO
 
@@ -778,7 +780,7 @@ GO
 ALTER TABLE [dbo].[Ejection]
 ADD CONSTRAINT [FK_PersonEjection]
     FOREIGN KEY ([Culprit_Id])
-    REFERENCES [dbo].[Man_Employee]
+    REFERENCES [dbo].[Person_Employee]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -793,7 +795,7 @@ GO
 ALTER TABLE [dbo].[ShiftSet]
 ADD CONSTRAINT [FK_PersonShift]
     FOREIGN KEY ([Person_Id])
-    REFERENCES [dbo].[Man_Employee]
+    REFERENCES [dbo].[Person_Employee]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -1003,7 +1005,7 @@ GO
 ALTER TABLE [dbo].[Branch]
 ADD CONSTRAINT [FK_OwnerBranch]
     FOREIGN KEY ([Owner_Id])
-    REFERENCES [dbo].[Man_CompanyOwner]
+    REFERENCES [dbo].[Person_CompanyOwner]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -1014,8 +1016,8 @@ ON [dbo].[Branch]
     ([Owner_Id]);
 GO
 
--- Creating foreign key on [Company_Id] in table 'Man_ContactPerson'
-ALTER TABLE [dbo].[Man_ContactPerson]
+-- Creating foreign key on [Company_Id] in table 'Person_ContactPerson'
+ALTER TABLE [dbo].[Person_ContactPerson]
 ADD CONSTRAINT [FK_CompanyContactPerson]
     FOREIGN KEY ([Company_Id])
     REFERENCES [dbo].[Company]
@@ -1025,7 +1027,7 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CompanyContactPerson'
 CREATE INDEX [IX_FK_CompanyContactPerson]
-ON [dbo].[Man_ContactPerson]
+ON [dbo].[Person_ContactPerson]
     ([Company_Id]);
 GO
 
@@ -1213,7 +1215,7 @@ GO
 ALTER TABLE [dbo].[Branch]
 ADD CONSTRAINT [FK_LandlordBranch]
     FOREIGN KEY ([Landlord_Id])
-    REFERENCES [dbo].[Man_Landlord]
+    REFERENCES [dbo].[Person_Landlord]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -1228,7 +1230,7 @@ GO
 ALTER TABLE [dbo].[Order]
 ADD CONSTRAINT [FK_ClientOrder]
     FOREIGN KEY ([Client_Id])
-    REFERENCES [dbo].[Man_Client]
+    REFERENCES [dbo].[Person_Client]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -1239,47 +1241,47 @@ ON [dbo].[Order]
     ([Client_Id]);
 GO
 
--- Creating foreign key on [Id] in table 'Man_Employee'
-ALTER TABLE [dbo].[Man_Employee]
+-- Creating foreign key on [Id] in table 'Person_Employee'
+ALTER TABLE [dbo].[Person_Employee]
 ADD CONSTRAINT [FK_Employee_inherits_Person]
     FOREIGN KEY ([Id])
-    REFERENCES [dbo].[Man]
+    REFERENCES [dbo].[Person]
         ([Id])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Id] in table 'Man_CompanyOwner'
-ALTER TABLE [dbo].[Man_CompanyOwner]
+-- Creating foreign key on [Id] in table 'Person_CompanyOwner'
+ALTER TABLE [dbo].[Person_CompanyOwner]
 ADD CONSTRAINT [FK_CompanyOwner_inherits_Employee]
     FOREIGN KEY ([Id])
-    REFERENCES [dbo].[Man_Employee]
+    REFERENCES [dbo].[Person_Employee]
         ([Id])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Id] in table 'Man_ContactPerson'
-ALTER TABLE [dbo].[Man_ContactPerson]
+-- Creating foreign key on [Id] in table 'Person_ContactPerson'
+ALTER TABLE [dbo].[Person_ContactPerson]
 ADD CONSTRAINT [FK_ContactPerson_inherits_Person]
     FOREIGN KEY ([Id])
-    REFERENCES [dbo].[Man]
+    REFERENCES [dbo].[Person]
         ([Id])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Id] in table 'Man_Landlord'
-ALTER TABLE [dbo].[Man_Landlord]
+-- Creating foreign key on [Id] in table 'Person_Landlord'
+ALTER TABLE [dbo].[Person_Landlord]
 ADD CONSTRAINT [FK_Landlord_inherits_Person]
     FOREIGN KEY ([Id])
-    REFERENCES [dbo].[Man]
+    REFERENCES [dbo].[Person]
         ([Id])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Id] in table 'Man_Client'
-ALTER TABLE [dbo].[Man_Client]
+-- Creating foreign key on [Id] in table 'Person_Client'
+ALTER TABLE [dbo].[Person_Client]
 ADD CONSTRAINT [FK_Client_inherits_Person]
     FOREIGN KEY ([Id])
-    REFERENCES [dbo].[Man]
+    REFERENCES [dbo].[Person]
         ([Id])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO

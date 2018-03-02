@@ -19,7 +19,7 @@
     <EntitySet Name="Room" EntityType="Model.Store.Room" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Branch" EntityType="Model.Store.Branch" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Category" EntityType="Model.Store.Category" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Man" EntityType="Model.Store.Man" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Person" EntityType="Model.Store.Person" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Company" EntityType="Model.Store.Company" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PrepackSet" EntityType="Model.Store.PrepackSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RecipePrepIngr" EntityType="Model.Store.RecipePrepIngr" store:Type="Tables" Schema="dbo" />
@@ -28,34 +28,33 @@
     <EntitySet Name="CheckMerchandise" EntityType="Model.Store.CheckMerchandise" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ShiftSet" EntityType="Model.Store.ShiftSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="EncashmentSet" EntityType="Model.Store.EncashmentSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Entity1Set" EntityType="Model.Store.Entity1Set" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Man_Employee" EntityType="Model.Store.Man_Employee" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Man_CompanyOwner" EntityType="Model.Store.Man_CompanyOwner" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Man_ContactPerson" EntityType="Model.Store.Man_ContactPerson" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Man_Landlord" EntityType="Model.Store.Man_Landlord" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Man_Client" EntityType="Model.Store.Man_Client" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Person_Employee" EntityType="Model.Store.Person_Employee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Person_CompanyOwner" EntityType="Model.Store.Person_CompanyOwner" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Person_ContactPerson" EntityType="Model.Store.Person_ContactPerson" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Person_Landlord" EntityType="Model.Store.Person_Landlord" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Person_Client" EntityType="Model.Store.Person_Client" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="ManDocument" Association="Model.Store.ManDocument">
-      <End Role="Person" EntitySet="Man" />
+      <End Role="Person" EntitySet="Person" />
       <End Role="Document" EntitySet="Document" />
     </AssociationSet>
     <AssociationSet Name="FK_positionperson" Association="Model.Store.FK_positionperson">
       <End Role="Position" EntitySet="Position" />
-      <End Role="Employee" EntitySet="Man_Employee" />
+      <End Role="Employee" EntitySet="Person_Employee" />
     </AssociationSet>
     <AssociationSet Name="EmployeeOrder" Association="Model.Store.EmployeeOrder">
-      <End Role="Employee" EntitySet="Man_Employee" />
+      <End Role="Employee" EntitySet="Person_Employee" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="BranchPerson" Association="Model.Store.BranchPerson">
       <End Role="Branch" EntitySet="Branch" />
-      <End Role="Employee" EntitySet="Man_Employee" />
+      <End Role="Employee" EntitySet="Person_Employee" />
     </AssociationSet>
     <AssociationSet Name="PersonEjection" Association="Model.Store.PersonEjection">
-      <End Role="Employee" EntitySet="Man_Employee" />
+      <End Role="Employee" EntitySet="Person_Employee" />
       <End Role="Ejection" EntitySet="Ejection" />
     </AssociationSet>
     <AssociationSet Name="PersonShift" Association="Model.Store.PersonShift">
-      <End Role="Employee" EntitySet="Man_Employee" />
+      <End Role="Employee" EntitySet="Person_Employee" />
       <End Role="Shift" EntitySet="ShiftSet" />
     </AssociationSet>
     <AssociationSet Name="IngridientPurchase" Association="Model.Store.IngridientPurchase">
@@ -111,12 +110,12 @@
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="OwnerBranch" Association="Model.Store.OwnerBranch">
-      <End Role="CompanyOwner" EntitySet="Man_CompanyOwner" />
+      <End Role="CompanyOwner" EntitySet="Person_CompanyOwner" />
       <End Role="Branch" EntitySet="Branch" />
     </AssociationSet>
     <AssociationSet Name="CompanyContactPerson" Association="Model.Store.CompanyContactPerson">
       <End Role="Company" EntitySet="Company" />
-      <End Role="ContactPerson" EntitySet="Man_ContactPerson" />
+      <End Role="ContactPerson" EntitySet="Person_ContactPerson" />
     </AssociationSet>
     <AssociationSet Name="PrepackRecipePrepIngr" Association="Model.Store.PrepackRecipePrepIngr">
       <End Role="Prepack" EntitySet="PrepackSet" />
@@ -167,32 +166,32 @@
       <End Role="Category1" EntitySet="Category" />
     </AssociationSet>
     <AssociationSet Name="LandlordBranch" Association="Model.Store.LandlordBranch">
-      <End Role="Landlord" EntitySet="Man_Landlord" />
+      <End Role="Landlord" EntitySet="Person_Landlord" />
       <End Role="Branch" EntitySet="Branch" />
     </AssociationSet>
     <AssociationSet Name="ClientOrder" Association="Model.Store.ClientOrder">
-      <End Role="Client" EntitySet="Man_Client" />
+      <End Role="Client" EntitySet="Person_Client" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="FK_Employee_inherits_Person" Association="Model.Store.FK_Employee_inherits_Person">
-      <End Role="Person" EntitySet="Man" />
-      <End Role="Employee" EntitySet="Man_Employee" />
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Employee" EntitySet="Person_Employee" />
     </AssociationSet>
     <AssociationSet Name="FK_CompanyOwner_inherits_Employee" Association="Model.Store.FK_CompanyOwner_inherits_Employee">
-      <End Role="Employee" EntitySet="Man_Employee" />
-      <End Role="CompanyOwner" EntitySet="Man_CompanyOwner" />
+      <End Role="Employee" EntitySet="Person_Employee" />
+      <End Role="CompanyOwner" EntitySet="Person_CompanyOwner" />
     </AssociationSet>
     <AssociationSet Name="FK_ContactPerson_inherits_Person" Association="Model.Store.FK_ContactPerson_inherits_Person">
-      <End Role="Person" EntitySet="Man" />
-      <End Role="ContactPerson" EntitySet="Man_ContactPerson" />
+      <End Role="Person" EntitySet="Person" />
+      <End Role="ContactPerson" EntitySet="Person_ContactPerson" />
     </AssociationSet>
     <AssociationSet Name="FK_Landlord_inherits_Person" Association="Model.Store.FK_Landlord_inherits_Person">
-      <End Role="Person" EntitySet="Man" />
-      <End Role="Landlord" EntitySet="Man_Landlord" />
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Landlord" EntitySet="Person_Landlord" />
     </AssociationSet>
     <AssociationSet Name="FK_Client_inherits_Person" Association="Model.Store.FK_Client_inherits_Person">
-      <End Role="Person" EntitySet="Man" />
-      <End Role="Client" EntitySet="Man_Client" />
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Client" EntitySet="Person_Client" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Document">
@@ -361,7 +360,7 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ParrentCategory_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Man">
+  <EntityType Name="Person">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -469,13 +468,7 @@
     <Property Name="WriteOff" Type="decimal" Nullable="false" />
     <Property Name="Branch_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Entity1Set">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Man_Employee">
+  <EntityType Name="Person_Employee">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -487,7 +480,7 @@
     <Property Name="Position_Id" Type="int" Nullable="false" />
     <Property Name="Branch_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Man_CompanyOwner">
+  <EntityType Name="Person_CompanyOwner">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -495,14 +488,14 @@
     <Property Name="OGRN" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Man_ContactPerson">
+  <EntityType Name="Person_ContactPerson">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Company_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Man_Landlord">
+  <EntityType Name="Person_Landlord">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -511,14 +504,16 @@
     <Property Name="BankAccount" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Man_Client">
+  <EntityType Name="Person_Client">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="ManDocument">
-    <End Role="Person" Type="Model.Store.Man" Multiplicity="1" />
+    <End Role="Person" Type="Model.Store.Person" Multiplicity="1" />
     <End Role="Document" Type="Model.Store.Document" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Person">
@@ -531,7 +526,7 @@
   </Association>
   <Association Name="FK_positionperson">
     <End Role="Position" Type="Model.Store.Position" Multiplicity="1" />
-    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="*" />
+    <End Role="Employee" Type="Model.Store.Person_Employee" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Position">
         <PropertyRef Name="Id" />
@@ -542,7 +537,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="EmployeeOrder">
-    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="1" />
+    <End Role="Employee" Type="Model.Store.Person_Employee" Multiplicity="1" />
     <End Role="Order" Type="Model.Store.Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employee">
@@ -555,7 +550,7 @@
   </Association>
   <Association Name="BranchPerson">
     <End Role="Branch" Type="Model.Store.Branch" Multiplicity="1" />
-    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="*" />
+    <End Role="Employee" Type="Model.Store.Person_Employee" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Branch">
         <PropertyRef Name="Id" />
@@ -566,7 +561,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PersonEjection">
-    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="0..1" />
+    <End Role="Employee" Type="Model.Store.Person_Employee" Multiplicity="0..1" />
     <End Role="Ejection" Type="Model.Store.Ejection" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employee">
@@ -578,7 +573,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PersonShift">
-    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="1" />
+    <End Role="Employee" Type="Model.Store.Person_Employee" Multiplicity="1" />
     <End Role="Shift" Type="Model.Store.ShiftSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employee">
@@ -746,7 +741,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="OwnerBranch">
-    <End Role="CompanyOwner" Type="Model.Store.Man_CompanyOwner" Multiplicity="1" />
+    <End Role="CompanyOwner" Type="Model.Store.Person_CompanyOwner" Multiplicity="1" />
     <End Role="Branch" Type="Model.Store.Branch" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CompanyOwner">
@@ -759,7 +754,7 @@
   </Association>
   <Association Name="CompanyContactPerson">
     <End Role="Company" Type="Model.Store.Company" Multiplicity="1" />
-    <End Role="ContactPerson" Type="Model.Store.Man_ContactPerson" Multiplicity="*" />
+    <End Role="ContactPerson" Type="Model.Store.Person_ContactPerson" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Company">
         <PropertyRef Name="Id" />
@@ -914,7 +909,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="LandlordBranch">
-    <End Role="Landlord" Type="Model.Store.Man_Landlord" Multiplicity="1" />
+    <End Role="Landlord" Type="Model.Store.Person_Landlord" Multiplicity="1" />
     <End Role="Branch" Type="Model.Store.Branch" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Landlord">
@@ -926,7 +921,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ClientOrder">
-    <End Role="Client" Type="Model.Store.Man_Client" Multiplicity="0..1" />
+    <End Role="Client" Type="Model.Store.Person_Client" Multiplicity="0..1" />
     <End Role="Order" Type="Model.Store.Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Client">
@@ -938,10 +933,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Employee_inherits_Person">
-    <End Role="Person" Type="Model.Store.Man" Multiplicity="1">
+    <End Role="Person" Type="Model.Store.Person" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="0..1" />
+    <End Role="Employee" Type="Model.Store.Person_Employee" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Person">
         <PropertyRef Name="Id" />
@@ -952,10 +947,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_CompanyOwner_inherits_Employee">
-    <End Role="Employee" Type="Model.Store.Man_Employee" Multiplicity="1">
+    <End Role="Employee" Type="Model.Store.Person_Employee" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="CompanyOwner" Type="Model.Store.Man_CompanyOwner" Multiplicity="0..1" />
+    <End Role="CompanyOwner" Type="Model.Store.Person_CompanyOwner" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Employee">
         <PropertyRef Name="Id" />
@@ -966,10 +961,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ContactPerson_inherits_Person">
-    <End Role="Person" Type="Model.Store.Man" Multiplicity="1">
+    <End Role="Person" Type="Model.Store.Person" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="ContactPerson" Type="Model.Store.Man_ContactPerson" Multiplicity="0..1" />
+    <End Role="ContactPerson" Type="Model.Store.Person_ContactPerson" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Person">
         <PropertyRef Name="Id" />
@@ -980,10 +975,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Landlord_inherits_Person">
-    <End Role="Person" Type="Model.Store.Man" Multiplicity="1">
+    <End Role="Person" Type="Model.Store.Person" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Landlord" Type="Model.Store.Man_Landlord" Multiplicity="0..1" />
+    <End Role="Landlord" Type="Model.Store.Person_Landlord" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Person">
         <PropertyRef Name="Id" />
@@ -994,10 +989,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Client_inherits_Person">
-    <End Role="Person" Type="Model.Store.Man" Multiplicity="1">
+    <End Role="Person" Type="Model.Store.Person" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Client" Type="Model.Store.Man_Client" Multiplicity="0..1" />
+    <End Role="Client" Type="Model.Store.Person_Client" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Person">
         <PropertyRef Name="Id" />
@@ -1025,7 +1020,7 @@
           <EntitySet Name="Room" EntityType="Model.Room" />
           <EntitySet Name="Branch" EntityType="Model.Branch" />
           <EntitySet Name="Category" EntityType="Model.Category" />
-          <EntitySet Name="Man" EntityType="Model.Person" />
+          <EntitySet Name="Person" EntityType="Model.Person" />
           <EntitySet Name="Company" EntityType="Model.Company" />
           <EntitySet Name="PrepackSet" EntityType="Model.Prepack" />
           <EntitySet Name="RecipePrepIngr" EntityType="Model.RecipePrepIngr" />
@@ -1035,27 +1030,27 @@
           <EntitySet Name="ShiftSet" EntityType="Model.Shift" />
           <EntitySet Name="EncashmentSet" EntityType="Model.Encashment" />
           <AssociationSet Name="ManDocument" Association="Model.ManDocument">
-            <End Role="Person" EntitySet="Man" />
+            <End Role="Person" EntitySet="Person" />
             <End Role="Document" EntitySet="Document" />
           </AssociationSet>
           <AssociationSet Name="FK_positionperson" Association="Model.FK_positionperson">
             <End Role="Position" EntitySet="Position" />
-            <End Role="Employee" EntitySet="Man" />
+            <End Role="Employee" EntitySet="Person" />
           </AssociationSet>
           <AssociationSet Name="EmployeeOrder" Association="Model.EmployeeOrder">
-            <End Role="Employee" EntitySet="Man" />
+            <End Role="Employee" EntitySet="Person" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="BranchPerson" Association="Model.BranchPerson">
             <End Role="Branch" EntitySet="Branch" />
-            <End Role="Employee" EntitySet="Man" />
+            <End Role="Employee" EntitySet="Person" />
           </AssociationSet>
           <AssociationSet Name="PersonEjection" Association="Model.PersonEjection">
-            <End Role="Employee" EntitySet="Man" />
+            <End Role="Employee" EntitySet="Person" />
             <End Role="Ejection" EntitySet="Ejection" />
           </AssociationSet>
           <AssociationSet Name="PersonShift" Association="Model.PersonShift">
-            <End Role="Employee" EntitySet="Man" />
+            <End Role="Employee" EntitySet="Person" />
             <End Role="Shift" EntitySet="ShiftSet" />
           </AssociationSet>
           <AssociationSet Name="IngridientPurchase" Association="Model.IngridientPurchase">
@@ -1111,12 +1106,12 @@
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="OwnerBranch" Association="Model.OwnerBranch">
-            <End Role="CompanyOwner" EntitySet="Man" />
+            <End Role="CompanyOwner" EntitySet="Person" />
             <End Role="Branch" EntitySet="Branch" />
           </AssociationSet>
           <AssociationSet Name="CompanyContactPerson" Association="Model.CompanyContactPerson">
             <End Role="Company" EntitySet="Company" />
-            <End Role="ContactPerson" EntitySet="Man" />
+            <End Role="ContactPerson" EntitySet="Person" />
           </AssociationSet>
           <AssociationSet Name="PrepackRecipePrepIngr" Association="Model.PrepackRecipePrepIngr">
             <End Role="Prepack" EntitySet="PrepackSet" />
@@ -1167,12 +1162,11 @@
             <End Role="Category1" EntitySet="Category" />
           </AssociationSet>
           <AssociationSet Name="LandlordBranch" Association="Model.LandlordBranch">
-            <End Role="Landlord" EntitySet="Man" />
+            <End Role="Landlord" EntitySet="Person" />
             <End Role="Branch" EntitySet="Branch" />
           </AssociationSet>
-          <EntitySet Name="Entity1Set" EntityType="Model.Entity1" />
           <AssociationSet Name="ClientOrder" Association="Model.ClientOrder">
-            <End Role="Client" EntitySet="Man" />
+            <End Role="Client" EntitySet="Person" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           </EntityContainer>
@@ -1612,13 +1606,9 @@
           <End Type="Model.Landlord" Role="Landlord" Multiplicity="1" />
           <End Type="Model.Branch" Role="Branch" Multiplicity="*" />
         </Association>
-        <EntityType Name="Entity1">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
         <EntityType Name="Client" BaseType="Model.Person">
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="ClientOrder">
           <End Type="Model.Client" Role="Client" Multiplicity="0..1" />
@@ -1794,9 +1784,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Man">
+    <EntitySetMapping Name="Person">
       <EntityTypeMapping TypeName="IsTypeOf(Model.Person)">
-        <MappingFragment StoreEntitySet="Man">
+        <MappingFragment StoreEntitySet="Person">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1813,7 +1803,7 @@
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Model.Employee)">
-        <MappingFragment StoreEntitySet="Man_Employee">
+        <MappingFragment StoreEntitySet="Person_Employee">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Login" ColumnName="Login" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -1822,19 +1812,19 @@
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Model.CompanyOwner)">
-        <MappingFragment StoreEntitySet="Man_CompanyOwner">
+        <MappingFragment StoreEntitySet="Person_CompanyOwner">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="INN" ColumnName="INN" />
           <ScalarProperty Name="OGRN" ColumnName="OGRN" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Model.ContactPerson)">
-        <MappingFragment StoreEntitySet="Man_ContactPerson">
+        <MappingFragment StoreEntitySet="Person_ContactPerson">
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Model.Landlord)">
-        <MappingFragment StoreEntitySet="Man_Landlord">
+        <MappingFragment StoreEntitySet="Person_Landlord">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="INN" ColumnName="INN" />
           <ScalarProperty Name="OGRN" ColumnName="OGRN" />
@@ -1842,8 +1832,10 @@
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Model.Client)">
-        <MappingFragment StoreEntitySet="Man_Client">
+        <MappingFragment StoreEntitySet="Person_Client">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1938,13 +1930,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Entity1Set">
-      <EntityTypeMapping TypeName="IsTypeOf(Model.Entity1)">
-        <MappingFragment StoreEntitySet="Entity1Set">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <AssociationSetMapping Name="ManDocument" TypeName="Model.ManDocument" StoreEntitySet="Document">
       <EndProperty Name="Person">
         <ScalarProperty Name="Id" ColumnName="Man_Id" />
@@ -1953,7 +1938,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_positionperson" TypeName="Model.FK_positionperson" StoreEntitySet="Man_Employee">
+    <AssociationSetMapping Name="FK_positionperson" TypeName="Model.FK_positionperson" StoreEntitySet="Person_Employee">
       <EndProperty Name="Position">
         <ScalarProperty Name="Id" ColumnName="Position_Id" />
       </EndProperty>
@@ -1969,7 +1954,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="BranchPerson" TypeName="Model.BranchPerson" StoreEntitySet="Man_Employee">
+    <AssociationSetMapping Name="BranchPerson" TypeName="Model.BranchPerson" StoreEntitySet="Person_Employee">
       <EndProperty Name="Branch">
         <ScalarProperty Name="Id" ColumnName="Branch_Id" />
       </EndProperty>
@@ -2108,7 +2093,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="CompanyContactPerson" TypeName="Model.CompanyContactPerson" StoreEntitySet="Man_ContactPerson">
+    <AssociationSetMapping Name="CompanyContactPerson" TypeName="Model.CompanyContactPerson" StoreEntitySet="Person_ContactPerson">
       <EndProperty Name="Company">
         <ScalarProperty Name="Id" ColumnName="Company_Id" />
       </EndProperty>

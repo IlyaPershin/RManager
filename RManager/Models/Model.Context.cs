@@ -38,7 +38,7 @@ namespace RManager.Models
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<Branch> Branch { get; set; }
         public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<Person> Man { get; set; }
+        public virtual DbSet<Person> Person { get; set; }
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<Prepack> PrepackSet { get; set; }
         public virtual DbSet<RecipePrepIngr> RecipePrepIngr { get; set; }
@@ -47,6 +47,5 @@ namespace RManager.Models
         public virtual DbSet<CheckMerchandise> CheckMerchandise { get; set; }
         public virtual DbSet<Shift> ShiftSet { get; set; }
         public virtual DbSet<Encashment> EncashmentSet { get; set; }
-        public virtual DbSet<Entity1> Entity1Set { get; set; }
     }
 }
