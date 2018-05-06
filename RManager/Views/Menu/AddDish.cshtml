@@ -1,0 +1,270 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "AddDish";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithMenu)
+{
+    @Html.Partial("tabs")
+
+<div class="panel panel-default">
+    <h3>@Html.ActionLink("Меню", "Menu", "Menu") >> Добавить работника</h3>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Название*:</span>
+                        <input type="text" class="form-control" name="dishname" placeholder="Название"> @Html.ValidationMessage("Dishname")
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Артикул*:</span>
+                        <input type="text" class="form-control" name="vendorcode" placeholder="Артикул"> @Html.ValidationMessage("Vendorcode")
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Цена*:</span>
+                        <input type="text" class="form-control" name="cost" placeholder="Цена"> @Html.ValidationMessage("Cost")
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Категория*:</span>
+                        @Html.DropDownList("category", (IEnumerable<SelectListItem>)ViewData["Categoryes"], htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Место готовки*:</span>
+                        @Html.DropDownList("room", (IEnumerable<SelectListItem>)ViewData["Rooms"], htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Описание:</span>
+                        <input type="text" class="form-control" name="description" placeholder="Описание"> @Html.ValidationMessage("Description")
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Количество*:</span>
+                        <input type="text" class="form-control" name="volume" placeholder="Количество"> @Html.ValidationMessage("Volume")
+                        @Html.DropDownList("measure", (IEnumerable<SelectListItem>)ViewData["Measures"], htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </p>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 panel panel-default">
+            <p><h4>Ингредиенты</h4></p>
+            <p>
+                <div class="row">
+                    <div class="input-group">
+                        <span class="input-group-addon">@Html.CheckBox("checkP1")</span>
+                        @Html.DropDownList("product1", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                        <input type="text" class="form-control" name="volumeP1" placeholder="количество"> @Html.ValidationMessage("Product1")
+                    </div>
+                </div>
+            </p>
+
+            <p>
+                <div class="row">
+                    <div class="input-group">
+                        <span class="input-group-addon">@Html.CheckBox("checkP2")</span>
+                        @Html.DropDownList("product2", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                        <input type="text" class="form-control" name="volumeP2" placeholder="количество"> @Html.ValidationMessage("Product2")
+                    </div>
+                </div>
+            </p>
+
+            <p>
+                <div class="row">
+                    <div class="input-group">
+                        <span class="input-group-addon">@Html.CheckBox("checkP3")</span>
+                        @Html.DropDownList("product3", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                        <input type="text" class="form-control" name="volumeP3" placeholder="количество"> @Html.ValidationMessage("Product3")
+                    </div>
+                </div>
+            </p>
+
+            <p>
+                <div class="row">
+                    <div class="input-group">
+                        <span class="input-group-addon">@Html.CheckBox("checkP4")</span>
+                        @Html.DropDownList("product4", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                        <input type="text" class="form-control" name="volumeP4" placeholder="количество"> @Html.ValidationMessage("Product4")
+                    </div>
+                </div>
+            </p>
+
+            <p>
+                <div class="row">
+                    <div class="input-group">
+                        <span class="input-group-addon">@Html.CheckBox("checkP5")</span>
+                        @Html.DropDownList("product5", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                        <input type="text" class="form-control" name="volumeP5" placeholder="количество"> @Html.ValidationMessage("Product5")
+                    </div>
+                </div>
+            </p>
+
+            <p>
+                <div class="row">
+                    <div class="input-group">
+                        <span class="input-group-addon">@Html.CheckBox("checkP6")</span>
+                        @Html.DropDownList("product6", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                        <input type="text" class="form-control" name="volumeP6" placeholder="количество"> @Html.ValidationMessage("Product6")
+                    </div>
+                </div>
+            </p>
+
+            <p>
+                <div class="row">
+                    <div class="input-group">
+                        <span class="input-group-addon">@Html.CheckBox("checkP7")</span>
+                        @Html.DropDownList("product7", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                        <input type="text" class="form-control" name="volumeP7" placeholder="количество"> @Html.ValidationMessage("Product7")
+                    </div>
+                </div>
+            </p>
+
+            <p>
+                <div class="row">
+                    <div class="input-group">
+                        <span class="input-group-addon">@Html.CheckBox("checkP8")</span>
+                        @Html.DropDownList("product8", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                        <input type="text" class="form-control" name="volumeP8" placeholder="количество"> @Html.ValidationMessage("Product8")
+                    </div>
+                </div>
+            </p>
+
+            <p>
+                <div class="row">
+                    <div class="input-group">
+                        <span class="input-group-addon">@Html.CheckBox("checkP9")</span>
+                        @Html.DropDownList("product9", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                        <input type="text" class="form-control" name="volumeP9" placeholder="количество"> @Html.ValidationMessage("Product9")
+                    </div>
+                </div>
+            </p>
+
+            <p>
+                <div class="row">
+                    <div class="input-group">
+                        <span class="input-group-addon">@Html.CheckBox("checkP10")</span>
+                        @Html.DropDownList("product10", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                        <input type="text" class="form-control" name="volumeP10" placeholder="количество"> @Html.ValidationMessage("Product10")
+                    </div>
+                </div>
+            </p>
+
+            @*<p>
+                    <div class="row">
+                        <div class="input-group">
+                            <span class="input-group-addon">@Html.CheckBox("check1")</span>
+                            @Html.DropDownList("product1", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                            <input type="text" class="form-control" name="volume" placeholder="количество"> @Html.ValidationMessage("Product1")
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <span class="input-group-addon">@Html.CheckBox("check1")</span>
+                            @Html.DropDownList("product1", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                            <input type="text" class="form-control" name="volume" placeholder="количество"> @Html.ValidationMessage("Product1")
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <span class="input-group-addon">@Html.CheckBox("check1")</span>
+                            @Html.DropDownList("product1", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                            <input type="text" class="form-control" name="volume" placeholder="количество"> @Html.ValidationMessage("Product1")
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <span class="input-group-addon">@Html.CheckBox("check1")</span>
+                            @Html.DropDownList("product1", (IEnumerable<SelectListItem>)ViewData["Products"], htmlAttributes: new { @class = "form-control" })
+                            <input type="text" class="form-control" name="volume" placeholder="количество"> @Html.ValidationMessage("Product1")
+                        </div>
+                    </div>
+                </p>*@
+
+            <p>
+            </p>
+        </div>
+
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Белки:</span>
+                        <input type="text" class="form-control" name="protains" placeholder="Белки"> @Html.ValidationMessage("Protains")
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Жиры:</span>
+                        <input type="text" class="form-control" name="fats" placeholder="Жиры"> @Html.ValidationMessage("Fats")
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Углеводы:</span>
+                        <input type="text" class="form-control" name="carbohydrates" placeholder="Углеводы"> @Html.ValidationMessage("Carbohydrates")
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Энерг. ценность в ккал:</span>
+                        <input type="text" class="form-control" name="energyCalorie" placeholder="ккал"> @Html.ValidationMessage("EnergyCalorie")
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Энерг. ценность в ДЖ:</span>
+                        <input type="text" class="form-control" name="energyJoule" placeholder="ДЖ"> @Html.ValidationMessage("EnergyJoule")
+                    </div>
+                </div>
+            </div>
+        </p>
+
+        <p><input class="btn btn-default" type="submit" value="OK"></p>
+        <p>@Html.ValidationMessage("Dublicate")</p>
+    }
+</div>
+}

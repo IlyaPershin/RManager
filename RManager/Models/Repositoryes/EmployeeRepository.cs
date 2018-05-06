@@ -16,38 +16,50 @@ namespace RManager.Models.Repositoryes
 
         public IEnumerable<Employee> Employees()
         {
-            return (IEnumerable<Employee>)cont.Person.ToList().FindAll(cp => cp.GetType().Equals(typeof(Employee))).OrderBy(c => c.Id);
+            var persons = cont.Person.ToList().FindAll(cp => cp is Employee || cp is CompanyOwner);
+            List<Employee> employees = new List<Employee>();
+            foreach (var pers in persons)
+            {
+                employees.Add((Employee)pers);
+            }
+            return employees;
         }
 
-        static public Employee GetEmployeeById(int id)
+        public Employee GetEmployeeById(int id)
         {
             return (Employee)cont.Person.SingleOrDefault(c => c.Id == id);
         }
 
-        static public Employee GetEmployeeByName(string name)
+        public Employee GetEmployeeByName(string name)
         {
             return (Employee)cont.Person.SingleOrDefault(p => p.Surname == name || p.FirstName == name);
         }
 
-        static public Employee GetEmployeeByPhone(string phone)
+        public Employee GetEmployeeByPhone(string phone)
         {
             return (Employee)cont.Person.SingleOrDefault(p => p.Phone == phone);
         }
 
-        static public Employee GetEmployeeByEmail(string email)
+        public Employee GetEmployeeByEmail(string email)
         {
             return (Employee)cont.Person.SingleOrDefault(p => p.Email == email);
         }
 
         public void DeleteEmployee(int id)
         {
+            if (cont.Order.ToList().Exists(o => o.Employee.Id == id) ||
+                cont.Shift.ToList().Exists(o => o.Person.Id == id))
+            {
+                ((Employee)cont.Person.SingleOrDefault(p => p.Id == id)).IsWorking = false;
+                return;
+            }
             cont.Person.Remove(cont.Person.Find(id));
             cont.SaveChanges();
         }
 
         public Employee AddEmployee(string surname, string firstname, string middlename, string phone, string email,
             string country, string city, string street, string building, string index,
-            string login, string password, string description, Branch branch)
+            string login, string password, string description, Branch branch, Position position)
         {
 
             Employee p = new Employee
@@ -73,6 +85,7 @@ namespace RManager.Models.Repositoryes
                 Description = description,
 
                 Branch = branch,
+                Position = position,
             };
             cont.Person.Add(p);
             cont.SaveChanges();
@@ -81,7 +94,7 @@ namespace RManager.Models.Repositoryes
 
         public Employee AddEmployee(string surname, string firstname, string middlename, string phone, string email,
             Adress adress,
-            string login, string password, string description, Branch branch)
+            string login, string password, string description, Branch branch, Position position)
         {
 
             Employee p = new Employee
@@ -100,6 +113,7 @@ namespace RManager.Models.Repositoryes
                 Description = description,
 
                 Branch = branch,
+                Position = position,
             };
             cont.Person.Add(p);
             cont.SaveChanges();
@@ -107,7 +121,7 @@ namespace RManager.Models.Repositoryes
         }
 
         public Employee AddEmployee(string surname, string firstname, string middlename, string phone, string email,
-            string login, string password, string description, Branch branch)
+            string login, string password, string description, Branch branch, Position position)
         {
 
             Employee p = new Employee
@@ -126,6 +140,7 @@ namespace RManager.Models.Repositoryes
                 Description = description,
 
                 Branch = branch,
+                Position = position,
             };
             cont.Person.Add(p);
             cont.SaveChanges();

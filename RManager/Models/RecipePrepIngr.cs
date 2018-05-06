@@ -15,7 +15,7 @@ namespace RManager.Models
     public partial class RecipePrepIngr
     {
         public int Id { get; set; }
-        public int Volume { get; set; }
+        public double Volume { get; set; }
         public string Description { get; set; }
     
         public virtual Product Ingredient { get; set; }

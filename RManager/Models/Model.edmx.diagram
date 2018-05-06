@@ -4,40 +4,38 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6cd411e1f07f4526ace0ebf604ffe8be" Name="Diagram1" ZoomLevel="73" >
-        <EntityTypeShape EntityType="Model.Document" Width="1.5" PointX="17.125" PointY="33.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Employee" Width="1.5" PointX="9" PointY="33.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Position" Width="1.5" PointX="9" PointY="36" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="12.25" PointY="22.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Dish" Width="1.5" PointX="12.25" PointY="24.875" IsExpanded="false" />
+      <Diagram DiagramId="6cd411e1f07f4526ace0ebf604ffe8be" Name="Diagram1" ZoomLevel="83" >
+        <EntityTypeShape EntityType="Model.Document" Width="1.5" PointX="13" PointY="31.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Employee" Width="1.5" PointX="9" PointY="31.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Position" Width="1.5" PointX="9" PointY="32.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="15" PointY="28.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Dish" Width="1.5" PointX="11" PointY="29.125" IsExpanded="false" />
         <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="9.125" PointY="29.125" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Purchase" Width="1.5" PointX="12.125" PointY="19.625" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Ejection" Width="1.5" PointX="17.875" PointY="20.625" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.CheckDish" Width="1.5" PointX="10.25" PointY="27.875" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Table" Width="1.5" PointX="6.375" PointY="29.125" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.RecipeDishIngr" Width="1.5" PointX="12.25" PointY="23.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Room" Width="1.5" PointX="6.375" PointY="30.125" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Branch" Width="1.5" PointX="6.375" PointY="32.375" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.CompanyOwner" Width="1.5" PointX="6.25" PointY="36" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Category" Width="1.5" PointX="17.125" PointY="23.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Person" Width="1.5" PointX="12" PointY="33.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Company" Width="1.5" PointX="15.75" PointY="26.875" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.ContactPerson" Width="1.5" PointX="14.875" PointY="33.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Prepack" Width="1.5" PointX="7.375" PointY="22.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.RecipePrepIngr" Width="1.5" PointX="10" PointY="22.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.RecipeDishPrep" Width="1.5" PointX="9.25" PointY="24.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.RecipePrepPrep" Width="1.5" PointX="4.875" PointY="22.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.CheckMerchandise" Width="1.5" PointX="8.125" PointY="27.875" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Shift" Width="1.5" PointX="3.25" PointY="31.375" IsExpanded="false" />
-        <EntityTypeShape EntityType="Model.Encashment" Width="1.5" PointX="3.25" PointY="32.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Purchase" Width="1.5" PointX="5" PointY="27.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Ejection" Width="1.5" PointX="5" PointY="27.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.CheckDish" Width="1.5" PointX="10.25" PointY="28.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Table" Width="1.5" PointX="7.125" PointY="29.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.RecipeDishIngr" Width="1.5" PointX="13.125" PointY="29.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Room" Width="1.5" PointX="7.125" PointY="30.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Branch" Width="1.5" PointX="7.125" PointY="31.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.CompanyOwner" Width="1.5" PointX="7" PointY="32.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Category" Width="1.5" PointX="15" PointY="29.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Person" Width="1.5" PointX="11" PointY="31.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Company" Width="1.5" PointX="5" PointY="28.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.ContactPerson" Width="1.5" PointX="5" PointY="29.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Prepack" Width="1.5" PointX="13.125" PointY="28.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.RecipePrepIngr" Width="1.5" PointX="15" PointY="27.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.RecipeDishPrep" Width="1.5" PointX="13.125" PointY="28.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.RecipePrepPrep" Width="1.5" PointX="13.125" PointY="27.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.CheckMerchandise" Width="1.5" PointX="8.125" PointY="28.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Shift" Width="1.5" PointX="5" PointY="30.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Encashment" Width="1.5" PointX="5" PointY="31.625" IsExpanded="false" />
         <AssociationConnector Association="Model.ManDocument" />
         <AssociationConnector Association="Model.FK_positionperson" />
         <AssociationConnector Association="Model.EmployeeOrder" />
         <AssociationConnector Association="Model.BranchPerson" />
         <AssociationConnector Association="Model.PersonEjection" />
         <AssociationConnector Association="Model.PersonShift" />
-        <AssociationConnector Association="Model.IngridientPurchase" />
-        <AssociationConnector Association="Model.IngridientEjection" />
         <AssociationConnector Association="Model.IngridientDIConnection" />
         <AssociationConnector Association="Model.CategoryProduct" />
         <AssociationConnector Association="Model.CompanyProduct" />
@@ -66,12 +64,27 @@
         <AssociationConnector Association="Model.BranchRoom" />
         <AssociationConnector Association="Model.CompanyPurchase" />
         <AssociationConnector Association="Model.CategoryCategory" />
-        <EntityTypeShape EntityType="Model.Landlord" Width="1.5" PointX="12" PointY="35.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Landlord" Width="1.5" PointX="11" PointY="32.5" IsExpanded="false" />
         <InheritanceConnector EntityType="Model.Landlord" />
         <AssociationConnector Association="Model.LandlordBranch" />
-        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="12" PointY="31.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="11" PointY="30.375" IsExpanded="false" />
         <InheritanceConnector EntityType="Model.Client" />
         <AssociationConnector Association="Model.ClientOrder" />
+        <EntityTypeShape EntityType="Model.Warehouse" Width="1.5" PointX="10.375" PointY="27.375" IsExpanded="false" />
+        <AssociationConnector Association="Model.BranchWarehouse" ManuallyRouted="true" >
+          <ConnectorPoint PointX="8.29687825" PointY="31.375" />
+          <ConnectorPoint PointX="8.29687825" PointY="30.775" />
+          <ConnectorPoint PointX="8.875" PointY="30.775" />
+          <ConnectorPoint PointX="8.875" PointY="29.025" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="29.025" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="29.025" />
+          <ConnectorPoint PointX="9.875" PointY="29.025" />
+          <ConnectorPoint PointX="9.875" PointY="28.014999999999997" />
+          <ConnectorPoint PointX="10.375" PointY="27.545447542186352" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.ProductWarehouse" />
+        <AssociationConnector Association="Model.WarehousePurchase" />
+        <AssociationConnector Association="Model.WarehouseEjection" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

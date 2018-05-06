@@ -1,0 +1,47 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithOrders)
+{
+    @Html.Partial("tabs")
+    <div class="panel panel-default">
+        <table class="table table-bordered">
+            <tr>
+                <th>№ Заказы</th>
+                <th>№ Стола</th>
+                <th>Сумма</th>
+                <th>Изменить</th>
+                <th>Оплачен>Закрыть</th>
+                <th>Отмена заказа</th>
+            </tr>
+            @foreach (Order ord in ((IEnumerable<Order>)ViewData["Orders"]))
+            {
+                int idOrder = ord.Id;
+                <tr>
+                    <th>@ord.Id</th>
+                    @if (ord.Table != null)
+                    {
+                        <td>@ord.Table.Number</td>
+                    }
+                    else
+                    {
+                        <td>-</td>
+                    }
+                    <th>@ord.FinalPrice</th>
+                    <th>@Html.ActionLink("Изменить", "EditOrder", new { idOrder = ord.Id })</th>
+                    <th>@Html.ActionLink("Закрыть", "CloseOrder", new { idOrder = ord.Id })</th>
+                    <th>@Html.ActionLink("Удалить", "DeleteOrder", new { idOrder = ord.Id })</th>
+                </tr>
+            }
+        </table>
+        @Html.ActionLink("Открыть новый заказ", "NewOrder", "Orders", htmlAttributes: new { @class = "btn btn-default" })
+    </div>
+}
+else
+{
+    <h4>Вы не выполнили вход, для работы необходимо выполнить вход.</h4>
+}
+

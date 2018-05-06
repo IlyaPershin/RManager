@@ -19,17 +19,26 @@ namespace RManager.Models.Repositoryes
             return cont.Category.OrderBy(c => c.Id);
         }
 
-        static public Category GetCategory(int id)
+        public Category GetCategory(int id)
         {
             return cont.Category.SingleOrDefault(c => c.Id == id);
         }
 
         public void DeleteCategory(int id)
         {
-            List<Category> c = cont.Category.ToList().FindAll(ca => ca.ParrentCategory.Id == id);
-            for (int i = 0; i < c.Count(); i++)
+            foreach(Category c in cont.Category.ToList().FindAll(ca => ca.ParrentCategory.Id == id))
             {
-                DeleteParrent(c[i].Id);
+                DeleteParrent(c.Id);
+            }
+
+            foreach (Product p in cont.Product.ToList().FindAll(pr => pr.Category.Id == id))
+            {
+                p.Category = null;
+            }
+
+            foreach (Dish d in cont.Dish.ToList().FindAll(di => di.Category.Id == id))
+            {
+                d.Category = null;
             }
 
             cont.Category.Remove(cont.Category.Find(id));

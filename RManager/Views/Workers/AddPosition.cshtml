@@ -1,0 +1,92 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "AddPosition";
+}
+
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithMenu)
+{
+    @Html.Partial("tabs")
+    <h3>@Html.ActionLink("Работник", "Workers", "Workers") >> Добавить должность</h3>
+
+    <div class="panel panel-default">
+        @using (Html.BeginForm())
+    {
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Название*:</span>
+                        <span class="input-group-addon">
+                            <input type="text" class="form-control" name="name" placeholder="Название"> @Html.ValidationMessage("Name")
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon form-control">Работа с заказами:</span>
+                        <span class="input-group-addon">@Html.CheckBox("orders")</span>
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon form-control">Работа с меню:</span>
+                        <span class="input-group-addon">@Html.CheckBox("menu")</span>
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon form-control">Работа со складом:</span>
+                        <span class="input-group-addon">@Html.CheckBox("warehouse")</span>
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon form-control">Работа со штатом:</span>
+                        <span class="input-group-addon">@Html.CheckBox("workers")</span>
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon form-control">Работа со столами:</span>
+                        <span class="input-group-addon">@Html.CheckBox("tables")</span>
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon form-control">Работа с отчётами:</span>
+                        <span class="input-group-addon">@Html.CheckBox("reports")</span>
+                    </div>
+                </div>
+            </div>
+        </p>
+        <p><input class="btn btn-default" type="submit" value="OK"></p>
+        <p>@Html.ValidationMessage("Dublicate")</p>
+}
+    </div>
+}

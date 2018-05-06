@@ -1,0 +1,71 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "Menu";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithMenu)
+{
+            @Html.Partial("tabs")
+<div class="panel panel-default">
+    @{ if (((IEnumerable<Product>)ViewData["Ingrediets"]).Count() > 0)
+        {
+            @Html.ActionLink("Добавить блюдо", "AddDish", "Menu", new { _DishId = 0 }, htmlAttributes: new { @class = "btn btn-default" })
+            using (Html.BeginForm())
+            {
+                <p class="input-group">
+                    <span class="input-group-addon" id="Firm">Поиск по названию:</span>
+                    <input type="text" class="form-control" name="name" placeholder="Название">
+                    <input class="btn btn-default" type="submit" value="Найти">@Html.ValidationMessage("Name")
+                </p>
+            }
+            <div class="panel panel-default">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>№</th>
+                        <th>Название</th>
+                        <th>Масса</th>
+                        <th>Стоимость</th>
+                        <th>Удалить</th>
+                        @*<td><input type="date" name="date1"/></td>
+                            <td>@Html.TextBox("date2","",htmlAttributes:new { @type="date"})</td>*@
+                    </tr>
+
+                    @{
+                        int i = 1;
+                        foreach (Dish p in ((IEnumerable<Dish>)ViewData["Dishes"]))
+                        {
+                            if (p.IsExist)
+                            {
+                                <tr>
+                                    <th>@i</th>
+                                    <th>@p.Name</th>
+                                    <td>
+                                        @{string str = "";}
+                                        @if ((byte)p.Measure == 0) { str = "гр"; }
+                                        @if ((byte)p.Measure == 1) { str = "мл"; }
+                                        @if ((byte)p.Measure == 2) { str = "шт"; }
+                                        @String.Format("{0:0,00}", p.FinalVolume) @str
+                                    </td>
+                                    <td>@String.Format("{0:0,00}", p.Cost) руб.</td>
+                                    <td>@Html.ActionLink("Удалить", "DeleteDish", new { id = p.Id })</td>
+                                </tr>
+                                i++;
+                            }
+                        }
+                    }
+                </table>
+            </div>
+                        }
+                        else
+                        {
+            <h4>Добавьте, хотя бы одну компанию поставщика</h4>
+                            }
+                        }
+</div>
+
+}
+else
+{
+    < h4 > Вы не выполнили вход, для работы необходимо выполнить вход.</ h4 >
+}

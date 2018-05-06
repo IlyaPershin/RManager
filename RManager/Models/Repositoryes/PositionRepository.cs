@@ -19,7 +19,7 @@ namespace RManager.Models.Repositoryes
             return cont.Position.OrderBy(c => c.Id);
         }
 
-        static public Position GetPosition(int id)
+        public Position GetPosition(int id)
         {
             return cont.Position.SingleOrDefault(p => p.Id == id);
         }
@@ -30,7 +30,7 @@ namespace RManager.Models.Repositoryes
             cont.SaveChanges();
         }
 
-        public Position AddPosition(string name, bool orders, bool menu, bool warehouse, bool stuff, bool reports)
+        public Position AddPosition(string name, bool orders, bool menu, bool warehouse, bool stuff, bool reports, bool tables)
         {
             Position p = new Position
             {
@@ -39,7 +39,8 @@ namespace RManager.Models.Repositoryes
                 WorkWithMenu = menu,
                 WorkWithWarehouse = warehouse,
                 WorkWithStuff = stuff,
-                WorkWithReports = reports
+                WorkWithReports = reports,
+                WorkWithTables = tables
             };
             cont.Position.Add(p);
             cont.SaveChanges();
@@ -57,7 +58,7 @@ namespace RManager.Models.Repositoryes
             return p;
         }
 
-        public Position EditPosition(int id, string name, bool orders, bool menu, bool warehouse, bool stuff, bool reports)
+        public Position EditPosition(int id, string name, bool orders, bool menu, bool warehouse, bool stuff, bool reports, bool tables)
         {
             Position p = cont.Position.SingleOrDefault(po => po.Id == id);
             p.Name = name;
@@ -66,88 +67,20 @@ namespace RManager.Models.Repositoryes
             p.WorkWithWarehouse = warehouse;
             p.WorkWithStuff = stuff;
             p.WorkWithReports = reports;
+            p.WorkWithTables = tables;
             cont.SaveChanges();
             return p;
         }
-
-        public Position AddWorkWithOrders(int id)
+        
+        public Position GetPositionByName(string name)
         {
-            Position p = cont.Position.SingleOrDefault(po => po.Id == id);
-            p.WorkWithOrders = true;
-            cont.SaveChanges();
-            return p;
+            return cont.Position.SingleOrDefault(po => po.Name == name);
         }
 
-        public Position RemoveWorkWithOrders(int id)
+        public IEnumerable<Position> GetPositionByPowers(bool orders, bool menu, bool warehouse, bool stuff, bool reports, bool tables)
         {
-            Position p = cont.Position.SingleOrDefault(po => po.Id == id);
-            p.WorkWithOrders = false;
-            cont.SaveChanges();
-            return p;
-        }
-
-        public Position AddWorkWithMenu(int id)
-        {
-            Position p = cont.Position.SingleOrDefault(po => po.Id == id);
-            p.WorkWithMenu = true;
-            cont.SaveChanges();
-            return p;
-        }
-
-        public Position RemoveWorkWithMenu(int id)
-        {
-            Position p = cont.Position.SingleOrDefault(po => po.Id == id);
-            p.WorkWithMenu = false;
-            cont.SaveChanges();
-            return p;
-        }
-
-        public Position AddWorkWithWarehouse(int id)
-        {
-            Position p = cont.Position.SingleOrDefault(po => po.Id == id);
-            p.WorkWithWarehouse = true;
-            cont.SaveChanges();
-            return p;
-        }
-
-        public Position RemoveWorkWithWarehouse(int id)
-        {
-            Position p = cont.Position.SingleOrDefault(po => po.Id == id);
-            p.WorkWithWarehouse = false;
-            cont.SaveChanges();
-            return p;
-        }
-
-        public Position AddWorkWithStuff(int id)
-        {
-            Position p = cont.Position.SingleOrDefault(po => po.Id == id);
-            p.WorkWithStuff = true;
-            cont.SaveChanges();
-            return p;
-        }
-
-        public Position RemoveWorkWithStuff(int id)
-        {
-            Position p = cont.Position.SingleOrDefault(po => po.Id == id);
-            p.WorkWithStuff = false;
-            cont.SaveChanges();
-            return p;
-        }
-
-        public Position AddWorkWithReports(int id)
-        {
-            Position p = cont.Position.SingleOrDefault(po => po.Id == id);
-            p.WorkWithReports = true;
-            cont.SaveChanges();
-            return p;
-        }
-
-        public Position RemoveWorkWithReports(int id)
-        {
-            Position p = cont.Position.SingleOrDefault(po => po.Id == id);
-            p.WorkWithReports = false;
-            cont.SaveChanges();
-            return p;
+            return cont.Position.ToList().FindAll(po => po.WorkWithOrders == orders && po.WorkWithMenu == menu && po.WorkWithWarehouse == warehouse &&
+            po.WorkWithStuff == stuff && po.WorkWithReports == reports && po.WorkWithTables == tables);
         }
     }
 }

@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Вход</h2>
+
+<div class="panel panel-default">
+    @using (Html.BeginForm())
+    {
+        <p class="input-group">
+            <span class="input-group-addon" id="Firm">Логин:</span>
+            <input type="text" class="form-control" name="login" placeholder="Логин"> @Html.ValidationMessage("Login")
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon" id="Firm">Пароль:</span>
+            <input type="password" class="form-control" name="password" placeholder="Пароль"> @Html.ValidationMessage("Password")
+        </p>
+        <p><input class="btn btn-default" type="submit" value="OK"></p>
+        <p><input class="btn btn-default" type="submit" value="Cancel"></p>
+        <p>@Html.ValidationMessage("Dublicate")</p>
+    }
+</div>

@@ -1,0 +1,35 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "AddCompany";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithMenu)
+{
+    @Html.Partial("tabs")
+    <h3>@Html.ActionLink("Компании", "Companyes", "Companyes") >> Добавить компанию</h3>
+
+    <div class="panel panel-default">
+        @using (Html.BeginForm())
+        {
+            <p class="input-group">
+                <span class="input-group-addon">Название:</span>
+                <input type="text" class="form-control" name="name" placeholder="Название"> @Html.ValidationMessage("Name")
+            </p>
+            <p class="input-group">
+                <span class="input-group-addon">ИНН:</span>
+                <input type="text" class="form-control" name="inn" placeholder="ИНН"> @Html.ValidationMessage("INN")
+            </p>
+            <p class="input-group">
+                <span class="input-group-addon">ОГРН:</span>
+                <input type="text" class="form-control" name="ogrn" placeholder="ОГРН"> @Html.ValidationMessage("OGRN")
+            </p>
+            <p class="input-group">
+                <span class="input-group-addon">Банковский счёт:</span>
+                <input type="text" class="form-control" name="bankAccount" placeholder="Банковский счёт"> @Html.ValidationMessage("BankAccount")
+            </p>
+            <p><input class="btn btn-default" type="submit" value="OK"></p>
+            <p>@Html.ValidationMessage("Dublicate")</p>
+        }
+    </div>
+}

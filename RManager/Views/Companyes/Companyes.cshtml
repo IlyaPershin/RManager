@@ -1,0 +1,43 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "Companyes";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithMenu)
+{
+    @Html.Partial("tabs")
+<div class="panel panel-default">
+    <h3>Компании партнёры</h3>
+    @Html.ActionLink("Добавить компанию", "AddCompany", "Companyes", htmlAttributes: new { @class = "btn btn-default" })
+    <table class="table table-bordered">
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>ИНН</th>
+            <th>ОГРН</th>
+            <th>Счёт</th>
+            <th>Удалить</th>
+        </tr>
+
+        @{
+            IEnumerable<KeyValuePair<int, Company>> companyes = ((IEnumerable<KeyValuePair<int, Company>>)ViewData["companyes"]);
+            for (int j = 0; j < companyes.Count(); j++)
+            {
+                <tr>
+                    <td>@(j + 1)</td>
+                    <th>@companyes.ElementAt(j).Value.Name</th>
+                    <th>@companyes.ElementAt(j).Value.INN</th>
+                    <th>@companyes.ElementAt(j).Value.OGRN</th>
+                    <th>@companyes.ElementAt(j).Value.BankAccount</th>
+                    @*<th>@Html.ActionLink("Удалить", "DeleteCompany", new { id = companyes.ElementAt(j).Value.Id })</th>*@
+                </tr>
+            }
+        }
+    </table>
+</div>
+}
+else
+{
+    <h4>Вы не выполнили вход, для работы необходимо выполнить вход.</h4>
+}

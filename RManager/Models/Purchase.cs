@@ -14,12 +14,12 @@ namespace RManager.Models
     
     public partial class Purchase
     {
-        public int IdPurchase { get; set; }
+        public int Id { get; set; }
         public System.DateTime Date { get; set; }
-        public Nullable<double> Price { get; set; }
+        public decimal Price { get; set; }
         public double Volume { get; set; }
     
-        public virtual Product Ingridient { get; set; }
         public virtual Company Provider { get; set; }
+        public virtual Warehouse Warehouse { get; set; }
     }
 }

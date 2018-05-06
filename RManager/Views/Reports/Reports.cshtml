@@ -1,0 +1,15 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "Reports";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithMenu)
+{
+    @Html.Partial("tabs")
+    <h3>Модуль ещё в разраотке</h3>
+}
+else
+{
+    <h4>Вы не выполнили вход, для работы необходимо выполнить вход.</h4>
+}

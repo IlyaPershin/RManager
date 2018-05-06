@@ -1,0 +1,29 @@
+﻿@using RManager.Models
+
+<ul class="nav nav-tabs">
+    @if (((Employee)Session["user"]).Position.WorkWithOrders)
+    {
+        <li role="presentation">@Html.ActionLink("Заказы", "Orders", "Orders")</li>
+    }
+    @if (((Employee)Session["user"]).Position.WorkWithMenu)
+    {
+        <li role="presentation">@Html.ActionLink("Меню", "Menu", "Menu")</li>
+    }
+    @if (((Employee)Session["user"]).Position.WorkWithWarehouse)
+    {
+        <li role="presentation">@Html.ActionLink("Склад", "Warehouse", "Warehouse")</li>
+        <li role="presentation">@Html.ActionLink("Компании", "Companyes", "Companyes")</li>
+    }
+    @if (((Employee)Session["user"]).Position.WorkWithStuff)
+    {
+        <li role="presentation">@Html.ActionLink("Работники", "Workers", "Workers")</li>
+    }
+    @if (((Employee)Session["user"]).Position.WorkWithTables)
+    {
+        <li role="presentation">@Html.ActionLink("Столы", "Tables", "Tables")</li>
+    }
+    @if (((Employee)Session["user"]).Position.WorkWithReports)
+    {
+        <li role="presentation" class="active"><a href="#">Компании</a></li>
+    }
+</ul>

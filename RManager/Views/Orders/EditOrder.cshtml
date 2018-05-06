@@ -1,0 +1,88 @@
+﻿@using RManager.Models
+@model RManager.Models.Order
+
+@{
+    ViewBag.Title = "EditOrder";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithOrders)
+{
+    @Html.Partial("tabs")
+
+<div class="panel panel-default">
+    <h3>@Html.ActionLink("Заказы", "WaiterMainWindow", "Waiter") >> Оформление заказа</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Блюда в заказе</h4>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Название</th>
+                    <th>Стоимость</th>
+                    <th>Удалить</th>
+                </tr>
+                @foreach (CheckDish check in ((IEnumerable<CheckDish>)ViewData["ChecksDish"]))
+                {
+                    <tr>
+                        <th>@(check.Dish.VendorCode + ' ' + check.Dish.Name)</th>
+                        <td>@String.Format("{0:0.00}", check.Dish.Cost)</td>
+                        <th>@Html.ActionLink("Удалить", "DeleteDish", new { idCheck = check.Id, idOrder = Model.Id })</th>
+                    </tr>
+                }
+                @foreach (CheckMerchandise check in ((IEnumerable<CheckMerchandise>)ViewData["ChecksMerchandize"]))
+                {
+                    <tr>
+                        <th>@(check.Product.VendorCode + ' ' + check.Product.Name)</th>
+                        <td>@String.Format("{0:0.00}", check.Product.Cost)</td>
+                        <th>@Html.ActionLink("Удалить", "DeleteMerch", new { idCheck = check.Id, idOrder = Model.Id })</th>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h4>Меню</h4>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Название</th>
+                    <th>Стоимость</th>
+                    <th>Добавить</th>
+                </tr>
+                @foreach (Dish dish in ((IEnumerable<Dish>)ViewData["Dishes"]))
+                {
+                    <tr>
+                        <th>@(dish.VendorCode + ' ' + dish.Name)</th>
+                        <td>@String.Format("{0:0.00}", dish.Cost)</td>
+                        <th>@Html.ActionLink("Добавить", "AddDish", new { idDish = dish.Id, idOrder = Model.Id })</th>
+                    </tr>
+                }
+                @foreach (Product product in ((IEnumerable<Product>)ViewData["Merchandizes"]))
+                {
+                    <tr>
+                        <th>@(product.VendorCode + ' ' + product.Name + ' ' + product.Property)</th>
+                        <td>@String.Format("{0:0.00}", product.Cost)</td>
+                        <th>@Html.ActionLink("Добавить", "AddMerch", new { idMerch = product.Id, idOrder = Model.Id })</th>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+    <div>
+        <h4>Общая сумма заказа: @String.Format("{0:0.00}", Model.FinalPrice)</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @Html.ActionLink("К списку заказов", "WaiterMainWindow", new { }, htmlAttributes: new { @class = "btn btn-default" })
+        </div>
+        <div class="col-md-4">
+            @Html.ActionLink("Оплачен, закрыть", "CloseOrder", new { idOrder = Model.Id }, htmlAttributes: new { @class = "btn btn-default" })
+        </div>
+        <div class="col-md-4">
+            @Html.ActionLink("Отменить заказ", "DeleteOrder", new { idOrder = Model.Id }, htmlAttributes: new { @class = "btn btn-default" })
+        </div>
+    </div>
+</div>
+}
+else
+{
+    <h4>Вы не выполнили вход, для работы необходимо выполнить вход.</h4>
+}

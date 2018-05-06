@@ -19,7 +19,7 @@ namespace RManager.Models.Repositoryes
             return cont.Company.OrderBy(c => c.Id);
         }
 
-        static public Company GetCompany(int id)
+        public Company GetCompany(int id)
         {
             return cont.Company.SingleOrDefault(c => c.Id == id);
         }

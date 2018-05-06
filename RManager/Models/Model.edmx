@@ -14,20 +14,21 @@
     <EntitySet Name="Purchase" EntityType="Model.Store.Purchase" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Ejection" EntityType="Model.Store.Ejection" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CheckDish" EntityType="Model.Store.CheckDish" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TableSet" EntityType="Model.Store.TableSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Table" EntityType="Model.Store.Table" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RecipeDishIngr" EntityType="Model.Store.RecipeDishIngr" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Room" EntityType="Model.Store.Room" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Branch" EntityType="Model.Store.Branch" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Category" EntityType="Model.Store.Category" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Person" EntityType="Model.Store.Person" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Company" EntityType="Model.Store.Company" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PrepackSet" EntityType="Model.Store.PrepackSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Prepack" EntityType="Model.Store.Prepack" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RecipePrepIngr" EntityType="Model.Store.RecipePrepIngr" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RecipeDishPrep" EntityType="Model.Store.RecipeDishPrep" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RecipePrepPrep" EntityType="Model.Store.RecipePrepPrep" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CheckMerchandise" EntityType="Model.Store.CheckMerchandise" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ShiftSet" EntityType="Model.Store.ShiftSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EncashmentSet" EntityType="Model.Store.EncashmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Shift" EntityType="Model.Store.Shift" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Encashment" EntityType="Model.Store.Encashment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Warehouse" EntityType="Model.Store.Warehouse" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Person_Employee" EntityType="Model.Store.Person_Employee" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Person_CompanyOwner" EntityType="Model.Store.Person_CompanyOwner" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Person_ContactPerson" EntityType="Model.Store.Person_ContactPerson" store:Type="Tables" Schema="dbo" />
@@ -55,15 +56,7 @@
     </AssociationSet>
     <AssociationSet Name="PersonShift" Association="Model.Store.PersonShift">
       <End Role="Employee" EntitySet="Person_Employee" />
-      <End Role="Shift" EntitySet="ShiftSet" />
-    </AssociationSet>
-    <AssociationSet Name="IngridientPurchase" Association="Model.Store.IngridientPurchase">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Purchase" EntitySet="Purchase" />
-    </AssociationSet>
-    <AssociationSet Name="IngridientEjection" Association="Model.Store.IngridientEjection">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Ejection" EntitySet="Ejection" />
+      <End Role="Shift" EntitySet="Shift" />
     </AssociationSet>
     <AssociationSet Name="IngridientDIConnection" Association="Model.Store.IngridientDIConnection">
       <End Role="Product" EntitySet="Product" />
@@ -106,7 +99,7 @@
       <End Role="RecipeDishPrep" EntitySet="RecipeDishPrep" />
     </AssociationSet>
     <AssociationSet Name="TableOrder" Association="Model.Store.TableOrder">
-      <End Role="Table" EntitySet="TableSet" />
+      <End Role="Table" EntitySet="Table" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="OwnerBranch" Association="Model.Store.OwnerBranch">
@@ -118,28 +111,28 @@
       <End Role="ContactPerson" EntitySet="Person_ContactPerson" />
     </AssociationSet>
     <AssociationSet Name="PrepackRecipePrepIngr" Association="Model.Store.PrepackRecipePrepIngr">
-      <End Role="Prepack" EntitySet="PrepackSet" />
+      <End Role="Prepack" EntitySet="Prepack" />
       <End Role="RecipePrepIngr" EntitySet="RecipePrepIngr" />
     </AssociationSet>
     <AssociationSet Name="PrepackRecipeDishPrep" Association="Model.Store.PrepackRecipeDishPrep">
-      <End Role="Prepack" EntitySet="PrepackSet" />
+      <End Role="Prepack" EntitySet="Prepack" />
       <End Role="RecipeDishPrep" EntitySet="RecipeDishPrep" />
     </AssociationSet>
     <AssociationSet Name="PrepackRecipePrepPrep" Association="Model.Store.PrepackRecipePrepPrep">
-      <End Role="Prepack" EntitySet="PrepackSet" />
+      <End Role="Prepack" EntitySet="Prepack" />
       <End Role="RecipePrepPrep" EntitySet="RecipePrepPrep" />
     </AssociationSet>
     <AssociationSet Name="PrepackRecipePrepPrep1" Association="Model.Store.PrepackRecipePrepPrep1">
-      <End Role="Prepack" EntitySet="PrepackSet" />
+      <End Role="Prepack" EntitySet="Prepack" />
       <End Role="RecipePrepPrep" EntitySet="RecipePrepPrep" />
     </AssociationSet>
     <AssociationSet Name="BranchEncashment" Association="Model.Store.BranchEncashment">
       <End Role="Branch" EntitySet="Branch" />
-      <End Role="Encashment" EntitySet="EncashmentSet" />
+      <End Role="Encashment" EntitySet="Encashment" />
     </AssociationSet>
     <AssociationSet Name="BranchShift" Association="Model.Store.BranchShift">
       <End Role="Branch" EntitySet="Branch" />
-      <End Role="Shift" EntitySet="ShiftSet" />
+      <End Role="Shift" EntitySet="Shift" />
     </AssociationSet>
     <AssociationSet Name="OrderCheckMerchandise" Association="Model.Store.OrderCheckMerchandise">
       <End Role="Order" EntitySet="Order" />
@@ -151,7 +144,7 @@
     </AssociationSet>
     <AssociationSet Name="RoomTable" Association="Model.Store.RoomTable">
       <End Role="Room" EntitySet="Room" />
-      <End Role="Table" EntitySet="TableSet" />
+      <End Role="Table" EntitySet="Table" />
     </AssociationSet>
     <AssociationSet Name="BranchRoom" Association="Model.Store.BranchRoom">
       <End Role="Branch" EntitySet="Branch" />
@@ -172,6 +165,22 @@
     <AssociationSet Name="ClientOrder" Association="Model.Store.ClientOrder">
       <End Role="Client" EntitySet="Person_Client" />
       <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="BranchWarehouse" Association="Model.Store.BranchWarehouse">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Warehouse" EntitySet="Warehouse" />
+    </AssociationSet>
+    <AssociationSet Name="ProductWarehouse" Association="Model.Store.ProductWarehouse">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Warehouse" EntitySet="Warehouse" />
+    </AssociationSet>
+    <AssociationSet Name="WarehousePurchase" Association="Model.Store.WarehousePurchase">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="WarehouseEjection" Association="Model.Store.WarehouseEjection">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Ejection" EntitySet="Ejection" />
     </AssociationSet>
     <AssociationSet Name="FK_Employee_inherits_Person" Association="Model.Store.FK_Employee_inherits_Person">
       <End Role="Person" EntitySet="Person" />
@@ -217,6 +226,7 @@
     <Property Name="WorkWithWarehouse" Type="bit" Nullable="false" DefaultValue="false" />
     <Property Name="WorkWithStuff" Type="bit" Nullable="false" DefaultValue="false" />
     <Property Name="WorkWithReports" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="WorkWithTables" Type="bit" Nullable="false" DefaultValue="false" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -224,14 +234,25 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Property" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Property" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Cost" Type="decimal" Nullable="false" />
+    <Property Name="FinalVolume" Type="float" Nullable="true" />
+    <Property Name="IsExist" Type="bit" Nullable="false" DefaultValue="true" />
     <Property Name="Measure" Type="tinyint" Nullable="false" />
-    <Property Name="IsIngredient" Type="bit" Nullable="true" />
+    <Property Name="VendorCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsIngredient" Type="bit" Nullable="false" />
     <Property Name="IsMerchandise" Type="bit" Nullable="false" />
-    <Property Name="InspectionDate" Type="datetime" Nullable="true" />
-    <Property Name="FactualNumber" Type="float" Nullable="true" />
-    <Property Name="Category_Id" Type="int" Nullable="false" />
-    <Property Name="Manufacturer_Id" Type="int" Nullable="false" />
+    <Property Name="LossDuringCleaning" Type="float" Nullable="true" DefaultValue="0" />
+    <Property Name="LossDuringFrying" Type="float" Nullable="true" DefaultValue="0" />
+    <Property Name="OtherLosses" Type="float" Nullable="true" DefaultValue="0" />
+    <Property Name="Energy_Protains" Type="float" Nullable="true" />
+    <Property Name="Energy_Fats" Type="float" Nullable="true" />
+    <Property Name="Energy_Carbohydrates" Type="float" Nullable="true" />
+    <Property Name="Energy_EnergyCalorie" Type="float" Nullable="true" />
+    <Property Name="Energy_EnergyJoule" Type="float" Nullable="true" />
+    <Property Name="Category_Id" Type="int" Nullable="true" />
+    <Property Name="Manufacturer_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Dish">
     <Key>
@@ -240,7 +261,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Cost" Type="float" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Nullable="false" />
     <Property Name="FinalVolume" Type="float" Nullable="true" />
     <Property Name="IsExist" Type="bit" Nullable="false" DefaultValue="true" />
     <Property Name="Measure" Type="tinyint" Nullable="false" />
@@ -253,14 +274,14 @@
     <Property Name="Energy_EnergyCalorie" Type="float" Nullable="true" />
     <Property Name="Energy_EnergyJoule" Type="float" Nullable="true" />
     <Property Name="CookingPlace_Id" Type="int" Nullable="true" />
-    <Property Name="Category_Id" Type="int" Nullable="false" />
+    <Property Name="Category_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FinalPrice" Type="float" Nullable="false" />
+    <Property Name="FinalPrice" Type="decimal" Nullable="false" />
     <Property Name="DateOfOrder" Type="datetime" Nullable="false" />
     <Property Name="IsOpen" Type="bit" Nullable="false" />
     <Property Name="Employee_Id" Type="int" Nullable="false" />
@@ -269,37 +290,38 @@
   </EntityType>
   <EntityType Name="Purchase">
     <Key>
-      <PropertyRef Name="IdPurchase" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="IdPurchase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Price" Type="float" Nullable="true" />
+    <Property Name="Price" Type="decimal" Nullable="false" />
     <Property Name="Volume" Type="float" Nullable="false" />
-    <Property Name="Ingridient_Id" Type="int" Nullable="false" />
     <Property Name="Provider_Id" Type="int" Nullable="false" />
+    <Property Name="Warehouse_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Ejection">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Volume" Type="float" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="Culprit_Id" Type="int" Nullable="true" />
-    <Property Name="Ingridient_Id" Type="int" Nullable="false" />
+    <Property Name="Warehouse_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CheckDish">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IsPaid" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="AddDateTime" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PaidDateTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsPaid" Type="bit" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime" Nullable="false" />
+    <Property Name="PaidDateTime" Type="datetime" Nullable="true" />
+    <Property Name="FinalPrice" Type="decimal" Nullable="true" />
     <Property Name="Dish_Id" Type="int" Nullable="false" />
     <Property Name="Order_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="TableSet">
+  <EntityType Name="Table">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -314,9 +336,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Volume" Type="float" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Ingridient_Id" Type="int" Nullable="false" />
+    <Property Name="Ingredient_Id" Type="int" Nullable="false" />
     <Property Name="Dish_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Room">
@@ -350,7 +372,7 @@
     <Property Name="InspectionDate" Type="datetime" Nullable="true" />
     <Property Name="FactualCashbox" Type="float" Nullable="true" />
     <Property Name="Owner_Id" Type="int" Nullable="false" />
-    <Property Name="Landlord_Id" Type="int" Nullable="false" />
+    <Property Name="Landlord_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Category">
     <Key>
@@ -358,7 +380,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ParrentCategory_Id" Type="int" Nullable="false" />
+    <Property Name="ParrentCategory_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Person">
     <Key>
@@ -369,7 +391,7 @@
     <Property Name="FirstName" Type="nvarchar(max)" Nullable="true" />
     <Property Name="MiddleName" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Phone" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Adress_Country" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Adress_City" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Adress_Street" Type="nvarchar(max)" Nullable="false" />
@@ -386,7 +408,7 @@
     <Property Name="OGRN" Type="nvarchar(max)" Nullable="false" />
     <Property Name="BankAccount" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="PrepackSet">
+  <EntityType Name="Prepack">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -404,13 +426,16 @@
     <Property Name="Energy_Carbohydrates" Type="float" Nullable="true" />
     <Property Name="Energy_EnergyCalorie" Type="float" Nullable="true" />
     <Property Name="Energy_EnergyJoule" Type="float" Nullable="true" />
+    <Property Name="LossDuringCleaning" Type="float" Nullable="false" DefaultValue="0" />
+    <Property Name="LossDuringFrying" Type="float" Nullable="false" DefaultValue="0" />
+    <Property Name="OtherLosses" Type="float" Nullable="false" DefaultValue="0" />
   </EntityType>
   <EntityType Name="RecipePrepIngr">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Volume" Type="float" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Ingredient_Id" Type="int" Nullable="false" />
     <Property Name="Prepack_Id" Type="int" Nullable="false" />
@@ -420,7 +445,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Volume" Type="float" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Dish_Id" Type="int" Nullable="false" />
     <Property Name="Prepack_Id" Type="int" Nullable="false" />
@@ -430,7 +455,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Volume" Type="float" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Prepack_Id" Type="int" Nullable="false" />
     <Property Name="Result_Id" Type="int" Nullable="false" />
@@ -440,33 +465,44 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IsPaid" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="AddDateTime" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PaidDateTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsPaid" Type="bit" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime" Nullable="false" />
+    <Property Name="PaidDateTime" Type="datetime" Nullable="true" />
+    <Property Name="FinalPrice" Type="decimal" Nullable="true" />
     <Property Name="Product_Id" Type="int" Nullable="false" />
     <Property Name="Order_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="ShiftSet">
+  <EntityType Name="Shift">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StartDateTime" Type="time" Nullable="true" />
-    <Property Name="EndDateTime" Type="time" Nullable="true" />
+    <Property Name="StartDateTime" Type="datetime" Nullable="false" />
+    <Property Name="EndDateTime" Type="datetime" Nullable="true" />
     <Property Name="StartFactualCashbox" Type="decimal" Nullable="false" />
-    <Property Name="EndFactualCash" Type="decimal" Nullable="false" />
-    <Property Name="EndFactualNonCash" Type="decimal" Nullable="false" />
+    <Property Name="EndFactualCash" Type="decimal" Nullable="true" />
+    <Property Name="EndFactualNonCash" Type="decimal" Nullable="true" />
     <Property Name="Person_Id" Type="int" Nullable="false" />
     <Property Name="Branch_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="EncashmentSet">
+  <EntityType Name="Encashment">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="WriteOff" Type="decimal" Nullable="false" />
     <Property Name="Branch_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InspectionDate" Type="datetime" Nullable="true" />
+    <Property Name="FactualNumber" Type="float" Nullable="true" />
+    <Property Name="Branch_Id" Type="int" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Person_Employee">
     <Key>
@@ -478,7 +514,7 @@
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Position_Id" Type="int" Nullable="false" />
-    <Property Name="Branch_Id" Type="int" Nullable="false" />
+    <Property Name="Branch_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Person_CompanyOwner">
     <Key>
@@ -549,7 +585,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="BranchPerson">
-    <End Role="Branch" Type="Model.Store.Branch" Multiplicity="1" />
+    <End Role="Branch" Type="Model.Store.Branch" Multiplicity="0..1" />
     <End Role="Employee" Type="Model.Store.Person_Employee" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Branch">
@@ -574,37 +610,13 @@
   </Association>
   <Association Name="PersonShift">
     <End Role="Employee" Type="Model.Store.Person_Employee" Multiplicity="1" />
-    <End Role="Shift" Type="Model.Store.ShiftSet" Multiplicity="*" />
+    <End Role="Shift" Type="Model.Store.Shift" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employee">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Shift">
         <PropertyRef Name="Person_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="IngridientPurchase">
-    <End Role="Product" Type="Model.Store.Product" Multiplicity="1" />
-    <End Role="Purchase" Type="Model.Store.Purchase" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Purchase">
-        <PropertyRef Name="Ingridient_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="IngridientEjection">
-    <End Role="Product" Type="Model.Store.Product" Multiplicity="1" />
-    <End Role="Ejection" Type="Model.Store.Ejection" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Ejection">
-        <PropertyRef Name="Ingridient_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -616,12 +628,12 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="RecipeDishIngr">
-        <PropertyRef Name="Ingridient_Id" />
+        <PropertyRef Name="Ingredient_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="CategoryProduct">
-    <End Role="Category" Type="Model.Store.Category" Multiplicity="1" />
+    <End Role="Category" Type="Model.Store.Category" Multiplicity="0..1" />
     <End Role="Product" Type="Model.Store.Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Category">
@@ -633,7 +645,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CompanyProduct">
-    <End Role="Company" Type="Model.Store.Company" Multiplicity="1" />
+    <End Role="Company" Type="Model.Store.Company" Multiplicity="0..1" />
     <End Role="Product" Type="Model.Store.Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Company">
@@ -705,7 +717,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CategoryDish">
-    <End Role="Category" Type="Model.Store.Category" Multiplicity="1" />
+    <End Role="Category" Type="Model.Store.Category" Multiplicity="0..1" />
     <End Role="Dish" Type="Model.Store.Dish" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Category">
@@ -729,7 +741,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="TableOrder">
-    <End Role="Table" Type="Model.Store.TableSet" Multiplicity="0..1" />
+    <End Role="Table" Type="Model.Store.Table" Multiplicity="0..1" />
     <End Role="Order" Type="Model.Store.Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Table">
@@ -765,7 +777,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PrepackRecipePrepIngr">
-    <End Role="Prepack" Type="Model.Store.PrepackSet" Multiplicity="1" />
+    <End Role="Prepack" Type="Model.Store.Prepack" Multiplicity="1" />
     <End Role="RecipePrepIngr" Type="Model.Store.RecipePrepIngr" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Prepack">
@@ -777,7 +789,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PrepackRecipeDishPrep">
-    <End Role="Prepack" Type="Model.Store.PrepackSet" Multiplicity="1" />
+    <End Role="Prepack" Type="Model.Store.Prepack" Multiplicity="1" />
     <End Role="RecipeDishPrep" Type="Model.Store.RecipeDishPrep" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Prepack">
@@ -789,7 +801,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PrepackRecipePrepPrep">
-    <End Role="Prepack" Type="Model.Store.PrepackSet" Multiplicity="1" />
+    <End Role="Prepack" Type="Model.Store.Prepack" Multiplicity="1" />
     <End Role="RecipePrepPrep" Type="Model.Store.RecipePrepPrep" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Prepack">
@@ -801,7 +813,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PrepackRecipePrepPrep1">
-    <End Role="Prepack" Type="Model.Store.PrepackSet" Multiplicity="1" />
+    <End Role="Prepack" Type="Model.Store.Prepack" Multiplicity="1" />
     <End Role="RecipePrepPrep" Type="Model.Store.RecipePrepPrep" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Prepack">
@@ -814,7 +826,7 @@
   </Association>
   <Association Name="BranchEncashment">
     <End Role="Branch" Type="Model.Store.Branch" Multiplicity="1" />
-    <End Role="Encashment" Type="Model.Store.EncashmentSet" Multiplicity="*" />
+    <End Role="Encashment" Type="Model.Store.Encashment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Branch">
         <PropertyRef Name="Id" />
@@ -826,7 +838,7 @@
   </Association>
   <Association Name="BranchShift">
     <End Role="Branch" Type="Model.Store.Branch" Multiplicity="1" />
-    <End Role="Shift" Type="Model.Store.ShiftSet" Multiplicity="*" />
+    <End Role="Shift" Type="Model.Store.Shift" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Branch">
         <PropertyRef Name="Id" />
@@ -862,7 +874,7 @@
   </Association>
   <Association Name="RoomTable">
     <End Role="Room" Type="Model.Store.Room" Multiplicity="1" />
-    <End Role="Table" Type="Model.Store.TableSet" Multiplicity="*" />
+    <End Role="Table" Type="Model.Store.Table" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Room">
         <PropertyRef Name="Id" />
@@ -897,7 +909,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CategoryCategory">
-    <End Role="Category" Type="Model.Store.Category" Multiplicity="1" />
+    <End Role="Category" Type="Model.Store.Category" Multiplicity="0..1" />
     <End Role="Category1" Type="Model.Store.Category" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Category">
@@ -909,7 +921,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="LandlordBranch">
-    <End Role="Landlord" Type="Model.Store.Person_Landlord" Multiplicity="1" />
+    <End Role="Landlord" Type="Model.Store.Person_Landlord" Multiplicity="0..1" />
     <End Role="Branch" Type="Model.Store.Branch" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Landlord">
@@ -929,6 +941,54 @@
       </Principal>
       <Dependent Role="Order">
         <PropertyRef Name="Client_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BranchWarehouse">
+    <End Role="Branch" Type="Model.Store.Branch" Multiplicity="1" />
+    <End Role="Warehouse" Type="Model.Store.Warehouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Warehouse">
+        <PropertyRef Name="Branch_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductWarehouse">
+    <End Role="Product" Type="Model.Store.Product" Multiplicity="1" />
+    <End Role="Warehouse" Type="Model.Store.Warehouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Warehouse">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WarehousePurchase">
+    <End Role="Warehouse" Type="Model.Store.Warehouse" Multiplicity="1" />
+    <End Role="Purchase" Type="Model.Store.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="Warehouse_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WarehouseEjection">
+    <End Role="Warehouse" Type="Model.Store.Warehouse" Multiplicity="1" />
+    <End Role="Ejection" Type="Model.Store.Ejection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ejection">
+        <PropertyRef Name="Warehouse_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1015,20 +1075,20 @@
           <EntitySet Name="Purchase" EntityType="Model.Purchase" />
           <EntitySet Name="Ejection" EntityType="Model.Ejection" />
           <EntitySet Name="CheckDish" EntityType="Model.CheckDish" />
-          <EntitySet Name="TableSet" EntityType="Model.Table" />
+          <EntitySet Name="Table" EntityType="Model.Table" />
           <EntitySet Name="RecipeDishIngr" EntityType="Model.RecipeDishIngr" />
           <EntitySet Name="Room" EntityType="Model.Room" />
           <EntitySet Name="Branch" EntityType="Model.Branch" />
           <EntitySet Name="Category" EntityType="Model.Category" />
           <EntitySet Name="Person" EntityType="Model.Person" />
           <EntitySet Name="Company" EntityType="Model.Company" />
-          <EntitySet Name="PrepackSet" EntityType="Model.Prepack" />
+          <EntitySet Name="Prepack" EntityType="Model.Prepack" />
           <EntitySet Name="RecipePrepIngr" EntityType="Model.RecipePrepIngr" />
           <EntitySet Name="RecipeDishPrep" EntityType="Model.RecipeDishPrep" />
           <EntitySet Name="RecipePrepPrep" EntityType="Model.RecipePrepPrep" />
           <EntitySet Name="CheckMerchandise" EntityType="Model.CheckMerchandise" />
-          <EntitySet Name="ShiftSet" EntityType="Model.Shift" />
-          <EntitySet Name="EncashmentSet" EntityType="Model.Encashment" />
+          <EntitySet Name="Shift" EntityType="Model.Shift" />
+          <EntitySet Name="Encashment" EntityType="Model.Encashment" />
           <AssociationSet Name="ManDocument" Association="Model.ManDocument">
             <End Role="Person" EntitySet="Person" />
             <End Role="Document" EntitySet="Document" />
@@ -1051,15 +1111,7 @@
           </AssociationSet>
           <AssociationSet Name="PersonShift" Association="Model.PersonShift">
             <End Role="Employee" EntitySet="Person" />
-            <End Role="Shift" EntitySet="ShiftSet" />
-          </AssociationSet>
-          <AssociationSet Name="IngridientPurchase" Association="Model.IngridientPurchase">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Purchase" EntitySet="Purchase" />
-          </AssociationSet>
-          <AssociationSet Name="IngridientEjection" Association="Model.IngridientEjection">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Ejection" EntitySet="Ejection" />
+            <End Role="Shift" EntitySet="Shift" />
           </AssociationSet>
           <AssociationSet Name="IngridientDIConnection" Association="Model.IngridientDIConnection">
             <End Role="Product" EntitySet="Product" />
@@ -1102,7 +1154,7 @@
             <End Role="RecipeDishPrep" EntitySet="RecipeDishPrep" />
           </AssociationSet>
           <AssociationSet Name="TableOrder" Association="Model.TableOrder">
-            <End Role="Table" EntitySet="TableSet" />
+            <End Role="Table" EntitySet="Table" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="OwnerBranch" Association="Model.OwnerBranch">
@@ -1114,28 +1166,28 @@
             <End Role="ContactPerson" EntitySet="Person" />
           </AssociationSet>
           <AssociationSet Name="PrepackRecipePrepIngr" Association="Model.PrepackRecipePrepIngr">
-            <End Role="Prepack" EntitySet="PrepackSet" />
+            <End Role="Prepack" EntitySet="Prepack" />
             <End Role="RecipePrepIngr" EntitySet="RecipePrepIngr" />
           </AssociationSet>
           <AssociationSet Name="PrepackRecipeDishPrep" Association="Model.PrepackRecipeDishPrep">
-            <End Role="Prepack" EntitySet="PrepackSet" />
+            <End Role="Prepack" EntitySet="Prepack" />
             <End Role="RecipeDishPrep" EntitySet="RecipeDishPrep" />
           </AssociationSet>
           <AssociationSet Name="PrepackRecipePrepPrep" Association="Model.PrepackRecipePrepPrep">
-            <End Role="Prepack" EntitySet="PrepackSet" />
+            <End Role="Prepack" EntitySet="Prepack" />
             <End Role="RecipePrepPrep" EntitySet="RecipePrepPrep" />
           </AssociationSet>
           <AssociationSet Name="PrepackRecipePrepPrep1" Association="Model.PrepackRecipePrepPrep1">
-            <End Role="Prepack" EntitySet="PrepackSet" />
+            <End Role="Prepack" EntitySet="Prepack" />
             <End Role="RecipePrepPrep" EntitySet="RecipePrepPrep" />
           </AssociationSet>
           <AssociationSet Name="BranchEncashment" Association="Model.BranchEncashment">
             <End Role="Branch" EntitySet="Branch" />
-            <End Role="Encashment" EntitySet="EncashmentSet" />
+            <End Role="Encashment" EntitySet="Encashment" />
           </AssociationSet>
           <AssociationSet Name="BranchShift" Association="Model.BranchShift">
             <End Role="Branch" EntitySet="Branch" />
-            <End Role="Shift" EntitySet="ShiftSet" />
+            <End Role="Shift" EntitySet="Shift" />
           </AssociationSet>
           <AssociationSet Name="OrderCheckMerchandise" Association="Model.OrderCheckMerchandise">
             <End Role="Order" EntitySet="Order" />
@@ -1147,7 +1199,7 @@
           </AssociationSet>
           <AssociationSet Name="RoomTable" Association="Model.RoomTable">
             <End Role="Room" EntitySet="Room" />
-            <End Role="Table" EntitySet="TableSet" />
+            <End Role="Table" EntitySet="Table" />
           </AssociationSet>
           <AssociationSet Name="BranchRoom" Association="Model.BranchRoom">
             <End Role="Branch" EntitySet="Branch" />
@@ -1168,6 +1220,23 @@
           <AssociationSet Name="ClientOrder" Association="Model.ClientOrder">
             <End Role="Client" EntitySet="Person" />
             <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <EntitySet Name="Warehouse" EntityType="Model.Warehouse" />
+          <AssociationSet Name="BranchWarehouse" Association="Model.BranchWarehouse">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Warehouse" EntitySet="Warehouse" />
+          </AssociationSet>
+          <AssociationSet Name="ProductWarehouse" Association="Model.ProductWarehouse">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Warehouse" EntitySet="Warehouse" />
+          </AssociationSet>
+          <AssociationSet Name="WarehousePurchase" Association="Model.WarehousePurchase">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="WarehouseEjection" Association="Model.WarehouseEjection">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Ejection" EntitySet="Ejection" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Document">
@@ -1201,6 +1270,7 @@
           <Property Name="WorkWithWarehouse" Type="Boolean" Nullable="false" DefaultValue="False" />
           <Property Name="WorkWithStuff" Type="Boolean" Nullable="false" DefaultValue="False" />
           <Property Name="WorkWithReports" Type="Boolean" Nullable="false" DefaultValue="False" />
+          <Property Name="WorkWithTables" Type="Boolean" Nullable="false" DefaultValue="False" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -1208,14 +1278,21 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Property" Type="String" Nullable="false" />
+          <Property Name="Property" Type="String" Nullable="true" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" />
+          <Property Name="FinalVolume" Type="Double" />
+          <Property Name="IsExist" Type="Boolean" Nullable="false" DefaultValue="True" />
           <Property Name="Measure" Type="Model.Measure" Nullable="false" />
-          <Property Name="IsIngredient" Type="Boolean" Nullable="true" />
+          <Property Name="VendorCode" Type="String" Nullable="false" />
+          <Property Name="IsIngredient" Type="Boolean" Nullable="false" />
           <Property Name="IsMerchandise" Type="Boolean" Nullable="false" />
-          <Property Name="InspectionDate" Type="DateTime" Nullable="true" />
-          <Property Name="FactualNumber" Type="Double" Nullable="true" />
           <NavigationProperty Name="Category" Relationship="Model.CategoryProduct" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="Manufacturer" Relationship="Model.CompanyProduct" FromRole="Product" ToRole="Company" />
+          <Property Name="LossDuringCleaning" Type="Double" DefaultValue="0" Nullable="true" />
+          <Property Name="LossDuringFrying" Type="Double" DefaultValue="0" Nullable="true" />
+          <Property Name="OtherLosses" Type="Double" DefaultValue="0" Nullable="true" />
+          <Property Name="Energy" Type="Model.EnergyValue" Nullable="false" />
         </EntityType>
         <EntityType Name="Dish">
           <Key>
@@ -1224,7 +1301,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="true" />
-          <Property Name="Cost" Type="Double" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" />
           <Property Name="FinalVolume" Type="Double" />
           <Property Name="IsExist" Type="Boolean" Nullable="false" DefaultValue="True" />
           <Property Name="Measure" Type="Model.Measure" Nullable="false" />
@@ -1240,7 +1317,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="FinalPrice" Type="Double" Nullable="false" />
+          <Property Name="FinalPrice" Type="Decimal" Nullable="false" />
           <Property Name="DateOfOrder" Type="DateTime" Nullable="false" />
           <Property Name="IsOpen" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Model.EmployeeOrder" FromRole="Order" ToRole="Employee" />
@@ -1249,35 +1326,36 @@
         </EntityType>
         <EntityType Name="Purchase">
           <Key>
-            <PropertyRef Name="IdPurchase" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="IdPurchase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" />
-          <Property Name="Price" Type="Double" Nullable="true" />
+          <Property Name="Price" Type="Decimal" Nullable="false" />
           <Property Name="Volume" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Ingridient" Relationship="Model.IngridientPurchase" FromRole="Purchase" ToRole="Product" />
           <NavigationProperty Name="Provider" Relationship="Model.CompanyPurchase" FromRole="Purchase" ToRole="Company" />
+          <NavigationProperty Name="Warehouse" Relationship="Model.WarehousePurchase" FromRole="Purchase" ToRole="Warehouse" />
         </EntityType>
         <EntityType Name="Ejection">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Volume" Type="Double" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Culprit" Relationship="Model.PersonEjection" FromRole="Ejection" ToRole="Employee" />
-          <NavigationProperty Name="Ingridient" Relationship="Model.IngridientEjection" FromRole="Ejection" ToRole="Product" />
+          <NavigationProperty Name="Warehouse" Relationship="Model.WarehouseEjection" FromRole="Ejection" ToRole="Warehouse" />
         </EntityType>
         <EntityType Name="CheckDish">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IsPaid" Type="String" Nullable="false" />
-          <Property Name="AddDateTime" Type="String" Nullable="false" />
-          <Property Name="PaidDateTime" Type="String" Nullable="false" />
+          <Property Name="IsPaid" Type="Boolean" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" />
+          <Property Name="PaidDateTime" Type="DateTime" Nullable="true" />
           <NavigationProperty Name="Dish" Relationship="Model.DishCheck" FromRole="CheckDish" ToRole="Dish" />
           <NavigationProperty Name="Order" Relationship="Model.OrderCheckDish" FromRole="CheckDish" ToRole="Order" />
+          <Property Name="FinalPrice" Type="Decimal" Nullable="true" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
@@ -1294,9 +1372,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Volume" Type="Double" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="true" />
-          <NavigationProperty Name="Ingridient" Relationship="Model.IngridientDIConnection" FromRole="RecipeDishIngr" ToRole="Product" />
+          <NavigationProperty Name="Ingredient" Relationship="Model.IngridientDIConnection" FromRole="RecipeDishIngr" ToRole="Product" />
           <NavigationProperty Name="Dish" Relationship="Model.DishDIConnection" FromRole="RecipeDishIngr" ToRole="Dish" />
         </EntityType>
         <EntityType Name="Room">
@@ -1344,7 +1422,7 @@
           <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
           <Property Name="MiddleName" Type="String" Nullable="true" />
           <Property Name="Phone" Type="String" Nullable="true" />
-          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="true" />
           <Property Name="Adress" Type="Model.Adress" Nullable="false" />
         </EntityType>
         <EntityType Name="Company">
@@ -1374,13 +1452,16 @@
           <Property Name="CookStartTime" Type="DateTime" Nullable="true" />
           <Property Name="CookEndTime" Type="DateTime" Nullable="true" />
           <Property Name="Energy" Type="Model.EnergyValue" Nullable="false" />
+          <Property Name="LossDuringCleaning" Type="Double" Nullable="false" DefaultValue="0" />
+          <Property Name="LossDuringFrying" Type="Double" Nullable="false" DefaultValue="0" />
+          <Property Name="OtherLosses" Type="Double" Nullable="false" DefaultValue="0" />
         </EntityType>
         <EntityType Name="RecipePrepIngr">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Volume" Type="Double" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="true" />
           <NavigationProperty Name="Ingredient" Relationship="Model.ProductRecipePrepIngr" FromRole="RecipePrepIngr" ToRole="Product" />
           <NavigationProperty Name="Prepack" Relationship="Model.PrepackRecipePrepIngr" FromRole="RecipePrepIngr" ToRole="Prepack" />
@@ -1390,7 +1471,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Volume" Type="Double" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="true" />
           <NavigationProperty Name="Dish" Relationship="Model.DishRecipeDishPrep" FromRole="RecipeDishPrep" ToRole="Dish" />
           <NavigationProperty Name="Prepack" Relationship="Model.PrepackRecipeDishPrep" FromRole="RecipeDishPrep" ToRole="Prepack" />
@@ -1400,7 +1481,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Volume" Type="Double" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="true" />
           <NavigationProperty Name="Prepack" Relationship="Model.PrepackRecipePrepPrep" FromRole="RecipePrepPrep" ToRole="Prepack" />
           <NavigationProperty Name="Result" Relationship="Model.PrepackRecipePrepPrep1" FromRole="RecipePrepPrep" ToRole="Prepack" />
@@ -1410,22 +1491,23 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IsPaid" Type="String" Nullable="false" />
-          <Property Name="AddDateTime" Type="String" Nullable="false" />
-          <Property Name="PaidDateTime" Type="String" Nullable="false" />
+          <Property Name="IsPaid" Type="Boolean" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" />
+          <Property Name="PaidDateTime" Type="DateTime" Nullable="true" />
           <NavigationProperty Name="Product" Relationship="Model.ProductCheckMerchandise" FromRole="CheckMerchandise" ToRole="Product" />
           <NavigationProperty Name="Order" Relationship="Model.OrderCheckMerchandise" FromRole="CheckMerchandise" ToRole="Order" />
+          <Property Name="FinalPrice" Type="Decimal" Nullable="true" />
         </EntityType>
         <EntityType Name="Shift">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StartDateTime" Type="Time" Nullable="true" />
-          <Property Name="EndDateTime" Type="Time" Nullable="true" />
+          <Property Name="StartDateTime" Type="DateTime" Nullable="false" />
+          <Property Name="EndDateTime" Type="DateTime" Nullable="true" />
           <Property Name="StartFactualCashbox" Type="Decimal" Nullable="false" />
-          <Property Name="EndFactualCash" Type="Decimal" Nullable="false" />
-          <Property Name="EndFactualNonCash" Type="Decimal" Nullable="false" />
+          <Property Name="EndFactualCash" Type="Decimal" Nullable="true" />
+          <Property Name="EndFactualNonCash" Type="Decimal" Nullable="true" />
           <NavigationProperty Name="Person" Relationship="Model.PersonShift" FromRole="Shift" ToRole="Employee" />
           <NavigationProperty Name="Branch" Relationship="Model.BranchShift" FromRole="Shift" ToRole="Branch" />
         </EntityType>
@@ -1434,7 +1516,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
           <Property Name="WriteOff" Type="Decimal" Nullable="false" />
           <NavigationProperty Name="Branch" Relationship="Model.BranchEncashment" FromRole="Encashment" ToRole="Branch" />
         </EntityType>
@@ -1451,7 +1533,7 @@
           <End Type="Model.Order" Role="Order" Multiplicity="*" />
         </Association>
         <Association Name="BranchPerson">
-          <End Type="Model.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="Model.Branch" Role="Branch" Multiplicity="0..1" />
           <End Type="Model.Employee" Role="Employee" Multiplicity="*" />
         </Association>
         <Association Name="PersonEjection">
@@ -1462,24 +1544,16 @@
           <End Type="Model.Employee" Role="Employee" Multiplicity="1" />
           <End Type="Model.Shift" Role="Shift" Multiplicity="*" />
         </Association>
-        <Association Name="IngridientPurchase">
-          <End Type="Model.Product" Role="Product" Multiplicity="1" />
-          <End Type="Model.Purchase" Role="Purchase" Multiplicity="*" />
-        </Association>
-        <Association Name="IngridientEjection">
-          <End Type="Model.Product" Role="Product" Multiplicity="1" />
-          <End Type="Model.Ejection" Role="Ejection" Multiplicity="*" />
-        </Association>
         <Association Name="IngridientDIConnection">
           <End Type="Model.Product" Role="Product" Multiplicity="1" />
           <End Type="Model.RecipeDishIngr" Role="RecipeDishIngr" Multiplicity="*" />
         </Association>
         <Association Name="CategoryProduct">
-          <End Type="Model.Category" Role="Category" Multiplicity="1" />
+          <End Type="Model.Category" Role="Category" Multiplicity="0..1" />
           <End Type="Model.Product" Role="Product" Multiplicity="*" />
         </Association>
         <Association Name="CompanyProduct">
-          <End Type="Model.Company" Multiplicity="1" Role="Company" />
+          <End Type="Model.Company" Multiplicity="0..1" Role="Company" />
           <End Type="Model.Product" Multiplicity="*" Role="Product" />
         </Association>
         <Association Name="ProductRecipePrepIngr">
@@ -1503,7 +1577,7 @@
           <End Type="Model.Dish" Role="Dish" Multiplicity="*" />
         </Association>
         <Association Name="CategoryDish">
-          <End Type="Model.Category" Role="Category" Multiplicity="1" />
+          <End Type="Model.Category" Role="Category" Multiplicity="0..1" />
           <End Type="Model.Dish" Role="Dish" Multiplicity="*" />
         </Association>
         <Association Name="DishRecipeDishPrep">
@@ -1594,7 +1668,7 @@
           <End Type="Model.Purchase" Role="Purchase" Multiplicity="*" />
         </Association>
         <Association Name="CategoryCategory">
-          <End Type="Model.Category" Role="Category" Multiplicity="1" />
+          <End Type="Model.Category" Role="Category" Multiplicity="0..1" />
           <End Type="Model.Category" Role="Category1" Multiplicity="*" />
         </Association>
         <EntityType Name="Landlord" BaseType="Model.Person">
@@ -1603,7 +1677,7 @@
           <Property Name="BankAccount" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="LandlordBranch">
-          <End Type="Model.Landlord" Role="Landlord" Multiplicity="1" />
+          <End Type="Model.Landlord" Role="Landlord" Multiplicity="0..1" />
           <End Type="Model.Branch" Role="Branch" Multiplicity="*" />
         </Association>
         <EntityType Name="Client" BaseType="Model.Person">
@@ -1613,6 +1687,32 @@
         <Association Name="ClientOrder">
           <End Type="Model.Client" Role="Client" Multiplicity="0..1" />
           <End Type="Model.Order" Role="Order" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Branch" Relationship="Model.BranchWarehouse" FromRole="Warehouse" ToRole="Branch" />
+          <NavigationProperty Name="Product" Relationship="Model.ProductWarehouse" FromRole="Warehouse" ToRole="Product" />
+          <Property Name="InspectionDate" Type="DateTime" Nullable="true" />
+          <Property Name="FactualNumber" Type="Double" Nullable="true" />
+        </EntityType>
+        <Association Name="BranchWarehouse">
+          <End Type="Model.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="Model.Warehouse" Role="Warehouse" Multiplicity="*" />
+        </Association>
+        <Association Name="ProductWarehouse">
+          <End Type="Model.Product" Role="Product" Multiplicity="1" />
+          <End Type="Model.Warehouse" Role="Warehouse" Multiplicity="*" />
+        </Association>
+        <Association Name="WarehousePurchase">
+          <End Type="Model.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="Model.Purchase" Role="Purchase" Multiplicity="*" />
+        </Association>
+        <Association Name="WarehouseEjection">
+          <End Type="Model.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="Model.Ejection" Role="Ejection" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1642,6 +1742,7 @@
           <ScalarProperty Name="WorkWithWarehouse" ColumnName="WorkWithWarehouse" />
           <ScalarProperty Name="WorkWithStuff" ColumnName="WorkWithStuff" />
           <ScalarProperty Name="WorkWithReports" ColumnName="WorkWithReports" />
+          <ScalarProperty Name="WorkWithTables" ColumnName="WorkWithTables" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1651,11 +1752,24 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Property" ColumnName="Property" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="FinalVolume" ColumnName="FinalVolume" />
+          <ScalarProperty Name="IsExist" ColumnName="IsExist" />
           <ScalarProperty Name="Measure" ColumnName="Measure" />
+          <ScalarProperty Name="VendorCode" ColumnName="VendorCode" />
           <ScalarProperty Name="IsIngredient" ColumnName="IsIngredient" />
           <ScalarProperty Name="IsMerchandise" ColumnName="IsMerchandise" />
-          <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
-          <ScalarProperty Name="FactualNumber" ColumnName="FactualNumber" />
+          <ScalarProperty Name="LossDuringCleaning" ColumnName="LossDuringCleaning" />
+          <ScalarProperty Name="LossDuringFrying" ColumnName="LossDuringFrying" />
+          <ScalarProperty Name="OtherLosses" ColumnName="OtherLosses" />
+          <ComplexProperty Name="Energy" TypeName="Model.EnergyValue">
+            <ScalarProperty Name="Protains" ColumnName="Energy_Protains" />
+            <ScalarProperty Name="Fats" ColumnName="Energy_Fats" />
+            <ScalarProperty Name="Carbohydrates" ColumnName="Energy_Carbohydrates" />
+            <ScalarProperty Name="EnergyCalorie" ColumnName="Energy_EnergyCalorie" />
+            <ScalarProperty Name="EnergyJoule" ColumnName="Energy_EnergyJoule" />
+          </ComplexProperty>
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1695,7 +1809,7 @@
     <EntitySetMapping Name="Purchase">
       <EntityTypeMapping TypeName="IsTypeOf(Model.Purchase)">
         <MappingFragment StoreEntitySet="Purchase">
-          <ScalarProperty Name="IdPurchase" ColumnName="IdPurchase" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Volume" ColumnName="Volume" />
@@ -1718,12 +1832,13 @@
           <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
           <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
           <ScalarProperty Name="PaidDateTime" ColumnName="PaidDateTime" />
+          <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TableSet">
+    <EntitySetMapping Name="Table">
       <EntityTypeMapping TypeName="IsTypeOf(Model.Table)">
-        <MappingFragment StoreEntitySet="TableSet">
+        <MappingFragment StoreEntitySet="Table">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Number" ColumnName="Number" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1850,9 +1965,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PrepackSet">
+    <EntitySetMapping Name="Prepack">
       <EntityTypeMapping TypeName="IsTypeOf(Model.Prepack)">
-        <MappingFragment StoreEntitySet="PrepackSet">
+        <MappingFragment StoreEntitySet="Prepack">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1869,6 +1984,9 @@
             <ScalarProperty Name="EnergyCalorie" ColumnName="Energy_EnergyCalorie" />
             <ScalarProperty Name="EnergyJoule" ColumnName="Energy_EnergyJoule" />
           </ComplexProperty>
+          <ScalarProperty Name="LossDuringCleaning" ColumnName="LossDuringCleaning" />
+          <ScalarProperty Name="LossDuringFrying" ColumnName="LossDuringFrying" />
+          <ScalarProperty Name="OtherLosses" ColumnName="OtherLosses" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1906,12 +2024,13 @@
           <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
           <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
           <ScalarProperty Name="PaidDateTime" ColumnName="PaidDateTime" />
+          <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ShiftSet">
+    <EntitySetMapping Name="Shift">
       <EntityTypeMapping TypeName="IsTypeOf(Model.Shift)">
-        <MappingFragment StoreEntitySet="ShiftSet">
+        <MappingFragment StoreEntitySet="Shift">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
           <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
@@ -1921,12 +2040,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EncashmentSet">
+    <EntitySetMapping Name="Encashment">
       <EntityTypeMapping TypeName="IsTypeOf(Model.Encashment)">
-        <MappingFragment StoreEntitySet="EncashmentSet">
+        <MappingFragment StoreEntitySet="Encashment">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="WriteOff" ColumnName="WriteOff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouse">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Warehouse)">
+        <MappingFragment StoreEntitySet="Warehouse">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
+          <ScalarProperty Name="FactualNumber" ColumnName="FactualNumber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1961,6 +2089,7 @@
       <EndProperty Name="Employee">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="Branch_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="PersonEjection" TypeName="Model.PersonEjection" StoreEntitySet="Ejection">
       <EndProperty Name="Employee">
@@ -1971,7 +2100,7 @@
       </EndProperty>
       <Condition ColumnName="Culprit_Id" IsNull="false" />
     </AssociationSetMapping>
-    <AssociationSetMapping Name="PersonShift" TypeName="Model.PersonShift" StoreEntitySet="ShiftSet">
+    <AssociationSetMapping Name="PersonShift" TypeName="Model.PersonShift" StoreEntitySet="Shift">
       <EndProperty Name="Employee">
         <ScalarProperty Name="Id" ColumnName="Person_Id" />
       </EndProperty>
@@ -1979,25 +2108,9 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="IngridientPurchase" TypeName="Model.IngridientPurchase" StoreEntitySet="Purchase">
-      <EndProperty Name="Product">
-        <ScalarProperty Name="Id" ColumnName="Ingridient_Id" />
-      </EndProperty>
-      <EndProperty Name="Purchase">
-        <ScalarProperty Name="IdPurchase" ColumnName="IdPurchase" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="IngridientEjection" TypeName="Model.IngridientEjection" StoreEntitySet="Ejection">
-      <EndProperty Name="Product">
-        <ScalarProperty Name="Id" ColumnName="Ingridient_Id" />
-      </EndProperty>
-      <EndProperty Name="Ejection">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="IngridientDIConnection" TypeName="Model.IngridientDIConnection" StoreEntitySet="RecipeDishIngr">
       <EndProperty Name="Product">
-        <ScalarProperty Name="Id" ColumnName="Ingridient_Id" />
+        <ScalarProperty Name="Id" ColumnName="Ingredient_Id" />
       </EndProperty>
       <EndProperty Name="RecipeDishIngr">
         <ScalarProperty Name="Id" ColumnName="Id" />
@@ -2010,6 +2123,7 @@
       <EndProperty Name="Product">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="Category_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="CompanyProduct" TypeName="Model.CompanyProduct" StoreEntitySet="Product">
       <EndProperty Name="Company">
@@ -2018,6 +2132,7 @@
       <EndProperty Name="Product">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="Manufacturer_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="ProductRecipePrepIngr" TypeName="Model.ProductRecipePrepIngr" StoreEntitySet="RecipePrepIngr">
       <EndProperty Name="Product">
@@ -2067,6 +2182,7 @@
       <EndProperty Name="Dish">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="Category_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="DishRecipeDishPrep" TypeName="Model.DishRecipeDishPrep" StoreEntitySet="RecipeDishPrep">
       <EndProperty Name="Dish">
@@ -2133,7 +2249,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="BranchEncashment" TypeName="Model.BranchEncashment" StoreEntitySet="EncashmentSet">
+    <AssociationSetMapping Name="BranchEncashment" TypeName="Model.BranchEncashment" StoreEntitySet="Encashment">
       <EndProperty Name="Branch">
         <ScalarProperty Name="Id" ColumnName="Branch_Id" />
       </EndProperty>
@@ -2141,7 +2257,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="BranchShift" TypeName="Model.BranchShift" StoreEntitySet="ShiftSet">
+    <AssociationSetMapping Name="BranchShift" TypeName="Model.BranchShift" StoreEntitySet="Shift">
       <EndProperty Name="Branch">
         <ScalarProperty Name="Id" ColumnName="Branch_Id" />
       </EndProperty>
@@ -2165,7 +2281,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="RoomTable" TypeName="Model.RoomTable" StoreEntitySet="TableSet">
+    <AssociationSetMapping Name="RoomTable" TypeName="Model.RoomTable" StoreEntitySet="Table">
       <EndProperty Name="Room">
         <ScalarProperty Name="Id" ColumnName="Room_Id" />
       </EndProperty>
@@ -2186,7 +2302,7 @@
         <ScalarProperty Name="Id" ColumnName="Provider_Id" />
       </EndProperty>
       <EndProperty Name="Purchase">
-        <ScalarProperty Name="IdPurchase" ColumnName="IdPurchase" />
+        <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="CategoryCategory" TypeName="Model.CategoryCategory" StoreEntitySet="Category">
@@ -2196,6 +2312,7 @@
       <EndProperty Name="Category1">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="ParrentCategory_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="LandlordBranch" TypeName="Model.LandlordBranch" StoreEntitySet="Branch">
       <EndProperty Name="Landlord">
@@ -2204,6 +2321,7 @@
       <EndProperty Name="Branch">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="Landlord_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="ClientOrder" TypeName="Model.ClientOrder" StoreEntitySet="Order">
       <EndProperty Name="Client">
@@ -2213,6 +2331,38 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
       <Condition ColumnName="Client_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BranchWarehouse" TypeName="Model.BranchWarehouse" StoreEntitySet="Warehouse">
+      <EndProperty Name="Branch">
+        <ScalarProperty Name="Id" ColumnName="Branch_Id" />
+      </EndProperty>
+      <EndProperty Name="Warehouse">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductWarehouse" TypeName="Model.ProductWarehouse" StoreEntitySet="Warehouse">
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Product_Id" />
+      </EndProperty>
+      <EndProperty Name="Warehouse">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WarehousePurchase" TypeName="Model.WarehousePurchase" StoreEntitySet="Purchase">
+      <EndProperty Name="Warehouse">
+        <ScalarProperty Name="Id" ColumnName="Warehouse_Id" />
+      </EndProperty>
+      <EndProperty Name="Purchase">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WarehouseEjection" TypeName="Model.WarehouseEjection" StoreEntitySet="Ejection">
+      <EndProperty Name="Warehouse">
+        <ScalarProperty Name="Id" ColumnName="Warehouse_Id" />
+      </EndProperty>
+      <EndProperty Name="Ejection">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>

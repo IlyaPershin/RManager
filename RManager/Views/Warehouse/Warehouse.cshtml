@@ -1,0 +1,127 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "Warehouse";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithMenu)
+{
+    @Html.Partial("tabs")
+<div class="panel panel-default">
+
+    <h3>Работа со складом</h3>
+    @{ if (((IEnumerable<Company>)ViewData["Companyes"]).Count() > 0)
+        {
+            @*<ul class="btn-group-vertical list-unstyled">
+                <li>@Html.ActionLink("Добавить поставку", "AddPurchase", "Warehouse", htmlAttributes: new { @class = "btn btn-default" })</li>
+                <li>@Html.ActionLink("Добавить списание продуктов", "AddEjection", "Warehouse", htmlAttributes: new { @class = "btn btn-default" })</li>
+            </ul>*@
+            <h4>Продукты на складе</h4>
+            @Html.ActionLink("Добавить продукт", "AddIngredient", "Warehouse", htmlAttributes: new { @class = "btn btn-default" });
+            @*@using (Html.BeginForm())
+            {
+                <p class="input-group">
+                    <span class="input-group-addon" id="Firm">Поиск по названию(регистр важен):</span>
+                    <input type="text" class="form-control" name="name" placeholder="Название">
+                    <input class="btn btn-default" type="submit" value="Найти">@Html.ValidationMessage("Name")
+                </p>
+            }*@
+            <div class="panel panel-default">
+                <h5>Ингредиенты</h5>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>№</th>
+                        <th>Артикул</th>
+                        <th>Название        </th>
+                        <th>Производитель   </th>
+                        <th>Особенность     </th>
+                        <th>На складе       </th>
+                        <th>Изменить        </th>
+                    </tr>
+
+                    @{
+                        //KeyValuePair<Product, double>[] products = ((KeyValuePair<Product, double>[])ViewData["ingredients"]);
+                        IEnumerable<KeyValuePair<Warehouse, double>> products = ((IEnumerable<KeyValuePair<Warehouse, double>>)ViewData["ingredients"]);
+                        for (int j = 0; j < products.Count(); j++)
+                        {
+                            <tr>
+                                <td>@(j + 1)</td>
+                                <th>@products.ElementAt(j).Key.Product.VendorCode</th>
+                                <th>@products.ElementAt(j).Key.Product.Name</th>
+                                <th>@products.ElementAt(j).Key.Product.Manufacturer.Name</th>
+                                <th>@products.ElementAt(j).Key.Product.Property</th>
+                                <th>@(products.ElementAt(j).Value.ToString() + " " + products.ElementAt(j).Key.Product.Measure.ToString())</th>
+                                @*<th>@Html.ActionLink("Изменить", "EditIngredient", new { id = products.ElementAt(j).Key.Id })</th>*@
+                            </tr>
+                        }
+                    }
+                </table>
+
+                <h5>Товары</h5>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>№</th>
+                        <th>Артикул</th>
+                        <th>Название        </th>
+                        <th>Производитель   </th>
+                        <th>Особенность     </th>
+                        <th>На складе       </th>
+                        <th>Изменить        </th>
+                    </tr>
+
+                    @{
+                        products = ((IEnumerable<KeyValuePair<Warehouse, double>>)ViewData["merchandises"]);
+                        for (int j = 0; j < products.Count(); j++)
+                        {
+                            <tr>
+                                <td>@(j + 1)</td>
+                                <th>@products.ElementAt(j).Key.Product.VendorCode</th>
+                                <th>@products.ElementAt(j).Key.Product.Name</th>
+                                <th>@products.ElementAt(j).Key.Product.Manufacturer.Name</th>
+                                <th>@products.ElementAt(j).Key.Product.Property</th>
+                                <th>@(products.ElementAt(j).Value.ToString() + " " + products.ElementAt(j).Key.Product.Measure.ToString())</th>
+                                @*<th>@Html.ActionLink("Изменить", "EditIngredient", new { id = products.ElementAt(j).Key.Id })</th>*@
+                            </tr>
+                        }
+
+                    }
+                </table>
+
+                <h4>Полуфабрикаты</h4>
+                @*@Html.ActionLink("Добавить заготовку", "AddPrepack", "Warehouse", htmlAttributes: new { @class = "btn btn-default" })*@
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th>№</th>
+                        <th>Артикул</th>
+                        <th>Название        </th>
+                        <th>Изменить        </th>
+                    </tr>
+
+                    @{
+                        IEnumerable<Prepack> prepacks = ((IEnumerable<Prepack>)ViewData["prepacks"]);
+                        for (int j = 0; j < prepacks.Count(); j++)
+                        {
+                            <tr>
+                                <td>@(j + 1)</td>
+                                <th>@prepacks.ElementAt(j).VendorCode</th>
+                                <th>@prepacks.ElementAt(j).Name</th>
+                                @*<th>@Html.ActionLink("Изменить", "EditIngredient", new { id = products.ElementAt(j).Key.Id })</th>*@
+                            </tr>
+                        }
+
+                    }
+                </table>
+            </div>
+        }
+        else
+        {
+            <h4>Добавьте, хотя бы одну компанию поставщика</h4>
+        }
+    }
+</div>
+}
+else
+{
+    <h4>Вы не выполнили вход, для работы необходимо выполнить вход.</h4>
+}

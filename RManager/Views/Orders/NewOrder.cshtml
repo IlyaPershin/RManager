@@ -1,0 +1,37 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "NewOrder";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithOrders)
+{
+    @Html.Partial("tabs")
+    <h2>@Html.ActionLink("Заказы", "Orders", "Orders") >> Выберите стол</h2>
+
+    <div class="panel panel-default">
+        @using (Html.BeginForm())
+    {
+        <p class="input-group">
+            <div class="form-inline">
+                Стол:
+                @Html.DropDownList("tableNumber", (IEnumerable<SelectListItem>)ViewData["Tables"], htmlAttributes: new { @class = "form-control" })
+            </div>
+        </p>
+
+        <p class="input-group">
+            <div class="form-inline">
+                Клиент:
+                @Html.DropDownList("client", (IEnumerable<SelectListItem>)ViewData["Clients"], htmlAttributes: new { @class = "form-control" })
+            </div>
+        </p>
+
+        <p><input class="btn btn-default" type="submit" value="OK"></p>
+        <p><input class="btn btn-default" type="submit" value="Cancel"></p>
+}
+    </div>
+}
+else
+{
+    <h4>Вы не выполнили вход, для работы необходимо выполнить вход.</h4>
+}

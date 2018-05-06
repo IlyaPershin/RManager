@@ -1,0 +1,161 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "AddWorker";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithMenu)
+{
+    @Html.Partial("tabs")
+    <h3>@Html.ActionLink("Работник", "Workers", "Workers") >> Добавить работника</h3>
+
+    <div class="panel panel-default">
+        @using (Html.BeginForm())
+        {
+            <p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Имя*:</span>
+                            <input type="text" class="form-control" name="surname" placeholder="Имя"> @Html.ValidationMessage("Surname")
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Логин*:</span>
+                            <input type="text" class="form-control" name="login" placeholder="Логин"> @Html.ValidationMessage("Login")
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Фамилия*:</span>
+                            <input type="text" class="form-control" name="firstname" placeholder="Фамилия"> @Html.ValidationMessage("Firstname")
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Пароль*:</span>
+                            <input type="password" class="form-control" name="password" placeholder="Пароль"> @Html.ValidationMessage("Password")
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Отчество:</span>
+                            <input type="text" class="form-control" name="middlename" placeholder="Отчество"> @Html.ValidationMessage("Middlename")
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Должность*:</span>
+                            @Html.DropDownList("position", (IEnumerable<SelectListItem>)ViewData["Positions"], htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Телефон*:</span>
+                            <input type="text" class="form-control" name="phone" placeholder="Телефон"> @Html.ValidationMessage("Phone")
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Филиал*:</span>
+                            @Html.DropDownList("branch", (IEnumerable<SelectListItem>)ViewData["Branches"], htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Эл. почта*:</span>
+                            <input type="text" class="form-control" name="email" placeholder="Эл. почта"> @Html.ValidationMessage("Email")
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Описание:</span>
+                            <input type="text" class="form-control" name="description" placeholder="Описание"> @Html.ValidationMessage("Description")
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Страна:</span>
+                            <input type="text" class="form-control" name="country" placeholder="Страна"> @Html.ValidationMessage("Country")
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Город:</span>
+                            <input type="text" class="form-control" name="city" placeholder="Город"> @Html.ValidationMessage("City")
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Улица:</span>
+                            <input type="text" class="form-control" name="street" placeholder="Улица"> @Html.ValidationMessage("Street")
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Дом:</span>
+                            <input type="text" class="form-control" name="building" placeholder="Дом"> @Html.ValidationMessage("Building")
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Индекс:</span>
+                            <input type="text" class="form-control" name="index" placeholder="Индекс"> @Html.ValidationMessage("Index")
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p><input class="btn btn-default" type="submit" value="OK"></p>
+            <p>@Html.ValidationMessage("Dublicate")</p>
+        }
+    </div>
+}
+else
+{
+    <h4>Вы не выполнили вход, для работы необходимо выполнить вход.</h4>
+}

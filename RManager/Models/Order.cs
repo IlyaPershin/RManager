@@ -15,7 +15,7 @@ namespace RManager.Models
     public partial class Order
     {
         public int Id { get; set; }
-        public double FinalPrice { get; set; }
+        public decimal FinalPrice { get; set; }
         public System.DateTime DateOfOrder { get; set; }
         public bool IsOpen { get; set; }
     

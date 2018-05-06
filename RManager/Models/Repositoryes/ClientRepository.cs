@@ -16,25 +16,32 @@ namespace RManager.Models.Repositoryes
 
         public IEnumerable<Client> Clients()
         {
-            return (IEnumerable<Client>)cont.Person.ToList().FindAll(cp => cp.GetType().Equals(typeof(Client))).OrderBy(c => c.Id);
+            //return (IEnumerable<Client>)cont.Person.ToList().FindAll(cp => cp is Client).OrderBy(c => c.Id);
+            var persons = cont.Person.ToList().FindAll(cp => cp is Client);
+            List<Client> clients = new List<Client>();
+            foreach (var pers in persons)
+            {
+                clients.Add((Client)pers);
+            }
+            return clients;
         }
 
-        static public Client GetClientById(int id)
+        public Client GetClientById(int id)
         {
             return (Client)cont.Person.SingleOrDefault(c => c.Id == id);
         }
 
-        static public Client GetClientByName(string name)
+        public Client GetClientByName(string name)
         {
             return (Client)cont.Person.SingleOrDefault(p => p.Surname == name || p.FirstName == name);
         }
 
-        static public Client GetClientByPhone(string phone)
+        public Client GetClientByPhone(string phone)
         {
             return (Client)cont.Person.SingleOrDefault(p => p.Phone == phone);
         }
 
-        static public Client GetClientByEmail(string email)
+        public Client GetClientByEmail(string email)
         {
             return (Client)cont.Person.SingleOrDefault(p => p.Email == email);
         }

@@ -1,0 +1,93 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "AddIngredient";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithMenu)
+{
+    @Html.Partial("tabs")
+    <h3>@Html.ActionLink("Склад", "Warehouse", "Warehouse") >> Добавить ингредиент</h3>
+
+    <div class="panel panel-default">
+        @using (Html.BeginForm())
+    {
+        <p class="input-group">
+            <span class="input-group-addon">Название*:</span>
+            <input type="text" class="form-control" name="name" placeholder="Название"> @Html.ValidationMessage("Name")
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">Особенность:</span>
+            <input type="text" class="form-control" name="property" placeholder="Особенность"> @Html.ValidationMessage("Property")
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">Описание:</span>
+            <input type="text" class="form-control" name="description" placeholder="Описание"> @Html.ValidationMessage("Description")
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">Артикул:</span>
+            <input type="text" class="form-control" name="vendorCode" placeholder="Артикул"> @Html.ValidationMessage("VendorCode")
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">Единица измерения:</span>
+            @Html.DropDownList("measure", (IEnumerable<SelectListItem>)ViewData["Measures"], htmlAttributes: new { @class = "form-control" })
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">Белки:</span>
+            <input type="text" class="form-control" name="protains" placeholder="Белки"> @Html.ValidationMessage("Protains")
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">Жиры:</span>
+            <input type="text" class="form-control" name="fats" placeholder="Жиры"> @Html.ValidationMessage("Fats")
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">Углеводы:</span>
+            <input type="text" class="form-control" name="carbohydrates" placeholder="Углеводы"> @Html.ValidationMessage("Carbohydrates")
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">Энерг. ценность в ккал:</span>
+            <input type="text" class="form-control" name="energyCalorie" placeholder="ккал"> @Html.ValidationMessage("EnergyCalorie")
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">Энерг. ценность в ДЖ:</span>
+            <input type="text" class="form-control" name="energyJoule" placeholder="ДЖ"> @Html.ValidationMessage("EnergyJoule")
+        </p>
+        <p class="input-group">
+            <span class="input-group-addon">Производитель:</span>
+            @Html.DropDownList("manufactorer", (IEnumerable<SelectListItem>)ViewData["Manufacturers"], htmlAttributes: new { @class = "form-control" })
+        </p>
+        <div class="panel panel-default">
+            <h4>Поля для ингредиента</h4>
+            <p class="input-group">
+                <span class="input-group-addon">Потери при чистке%:</span>
+                <input type="text" class="form-control" name="lossDuringCleaning" placeholder="Потери при чистке"> @Html.ValidationMessage("LossDuringCleaning")
+            </p>
+            <p class="input-group">
+                <span class="input-group-addon">Потери при жарке%:</span>
+                <input type="text" class="form-control" name="lossDuringFrying" placeholder="Потери при жарке"> @Html.ValidationMessage("LossDuringFrying")
+            </p>
+            <p class="input-group">
+                <span class="input-group-addon">Другие потери%:</span>
+                <input type="text" class="form-control" name="otherLosses" placeholder="Другие потери"> @Html.ValidationMessage("OtherLosses")
+            </p>
+        </div>
+        <div class="panel panel-default">
+            <h4>Поля для товара</h4>
+            <p class="input-group">
+                <span class="input-group-addon">Цена:</span>
+                <input type="text" class="form-control" name="cost" placeholder="Цена"> @Html.ValidationMessage("Cost")
+            </p>
+            <p class="input-group">
+                <span class="input-group-addon">Количество:</span>
+                <input type="text" class="form-control" name="volume" placeholder="Количество"> @Html.ValidationMessage("Volume")
+            </p>
+            <p class="input-group">
+                <span class="input-group-addon" id="ingridient">Категория:</span>
+                @Html.DropDownList("category", (IEnumerable<SelectListItem>)ViewData["Categoryes"], htmlAttributes: new { @class = "form-control" })
+            </p>
+        </div>
+        <p><input class="btn btn-default" type="submit" value="OK"></p>
+        <p>@Html.ValidationMessage("Dublicate")</p>
+}
+    </div>
+}

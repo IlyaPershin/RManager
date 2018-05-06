@@ -18,6 +18,9 @@ namespace RManager.Models
         public Prepack()
         {
             this.IsExist = true;
+            this.LossDuringCleaning = 0D;
+            this.LossDuringFrying = 0D;
+            this.OtherLosses = 0D;
             this.Energy = new EnergyValue();
         }
     
@@ -30,6 +33,9 @@ namespace RManager.Models
         public string VendorCode { get; set; }
         public Nullable<System.DateTime> CookStartTime { get; set; }
         public Nullable<System.DateTime> CookEndTime { get; set; }
+        public double LossDuringCleaning { get; set; }
+        public double LossDuringFrying { get; set; }
+        public double OtherLosses { get; set; }
     
         public EnergyValue Energy { get; set; }
     }

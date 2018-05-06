@@ -14,14 +14,32 @@ namespace RManager.Models
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.IsExist = true;
+            this.LossDuringCleaning = 0D;
+            this.LossDuringFrying = 0D;
+            this.OtherLosses = 0D;
+            this.Energy = new EnergyValue();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Property { get; set; }
+        public string Description { get; set; }
+        public decimal Cost { get; set; }
+        public Nullable<double> FinalVolume { get; set; }
+        public bool IsExist { get; set; }
         public Measure Measure { get; set; }
-        public Nullable<bool> IsIngredient { get; set; }
+        public string VendorCode { get; set; }
+        public bool IsIngredient { get; set; }
         public bool IsMerchandise { get; set; }
-        public Nullable<System.DateTime> InspectionDate { get; set; }
-        public Nullable<double> FactualNumber { get; set; }
+        public Nullable<double> LossDuringCleaning { get; set; }
+        public Nullable<double> LossDuringFrying { get; set; }
+        public Nullable<double> OtherLosses { get; set; }
+    
+        public EnergyValue Energy { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Company Manufacturer { get; set; }

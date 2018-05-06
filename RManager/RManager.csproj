@@ -163,7 +163,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CompanyesController.cs" />
+    <Compile Include="Controllers\ControllerFactory.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\TablesController.cs" />
+    <Compile Include="Controllers\WarehouseController.cs" />
+    <Compile Include="Controllers\WorkersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,6 +205,7 @@
     <Compile Include="Models\ContactPerson.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataManager.cs" />
     <Compile Include="Models\Dish.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -266,15 +275,34 @@
     <Compile Include="Models\RecipePrepPrep.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repositoryes\BranchRepository.cs" />
     <Compile Include="Models\Repositoryes\CategoryRepository.cs" />
+    <Compile Include="Models\Repositoryes\CheckDishRepository.cs" />
+    <Compile Include="Models\Repositoryes\CheckMerchandiseRepository.cs" />
     <Compile Include="Models\Repositoryes\ClientRepository.cs" />
     <Compile Include="Models\Repositoryes\CompanyOwnerRepository.cs" />
     <Compile Include="Models\Repositoryes\CompanyRepository.cs" />
     <Compile Include="Models\Repositoryes\ContactPersonRepository.cs" />
+    <Compile Include="Models\Repositoryes\DishRepository.cs" />
+    <Compile Include="Models\Repositoryes\DocumentRepository.cs" />
+    <Compile Include="Models\Repositoryes\EjectionRepository.cs" />
     <Compile Include="Models\Repositoryes\EmployeeRepository.cs" />
+    <Compile Include="Models\Repositoryes\EncashmentRepository.cs" />
     <Compile Include="Models\Repositoryes\LandlordRepository.cs" />
+    <Compile Include="Models\Repositoryes\OrderRepository.cs" />
     <Compile Include="Models\Repositoryes\PersonRepository.cs" />
     <Compile Include="Models\Repositoryes\PositionRepository.cs" />
+    <Compile Include="Models\Repositoryes\PrepackRepository.cs" />
+    <Compile Include="Models\Repositoryes\ProductRepository.cs" />
+    <Compile Include="Models\Repositoryes\PurchaseRepository.cs" />
+    <Compile Include="Models\Repositoryes\RecipeDishIngrRepository.cs" />
+    <Compile Include="Models\Repositoryes\RecipeDishPrepRepository.cs" />
+    <Compile Include="Models\Repositoryes\RecipePrepIngrRepository.cs" />
+    <Compile Include="Models\Repositoryes\RecipePrepPrepRepository.cs" />
+    <Compile Include="Models\Repositoryes\RoomRepository.cs" />
+    <Compile Include="Models\Repositoryes\ShiftRepository.cs" />
+    <Compile Include="Models\Repositoryes\TableRepository.cs" />
+    <Compile Include="Models\Repositoryes\WarehouseRepository.cs" />
     <Compile Include="Models\Room.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -284,10 +312,12 @@
     <Compile Include="Models\Table.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Warehouse.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\app.component.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -308,11 +338,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="package.json" />
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -324,8 +356,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="systemjs-angular-loader.js" />
-    <Content Include="systemjs.config.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -337,10 +367,32 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="tsconfig.json" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Orders\Orders.cshtml" />
+    <Content Include="Views\Orders\tabs.cshtml" />
+    <Content Include="Views\Menu\Menu.cshtml" />
+    <Content Include="Views\Menu\tabs.cshtml" />
+    <Content Include="Views\Warehouse\Warehouse.cshtml" />
+    <Content Include="Views\Warehouse\tabs.cshtml" />
+    <Content Include="Views\Workers\Workers.cshtml" />
+    <Content Include="Views\Warehouse\AddIngredient.cshtml" />
+    <Content Include="Views\Home\tabs.cshtml" />
+    <Content Include="Views\Companyes\Companyes.cshtml" />
+    <Content Include="Views\Companyes\tabs.cshtml" />
+    <Content Include="Views\Workers\tabs.cshtml" />
+    <Content Include="Views\Workers\AddPosition.cshtml" />
+    <Content Include="Views\Companyes\AddCompany.cshtml" />
+    <Content Include="Views\Workers\AddWorker.cshtml" />
+    <Content Include="Views\Menu\AddDish.cshtml" />
+    <Content Include="Views\Orders\NewOrder.cshtml" />
+    <Content Include="Views\Orders\EditOrder.cshtml" />
+    <Content Include="Views\Tables\tabs.cshtml" />
+    <Content Include="Views\Tables\Tables.cshtml" />
+    <Content Include="Views\Reports\tabs.cshtml" />
+    <Content Include="Views\Reports\Reports.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -357,11 +409,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="app\app.component.ts" />
-    <TypeScriptCompile Include="app\app.module.ts" />
-    <TypeScriptCompile Include="app\main.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

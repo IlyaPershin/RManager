@@ -1,0 +1,107 @@
+﻿@using RManager.Models
+
+@{
+    ViewBag.Title = "Workers";
+}
+
+@if ((Employee)Session["user"] != null && ((Employee)Session["user"]).Position.WorkWithMenu)
+{
+    @Html.Partial("tabs")
+<div class="panel panel-default">
+    <h3>Работа со штатом</h3>
+    
+    @*@using (Html.BeginForm())
+    {
+        <p class="input-group">
+            <span class="input-group-addon" id="Firm">Поиск по имени(регистр важен):</span>
+            <input type="text" class="form-control" name="name" placeholder="Название">
+            <input class="btn btn-default" type="submit" value="Найти">@Html.ValidationMessage("Name")
+        </p>
+    }*@
+    <div class="panel panel-default">
+        @{ if (((IEnumerable<KeyValuePair<int, Position>>)ViewData["positions"]).Count() > 0)
+        {
+            <h4>Работники</h4>
+            @Html.ActionLink("Добавить работника", "AddWorker", "Workers", htmlAttributes: new { @class = "btn btn-default" })
+            <table class="table table-bordered">
+                <tr>
+                    <th>№</th>
+                    <th>Имя</th>
+                    <th>Должность</th>
+                    <th>Телефон</th>
+                    <th>Изменить</th>
+                    <th>Удалить</th>
+                </tr>
+
+                @{
+                IEnumerable<KeyValuePair<int, Employee>> employees = ((IEnumerable<KeyValuePair<int, Employee>>)ViewData["employees"]);
+                for (int j = 0; j < employees.Count(); j++)
+                {
+                    <tr>
+                        <td>@(j + 1)</td>
+                        <th>@(employees.ElementAt(j).Value.Surname + ' ' + employees.ElementAt(j).Value.FirstName + ' ' + employees.ElementAt(j).Value.MiddleName)</th>
+                        <th>@employees.ElementAt(j).Value.Position.Name</th>
+                        <th>@employees.ElementAt(j).Value.Phone</th>
+                        @*<th>@Html.ActionLink("Изменить", "EditIngredient", new { id = products.ElementAt(j).Key.Id })</th>*@
+                        @*<th>@Html.ActionLink("Изменить", "EditIngredient", new { id = products.ElementAt(j).Key.Id })</th>*@
+                    </tr>
+            }
+                }
+            </table>
+    }
+    else
+    {
+        <h4>Добавьте, хотя бы одну должность</h4>
+}
+        }
+    </div>
+
+        <div class="panel panel-default">
+            <h4>Должности</h4>
+            @Html.ActionLink("Добавить должность", "AddPosition", "Workers", htmlAttributes: new { @class = "btn btn-default" })
+            <table class="table table-bordered">
+                <tr>
+                    <th>№</th>
+                    <th>Название</th>
+                    <th>Заказы</th>
+                    <th>Меню</th>
+                    <th>Склад</th>
+                    <th>Работника</th>
+                    <th>Столы</th>
+                    <th>Отчёты</th>
+                    <th>Удалить</th>
+                </tr>
+
+                @{
+                    string str = "";
+                    IEnumerable<KeyValuePair<int, Position>> positions = ((IEnumerable<KeyValuePair<int, Position>>)ViewData["positions"]);
+                    for (int j = 0; j < positions.Count(); j++)
+                    {
+                        <tr>
+                            <td>@(j + 1)</td>
+                            <th>@positions.ElementAt(j).Value.Name</th>
+                            @{ if (positions.ElementAt(j).Value.WorkWithOrders) { str = "Есть"; } else { str = ""; } }
+                            <th>@str</th>
+                            @{ if (positions.ElementAt(j).Value.WorkWithMenu) { str = "Есть"; } else { str = ""; } }
+                            <th>@str</th>
+                            @{ if (positions.ElementAt(j).Value.WorkWithWarehouse) { str = "Есть"; } else { str = ""; } }
+                            <th>@str</th>
+                            @{ if (positions.ElementAt(j).Value.WorkWithStuff) { str = "Есть"; } else { str = ""; } }
+                            <th>@str</th>
+                            @{ if (positions.ElementAt(j).Value.WorkWithTables) { str = "Есть"; } else { str = ""; } }
+                            <th>@str</th>
+                            @{ if (positions.ElementAt(j).Value.WorkWithOrders) { str = "Есть"; } else { str = ""; } }
+                            <th>@str</th>
+                            @*<th>@Html.ActionLink("Изменить", "EditIngredient", new { id = products.ElementAt(j).Key.Id })</th>*@
+                            @*<th>@Html.ActionLink("Изменить", "EditIngredient", new { id = products.ElementAt(j).Key.Id })</th>*@
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <h4>Вы не выполнили вход, для работы необходимо выполнить вход.</h4>
+}

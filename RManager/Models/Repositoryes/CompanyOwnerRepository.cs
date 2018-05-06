@@ -48,7 +48,7 @@ namespace RManager.Models.Repositoryes
         public CompanyOwner AddCompanyOwner(string surname, string firstname, string middlename, string phone, string email,
             string country, string city, string street, string building, string index,
             string login, string password, string description,
-            string inn, string ogrn)
+            string inn, string ogrn, Position position)
         {
 
             CompanyOwner p = new CompanyOwner
@@ -77,6 +77,7 @@ namespace RManager.Models.Repositoryes
 
                 INN = inn,
                 OGRN = ogrn,
+                Position = position,
             };
             cont.Person.Add(p);
             cont.SaveChanges();
@@ -86,7 +87,7 @@ namespace RManager.Models.Repositoryes
         public CompanyOwner AddCompanyOwner(string surname, string firstname, string middlename, string phone, string email,
             Adress adress,
             string login, string password, string description,
-            string inn, string ogrn)
+            string inn, string ogrn, Position position)
         {
 
             CompanyOwner p = new CompanyOwner
@@ -108,6 +109,7 @@ namespace RManager.Models.Repositoryes
 
                 INN = inn,
                 OGRN = ogrn,
+                Position = position,
             };
             cont.Person.Add(p);
             cont.SaveChanges();
@@ -116,7 +118,7 @@ namespace RManager.Models.Repositoryes
 
         public CompanyOwner AddCompanyOwner(string surname, string firstname, string middlename, string phone, string email,
             string login, string password, string description,
-            string inn, string ogrn)
+            string inn, string ogrn, Position position)
         {
 
             CompanyOwner p = new CompanyOwner
@@ -127,7 +129,14 @@ namespace RManager.Models.Repositoryes
                 Phone = phone,
                 Email = email,
 
-                Adress = null,
+                Adress = new Adress
+                {
+                    Country = "",
+                    City = "",
+                    Street = "",
+                    Bilding = "",
+                    Index = "",
+                },
 
                 Login = login,
                 Password = password,
@@ -138,6 +147,7 @@ namespace RManager.Models.Repositoryes
 
                 INN = inn,
                 OGRN = ogrn,
+                Position = position,
             };
             cont.Person.Add(p);
             cont.SaveChanges();

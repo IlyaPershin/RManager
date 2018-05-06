@@ -33,19 +33,20 @@ namespace RManager.Models
         public virtual DbSet<Purchase> Purchase { get; set; }
         public virtual DbSet<Ejection> Ejection { get; set; }
         public virtual DbSet<CheckDish> CheckDish { get; set; }
-        public virtual DbSet<Table> TableSet { get; set; }
+        public virtual DbSet<Table> Table { get; set; }
         public virtual DbSet<RecipeDishIngr> RecipeDishIngr { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<Branch> Branch { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Person> Person { get; set; }
         public virtual DbSet<Company> Company { get; set; }
-        public virtual DbSet<Prepack> PrepackSet { get; set; }
+        public virtual DbSet<Prepack> Prepack { get; set; }
         public virtual DbSet<RecipePrepIngr> RecipePrepIngr { get; set; }
         public virtual DbSet<RecipeDishPrep> RecipeDishPrep { get; set; }
         public virtual DbSet<RecipePrepPrep> RecipePrepPrep { get; set; }
         public virtual DbSet<CheckMerchandise> CheckMerchandise { get; set; }
-        public virtual DbSet<Shift> ShiftSet { get; set; }
-        public virtual DbSet<Encashment> EncashmentSet { get; set; }
+        public virtual DbSet<Shift> Shift { get; set; }
+        public virtual DbSet<Encashment> Encashment { get; set; }
+        public virtual DbSet<Warehouse> Warehouse { get; set; }
     }
 }

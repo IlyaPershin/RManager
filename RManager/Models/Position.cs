@@ -22,6 +22,7 @@ namespace RManager.Models
             this.WorkWithWarehouse = false;
             this.WorkWithStuff = false;
             this.WorkWithReports = false;
+            this.WorkWithTables = false;
         }
     
         public int Id { get; set; }
@@ -31,5 +32,6 @@ namespace RManager.Models
         public bool WorkWithWarehouse { get; set; }
         public bool WorkWithStuff { get; set; }
         public bool WorkWithReports { get; set; }
+        public bool WorkWithTables { get; set; }
     }
 }

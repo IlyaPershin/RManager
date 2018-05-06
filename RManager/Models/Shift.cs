@@ -15,11 +15,11 @@ namespace RManager.Models
     public partial class Shift
     {
         public int Id { get; set; }
-        public Nullable<System.TimeSpan> StartDateTime { get; set; }
-        public Nullable<System.TimeSpan> EndDateTime { get; set; }
+        public System.DateTime StartDateTime { get; set; }
+        public Nullable<System.DateTime> EndDateTime { get; set; }
         public decimal StartFactualCashbox { get; set; }
-        public decimal EndFactualCash { get; set; }
-        public decimal EndFactualNonCash { get; set; }
+        public Nullable<decimal> EndFactualCash { get; set; }
+        public Nullable<decimal> EndFactualNonCash { get; set; }
     
         public virtual Employee Person { get; set; }
         public virtual Branch Branch { get; set; }

@@ -15,9 +15,10 @@ namespace RManager.Models
     public partial class CheckDish
     {
         public int Id { get; set; }
-        public string IsPaid { get; set; }
-        public string AddDateTime { get; set; }
-        public string PaidDateTime { get; set; }
+        public bool IsPaid { get; set; }
+        public System.DateTime AddDateTime { get; set; }
+        public Nullable<System.DateTime> PaidDateTime { get; set; }
+        public Nullable<decimal> FinalPrice { get; set; }
     
         public virtual Dish Dish { get; set; }
         public virtual Order Order { get; set; }

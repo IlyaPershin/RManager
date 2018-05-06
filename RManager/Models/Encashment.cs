@@ -15,7 +15,7 @@ namespace RManager.Models
     public partial class Encashment
     {
         public int Id { get; set; }
-        public string Date { get; set; }
+        public System.DateTime Date { get; set; }
         public decimal WriteOff { get; set; }
     
         public virtual Branch Branch { get; set; }

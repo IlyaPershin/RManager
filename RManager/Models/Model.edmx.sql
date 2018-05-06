@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/01/2018 11:53:47
--- Generated from EDMX file: D:\Илья\Вышка\3Course\Курсовая\RManager\RManager\Models\Model.edmx
+-- Date Created: 03/26/2018 14:20:10
+-- Generated from EDMX file: D:\HSE\3Course\RManager\RManager\Models\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -33,13 +33,7 @@ IF OBJECT_ID(N'[dbo].[FK_PersonEjection]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Ejection] DROP CONSTRAINT [FK_PersonEjection];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PersonShift]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ShiftSet] DROP CONSTRAINT [FK_PersonShift];
-GO
-IF OBJECT_ID(N'[dbo].[FK_IngridientPurchase]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Purchase] DROP CONSTRAINT [FK_IngridientPurchase];
-GO
-IF OBJECT_ID(N'[dbo].[FK_IngridientEjection]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Ejection] DROP CONSTRAINT [FK_IngridientEjection];
+    ALTER TABLE [dbo].[Shift] DROP CONSTRAINT [FK_PersonShift];
 GO
 IF OBJECT_ID(N'[dbo].[FK_IngridientDIConnection]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[RecipeDishIngr] DROP CONSTRAINT [FK_IngridientDIConnection];
@@ -93,10 +87,10 @@ IF OBJECT_ID(N'[dbo].[FK_PrepackRecipePrepPrep1]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[RecipePrepPrep] DROP CONSTRAINT [FK_PrepackRecipePrepPrep1];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BranchEncashment]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EncashmentSet] DROP CONSTRAINT [FK_BranchEncashment];
+    ALTER TABLE [dbo].[Encashment] DROP CONSTRAINT [FK_BranchEncashment];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BranchShift]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ShiftSet] DROP CONSTRAINT [FK_BranchShift];
+    ALTER TABLE [dbo].[Shift] DROP CONSTRAINT [FK_BranchShift];
 GO
 IF OBJECT_ID(N'[dbo].[FK_OrderCheckMerchandise]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CheckMerchandise] DROP CONSTRAINT [FK_OrderCheckMerchandise];
@@ -105,7 +99,7 @@ IF OBJECT_ID(N'[dbo].[FK_OrderCheckDish]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CheckDish] DROP CONSTRAINT [FK_OrderCheckDish];
 GO
 IF OBJECT_ID(N'[dbo].[FK_RoomTable]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[TableSet] DROP CONSTRAINT [FK_RoomTable];
+    ALTER TABLE [dbo].[Table] DROP CONSTRAINT [FK_RoomTable];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BranchRoom]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Room] DROP CONSTRAINT [FK_BranchRoom];
@@ -121,6 +115,18 @@ IF OBJECT_ID(N'[dbo].[FK_LandlordBranch]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_ClientOrder]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Order] DROP CONSTRAINT [FK_ClientOrder];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BranchWarehouse]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Warehouse] DROP CONSTRAINT [FK_BranchWarehouse];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProductWarehouse]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Warehouse] DROP CONSTRAINT [FK_ProductWarehouse];
+GO
+IF OBJECT_ID(N'[dbo].[FK_WarehousePurchase]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Purchase] DROP CONSTRAINT [FK_WarehousePurchase];
+GO
+IF OBJECT_ID(N'[dbo].[FK_WarehouseEjection]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Ejection] DROP CONSTRAINT [FK_WarehouseEjection];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Employee_inherits_Person]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Person_Employee] DROP CONSTRAINT [FK_Employee_inherits_Person];
@@ -166,8 +172,8 @@ GO
 IF OBJECT_ID(N'[dbo].[CheckDish]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CheckDish];
 GO
-IF OBJECT_ID(N'[dbo].[TableSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[TableSet];
+IF OBJECT_ID(N'[dbo].[Table]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Table];
 GO
 IF OBJECT_ID(N'[dbo].[RecipeDishIngr]', 'U') IS NOT NULL
     DROP TABLE [dbo].[RecipeDishIngr];
@@ -187,8 +193,8 @@ GO
 IF OBJECT_ID(N'[dbo].[Company]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Company];
 GO
-IF OBJECT_ID(N'[dbo].[PrepackSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PrepackSet];
+IF OBJECT_ID(N'[dbo].[Prepack]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Prepack];
 GO
 IF OBJECT_ID(N'[dbo].[RecipePrepIngr]', 'U') IS NOT NULL
     DROP TABLE [dbo].[RecipePrepIngr];
@@ -202,11 +208,14 @@ GO
 IF OBJECT_ID(N'[dbo].[CheckMerchandise]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CheckMerchandise];
 GO
-IF OBJECT_ID(N'[dbo].[ShiftSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ShiftSet];
+IF OBJECT_ID(N'[dbo].[Shift]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Shift];
 GO
-IF OBJECT_ID(N'[dbo].[EncashmentSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EncashmentSet];
+IF OBJECT_ID(N'[dbo].[Encashment]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Encashment];
+GO
+IF OBJECT_ID(N'[dbo].[Warehouse]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Warehouse];
 GO
 IF OBJECT_ID(N'[dbo].[Person_Employee]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Person_Employee];
@@ -248,7 +257,8 @@ CREATE TABLE [dbo].[Position] (
     [WorkWithMenu] bit  NOT NULL,
     [WorkWithWarehouse] bit  NOT NULL,
     [WorkWithStuff] bit  NOT NULL,
-    [WorkWithReports] bit  NOT NULL
+    [WorkWithReports] bit  NOT NULL,
+    [WorkWithTables] bit  NOT NULL
 );
 GO
 
@@ -256,14 +266,25 @@ GO
 CREATE TABLE [dbo].[Product] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [Property] nvarchar(max)  NOT NULL,
+    [Property] nvarchar(max)  NULL,
+    [Description] nvarchar(max)  NULL,
+    [Cost] decimal(18,0)  NOT NULL,
+    [FinalVolume] float  NULL,
+    [IsExist] bit  NOT NULL,
     [Measure] tinyint  NOT NULL,
-    [IsIngredient] bit  NULL,
+    [VendorCode] nvarchar(max)  NOT NULL,
+    [IsIngredient] bit  NOT NULL,
     [IsMerchandise] bit  NOT NULL,
-    [InspectionDate] datetime  NULL,
-    [FactualNumber] float  NULL,
-    [Category_Id] int  NOT NULL,
-    [Manufacturer_Id] int  NOT NULL
+    [LossDuringCleaning] float  NULL,
+    [LossDuringFrying] float  NULL,
+    [OtherLosses] float  NULL,
+    [Energy_Protains] float  NULL,
+    [Energy_Fats] float  NULL,
+    [Energy_Carbohydrates] float  NULL,
+    [Energy_EnergyCalorie] float  NULL,
+    [Energy_EnergyJoule] float  NULL,
+    [Category_Id] int  NULL,
+    [Manufacturer_Id] int  NULL
 );
 GO
 
@@ -272,7 +293,7 @@ CREATE TABLE [dbo].[Dish] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NULL,
-    [Cost] float  NOT NULL,
+    [Cost] decimal(18,0)  NOT NULL,
     [FinalVolume] float  NULL,
     [IsExist] bit  NOT NULL,
     [Measure] tinyint  NOT NULL,
@@ -285,14 +306,14 @@ CREATE TABLE [dbo].[Dish] (
     [Energy_EnergyCalorie] float  NULL,
     [Energy_EnergyJoule] float  NULL,
     [CookingPlace_Id] int  NULL,
-    [Category_Id] int  NOT NULL
+    [Category_Id] int  NULL
 );
 GO
 
 -- Creating table 'Order'
 CREATE TABLE [dbo].[Order] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [FinalPrice] float  NOT NULL,
+    [FinalPrice] decimal(18,0)  NOT NULL,
     [DateOfOrder] datetime  NOT NULL,
     [IsOpen] bit  NOT NULL,
     [Employee_Id] int  NOT NULL,
@@ -303,38 +324,39 @@ GO
 
 -- Creating table 'Purchase'
 CREATE TABLE [dbo].[Purchase] (
-    [IdPurchase] int IDENTITY(1,1) NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Date] datetime  NOT NULL,
-    [Price] float  NULL,
+    [Price] decimal(18,0)  NOT NULL,
     [Volume] float  NOT NULL,
-    [Ingridient_Id] int  NOT NULL,
-    [Provider_Id] int  NOT NULL
+    [Provider_Id] int  NOT NULL,
+    [Warehouse_Id] int  NOT NULL
 );
 GO
 
 -- Creating table 'Ejection'
 CREATE TABLE [dbo].[Ejection] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Volume] int  NOT NULL,
+    [Volume] float  NOT NULL,
     [Date] datetime  NOT NULL,
     [Culprit_Id] int  NULL,
-    [Ingridient_Id] int  NOT NULL
+    [Warehouse_Id] int  NOT NULL
 );
 GO
 
 -- Creating table 'CheckDish'
 CREATE TABLE [dbo].[CheckDish] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [IsPaid] nvarchar(max)  NOT NULL,
-    [AddDateTime] nvarchar(max)  NOT NULL,
-    [PaidDateTime] nvarchar(max)  NOT NULL,
+    [IsPaid] bit  NOT NULL,
+    [AddDateTime] datetime  NOT NULL,
+    [PaidDateTime] datetime  NULL,
+    [FinalPrice] decimal(18,0)  NULL,
     [Dish_Id] int  NOT NULL,
     [Order_Id] int  NOT NULL
 );
 GO
 
--- Creating table 'TableSet'
-CREATE TABLE [dbo].[TableSet] (
+-- Creating table 'Table'
+CREATE TABLE [dbo].[Table] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Number] smallint  NOT NULL,
     [Description] nvarchar(max)  NULL,
@@ -346,9 +368,9 @@ GO
 -- Creating table 'RecipeDishIngr'
 CREATE TABLE [dbo].[RecipeDishIngr] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Volume] int  NOT NULL,
+    [Volume] float  NOT NULL,
     [Description] nvarchar(max)  NULL,
-    [Ingridient_Id] int  NOT NULL,
+    [Ingredient_Id] int  NOT NULL,
     [Dish_Id] int  NOT NULL
 );
 GO
@@ -382,7 +404,7 @@ CREATE TABLE [dbo].[Branch] (
     [InspectionDate] datetime  NULL,
     [FactualCashbox] float  NULL,
     [Owner_Id] int  NOT NULL,
-    [Landlord_Id] int  NOT NULL
+    [Landlord_Id] int  NULL
 );
 GO
 
@@ -390,7 +412,7 @@ GO
 CREATE TABLE [dbo].[Category] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [ParrentCategory_Id] int  NOT NULL
+    [ParrentCategory_Id] int  NULL
 );
 GO
 
@@ -401,7 +423,7 @@ CREATE TABLE [dbo].[Person] (
     [FirstName] nvarchar(max)  NULL,
     [MiddleName] nvarchar(max)  NULL,
     [Phone] nvarchar(max)  NULL,
-    [Email] nvarchar(max)  NOT NULL,
+    [Email] nvarchar(max)  NULL,
     [Adress_Country] nvarchar(max)  NOT NULL,
     [Adress_City] nvarchar(max)  NOT NULL,
     [Adress_Street] nvarchar(max)  NOT NULL,
@@ -420,8 +442,8 @@ CREATE TABLE [dbo].[Company] (
 );
 GO
 
--- Creating table 'PrepackSet'
-CREATE TABLE [dbo].[PrepackSet] (
+-- Creating table 'Prepack'
+CREATE TABLE [dbo].[Prepack] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NULL,
@@ -435,14 +457,17 @@ CREATE TABLE [dbo].[PrepackSet] (
     [Energy_Fats] float  NULL,
     [Energy_Carbohydrates] float  NULL,
     [Energy_EnergyCalorie] float  NULL,
-    [Energy_EnergyJoule] float  NULL
+    [Energy_EnergyJoule] float  NULL,
+    [LossDuringCleaning] float  NOT NULL,
+    [LossDuringFrying] float  NOT NULL,
+    [OtherLosses] float  NOT NULL
 );
 GO
 
 -- Creating table 'RecipePrepIngr'
 CREATE TABLE [dbo].[RecipePrepIngr] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Volume] int  NOT NULL,
+    [Volume] float  NOT NULL,
     [Description] nvarchar(max)  NULL,
     [Ingredient_Id] int  NOT NULL,
     [Prepack_Id] int  NOT NULL
@@ -452,7 +477,7 @@ GO
 -- Creating table 'RecipeDishPrep'
 CREATE TABLE [dbo].[RecipeDishPrep] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Volume] int  NOT NULL,
+    [Volume] float  NOT NULL,
     [Description] nvarchar(max)  NULL,
     [Dish_Id] int  NOT NULL,
     [Prepack_Id] int  NOT NULL
@@ -462,7 +487,7 @@ GO
 -- Creating table 'RecipePrepPrep'
 CREATE TABLE [dbo].[RecipePrepPrep] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Volume] int  NOT NULL,
+    [Volume] float  NOT NULL,
     [Description] nvarchar(max)  NULL,
     [Prepack_Id] int  NOT NULL,
     [Result_Id] int  NOT NULL
@@ -472,33 +497,44 @@ GO
 -- Creating table 'CheckMerchandise'
 CREATE TABLE [dbo].[CheckMerchandise] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [IsPaid] nvarchar(max)  NOT NULL,
-    [AddDateTime] nvarchar(max)  NOT NULL,
-    [PaidDateTime] nvarchar(max)  NOT NULL,
+    [IsPaid] bit  NOT NULL,
+    [AddDateTime] datetime  NOT NULL,
+    [PaidDateTime] datetime  NULL,
+    [FinalPrice] decimal(18,0)  NULL,
     [Product_Id] int  NOT NULL,
     [Order_Id] int  NOT NULL
 );
 GO
 
--- Creating table 'ShiftSet'
-CREATE TABLE [dbo].[ShiftSet] (
+-- Creating table 'Shift'
+CREATE TABLE [dbo].[Shift] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [StartDateTime] time  NULL,
-    [EndDateTime] time  NULL,
+    [StartDateTime] datetime  NOT NULL,
+    [EndDateTime] datetime  NULL,
     [StartFactualCashbox] decimal(18,0)  NOT NULL,
-    [EndFactualCash] decimal(18,0)  NOT NULL,
-    [EndFactualNonCash] decimal(18,0)  NOT NULL,
+    [EndFactualCash] decimal(18,0)  NULL,
+    [EndFactualNonCash] decimal(18,0)  NULL,
     [Person_Id] int  NOT NULL,
     [Branch_Id] int  NOT NULL
 );
 GO
 
--- Creating table 'EncashmentSet'
-CREATE TABLE [dbo].[EncashmentSet] (
+-- Creating table 'Encashment'
+CREATE TABLE [dbo].[Encashment] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Date] nvarchar(max)  NOT NULL,
+    [Date] datetime  NOT NULL,
     [WriteOff] decimal(18,0)  NOT NULL,
     [Branch_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'Warehouse'
+CREATE TABLE [dbo].[Warehouse] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [InspectionDate] datetime  NULL,
+    [FactualNumber] float  NULL,
+    [Branch_Id] int  NOT NULL,
+    [Product_Id] int  NOT NULL
 );
 GO
 
@@ -510,7 +546,7 @@ CREATE TABLE [dbo].[Person_Employee] (
     [Description] nvarchar(max)  NULL,
     [Id] int  NOT NULL,
     [Position_Id] int  NOT NULL,
-    [Branch_Id] int  NOT NULL
+    [Branch_Id] int  NULL
 );
 GO
 
@@ -580,10 +616,10 @@ ADD CONSTRAINT [PK_Order]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [IdPurchase] in table 'Purchase'
+-- Creating primary key on [Id] in table 'Purchase'
 ALTER TABLE [dbo].[Purchase]
 ADD CONSTRAINT [PK_Purchase]
-    PRIMARY KEY CLUSTERED ([IdPurchase] ASC);
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'Ejection'
@@ -598,9 +634,9 @@ ADD CONSTRAINT [PK_CheckDish]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'TableSet'
-ALTER TABLE [dbo].[TableSet]
-ADD CONSTRAINT [PK_TableSet]
+-- Creating primary key on [Id] in table 'Table'
+ALTER TABLE [dbo].[Table]
+ADD CONSTRAINT [PK_Table]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -640,9 +676,9 @@ ADD CONSTRAINT [PK_Company]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'PrepackSet'
-ALTER TABLE [dbo].[PrepackSet]
-ADD CONSTRAINT [PK_PrepackSet]
+-- Creating primary key on [Id] in table 'Prepack'
+ALTER TABLE [dbo].[Prepack]
+ADD CONSTRAINT [PK_Prepack]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -670,15 +706,21 @@ ADD CONSTRAINT [PK_CheckMerchandise]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'ShiftSet'
-ALTER TABLE [dbo].[ShiftSet]
-ADD CONSTRAINT [PK_ShiftSet]
+-- Creating primary key on [Id] in table 'Shift'
+ALTER TABLE [dbo].[Shift]
+ADD CONSTRAINT [PK_Shift]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'EncashmentSet'
-ALTER TABLE [dbo].[EncashmentSet]
-ADD CONSTRAINT [PK_EncashmentSet]
+-- Creating primary key on [Id] in table 'Encashment'
+ALTER TABLE [dbo].[Encashment]
+ADD CONSTRAINT [PK_Encashment]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Warehouse'
+ALTER TABLE [dbo].[Warehouse]
+ADD CONSTRAINT [PK_Warehouse]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -791,8 +833,8 @@ ON [dbo].[Ejection]
     ([Culprit_Id]);
 GO
 
--- Creating foreign key on [Person_Id] in table 'ShiftSet'
-ALTER TABLE [dbo].[ShiftSet]
+-- Creating foreign key on [Person_Id] in table 'Shift'
+ALTER TABLE [dbo].[Shift]
 ADD CONSTRAINT [FK_PersonShift]
     FOREIGN KEY ([Person_Id])
     REFERENCES [dbo].[Person_Employee]
@@ -802,44 +844,14 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PersonShift'
 CREATE INDEX [IX_FK_PersonShift]
-ON [dbo].[ShiftSet]
+ON [dbo].[Shift]
     ([Person_Id]);
 GO
 
--- Creating foreign key on [Ingridient_Id] in table 'Purchase'
-ALTER TABLE [dbo].[Purchase]
-ADD CONSTRAINT [FK_IngridientPurchase]
-    FOREIGN KEY ([Ingridient_Id])
-    REFERENCES [dbo].[Product]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_IngridientPurchase'
-CREATE INDEX [IX_FK_IngridientPurchase]
-ON [dbo].[Purchase]
-    ([Ingridient_Id]);
-GO
-
--- Creating foreign key on [Ingridient_Id] in table 'Ejection'
-ALTER TABLE [dbo].[Ejection]
-ADD CONSTRAINT [FK_IngridientEjection]
-    FOREIGN KEY ([Ingridient_Id])
-    REFERENCES [dbo].[Product]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_IngridientEjection'
-CREATE INDEX [IX_FK_IngridientEjection]
-ON [dbo].[Ejection]
-    ([Ingridient_Id]);
-GO
-
--- Creating foreign key on [Ingridient_Id] in table 'RecipeDishIngr'
+-- Creating foreign key on [Ingredient_Id] in table 'RecipeDishIngr'
 ALTER TABLE [dbo].[RecipeDishIngr]
 ADD CONSTRAINT [FK_IngridientDIConnection]
-    FOREIGN KEY ([Ingridient_Id])
+    FOREIGN KEY ([Ingredient_Id])
     REFERENCES [dbo].[Product]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -848,7 +860,7 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_IngridientDIConnection'
 CREATE INDEX [IX_FK_IngridientDIConnection]
 ON [dbo].[RecipeDishIngr]
-    ([Ingridient_Id]);
+    ([Ingredient_Id]);
 GO
 
 -- Creating foreign key on [Category_Id] in table 'Product'
@@ -990,7 +1002,7 @@ GO
 ALTER TABLE [dbo].[Order]
 ADD CONSTRAINT [FK_TableOrder]
     FOREIGN KEY ([Table_Id])
-    REFERENCES [dbo].[TableSet]
+    REFERENCES [dbo].[Table]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -1035,7 +1047,7 @@ GO
 ALTER TABLE [dbo].[RecipePrepIngr]
 ADD CONSTRAINT [FK_PrepackRecipePrepIngr]
     FOREIGN KEY ([Prepack_Id])
-    REFERENCES [dbo].[PrepackSet]
+    REFERENCES [dbo].[Prepack]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -1050,7 +1062,7 @@ GO
 ALTER TABLE [dbo].[RecipeDishPrep]
 ADD CONSTRAINT [FK_PrepackRecipeDishPrep]
     FOREIGN KEY ([Prepack_Id])
-    REFERENCES [dbo].[PrepackSet]
+    REFERENCES [dbo].[Prepack]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -1065,7 +1077,7 @@ GO
 ALTER TABLE [dbo].[RecipePrepPrep]
 ADD CONSTRAINT [FK_PrepackRecipePrepPrep]
     FOREIGN KEY ([Prepack_Id])
-    REFERENCES [dbo].[PrepackSet]
+    REFERENCES [dbo].[Prepack]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -1080,7 +1092,7 @@ GO
 ALTER TABLE [dbo].[RecipePrepPrep]
 ADD CONSTRAINT [FK_PrepackRecipePrepPrep1]
     FOREIGN KEY ([Result_Id])
-    REFERENCES [dbo].[PrepackSet]
+    REFERENCES [dbo].[Prepack]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -1091,8 +1103,8 @@ ON [dbo].[RecipePrepPrep]
     ([Result_Id]);
 GO
 
--- Creating foreign key on [Branch_Id] in table 'EncashmentSet'
-ALTER TABLE [dbo].[EncashmentSet]
+-- Creating foreign key on [Branch_Id] in table 'Encashment'
+ALTER TABLE [dbo].[Encashment]
 ADD CONSTRAINT [FK_BranchEncashment]
     FOREIGN KEY ([Branch_Id])
     REFERENCES [dbo].[Branch]
@@ -1102,12 +1114,12 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BranchEncashment'
 CREATE INDEX [IX_FK_BranchEncashment]
-ON [dbo].[EncashmentSet]
+ON [dbo].[Encashment]
     ([Branch_Id]);
 GO
 
--- Creating foreign key on [Branch_Id] in table 'ShiftSet'
-ALTER TABLE [dbo].[ShiftSet]
+-- Creating foreign key on [Branch_Id] in table 'Shift'
+ALTER TABLE [dbo].[Shift]
 ADD CONSTRAINT [FK_BranchShift]
     FOREIGN KEY ([Branch_Id])
     REFERENCES [dbo].[Branch]
@@ -1117,7 +1129,7 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BranchShift'
 CREATE INDEX [IX_FK_BranchShift]
-ON [dbo].[ShiftSet]
+ON [dbo].[Shift]
     ([Branch_Id]);
 GO
 
@@ -1151,8 +1163,8 @@ ON [dbo].[CheckDish]
     ([Order_Id]);
 GO
 
--- Creating foreign key on [Room_Id] in table 'TableSet'
-ALTER TABLE [dbo].[TableSet]
+-- Creating foreign key on [Room_Id] in table 'Table'
+ALTER TABLE [dbo].[Table]
 ADD CONSTRAINT [FK_RoomTable]
     FOREIGN KEY ([Room_Id])
     REFERENCES [dbo].[Room]
@@ -1162,7 +1174,7 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_RoomTable'
 CREATE INDEX [IX_FK_RoomTable]
-ON [dbo].[TableSet]
+ON [dbo].[Table]
     ([Room_Id]);
 GO
 
@@ -1239,6 +1251,66 @@ GO
 CREATE INDEX [IX_FK_ClientOrder]
 ON [dbo].[Order]
     ([Client_Id]);
+GO
+
+-- Creating foreign key on [Branch_Id] in table 'Warehouse'
+ALTER TABLE [dbo].[Warehouse]
+ADD CONSTRAINT [FK_BranchWarehouse]
+    FOREIGN KEY ([Branch_Id])
+    REFERENCES [dbo].[Branch]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_BranchWarehouse'
+CREATE INDEX [IX_FK_BranchWarehouse]
+ON [dbo].[Warehouse]
+    ([Branch_Id]);
+GO
+
+-- Creating foreign key on [Product_Id] in table 'Warehouse'
+ALTER TABLE [dbo].[Warehouse]
+ADD CONSTRAINT [FK_ProductWarehouse]
+    FOREIGN KEY ([Product_Id])
+    REFERENCES [dbo].[Product]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProductWarehouse'
+CREATE INDEX [IX_FK_ProductWarehouse]
+ON [dbo].[Warehouse]
+    ([Product_Id]);
+GO
+
+-- Creating foreign key on [Warehouse_Id] in table 'Purchase'
+ALTER TABLE [dbo].[Purchase]
+ADD CONSTRAINT [FK_WarehousePurchase]
+    FOREIGN KEY ([Warehouse_Id])
+    REFERENCES [dbo].[Warehouse]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_WarehousePurchase'
+CREATE INDEX [IX_FK_WarehousePurchase]
+ON [dbo].[Purchase]
+    ([Warehouse_Id]);
+GO
+
+-- Creating foreign key on [Warehouse_Id] in table 'Ejection'
+ALTER TABLE [dbo].[Ejection]
+ADD CONSTRAINT [FK_WarehouseEjection]
+    FOREIGN KEY ([Warehouse_Id])
+    REFERENCES [dbo].[Warehouse]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_WarehouseEjection'
+CREATE INDEX [IX_FK_WarehouseEjection]
+ON [dbo].[Ejection]
+    ([Warehouse_Id]);
 GO
 
 -- Creating foreign key on [Id] in table 'Person_Employee'

@@ -15,10 +15,10 @@ namespace RManager.Models
     public partial class Ejection
     {
         public int Id { get; set; }
-        public int Volume { get; set; }
+        public double Volume { get; set; }
         public System.DateTime Date { get; set; }
     
         public virtual Employee Culprit { get; set; }
-        public virtual Product Ingridient { get; set; }
+        public virtual Warehouse Warehouse { get; set; }
     }
 }
